@@ -1,0 +1,83 @@
+# ============================================
+# ALL-INKL KMU MASTER SYSTEM – Apache Config
+# ============================================
+
+# --- Zeichensatz ---
+AddDefaultCharset UTF-8
+
+# --- Rewrite Engine aktivieren ---
+RewriteEngine On
+
+# --- HTTPS erzwingen ---
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# --- www auf non-www umleiten ---
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# --- Zugriff auf /includes blockieren ---
+RewriteRule ^includes/ - [F,L]
+
+# --- Zugriff auf /storage blockieren ---
+RewriteRule ^storage/ - [F,L]
+
+# --- Saubere URLs: /seite → seite.php ---
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L,QSA]
+
+# --- Direkten Zugriff auf .php-Dateien umleiten ---
+RewriteCond %{THE_REQUEST} \s/([^.]+)\.php[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# --- Fehlerseiten ---
+ErrorDocument 404 /index.php
+ErrorDocument 403 /index.php
+
+# --- Verzeichnisauflistung deaktivieren ---
+Options -Indexes
+
+# --- Sicherheitsheader ---
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# --- Caching für statische Assets ---
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+</IfModule>
+
+# --- GZIP Kompression ---
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# --- Sensible Dateien blockieren ---
+<FilesMatch "\.(json|log|md|sql|bak)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# --- .htaccess Zugriff verhindern ---
+<Files ".htaccess">
+    Order Allow,Deny
+    Deny from all
+</Files>

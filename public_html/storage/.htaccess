@@ -1,0 +1,3 @@
+# Zugriff auf /storage komplett blockieren
+Order Allow,Deny
+Deny from all
