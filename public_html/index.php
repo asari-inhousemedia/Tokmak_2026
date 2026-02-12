@@ -36,7 +36,6 @@ $pageSlug        = 'startseite';
         </p>
         <div class="hero-actions reveal-stagger" data-delay="3">
             <a href="/kontakt" class="btn btn-primary btn-lg">Badprojekt besprechen</a>
-            <a href="/referenzen" class="btn btn-outline btn-lg">Unsere Referenzen</a>
         </div>
 
         <div class="hero-trust reveal-stagger" data-delay="4">
@@ -46,10 +45,7 @@ $pageSlug        = 'startseite';
         </div>
     </div>
 
-    <div class="hero-scroll-indicator reveal-stagger" data-delay="5">
-        <span class="hero-scroll-text">Mehr erfahren</span>
-        <span class="hero-scroll-arrow" aria-hidden="true">&#8595;</span>
-    </div>
+    <!-- Scroll-Indikator entfernt -->
 </section>
 
 <main class="site-main">
@@ -61,8 +57,8 @@ $pageSlug        = 'startseite';
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Warum Tokmak</span>
-                <h2 class="section-title">Sie wollen Ihr Bad sanieren – nicht die Baustelle managen.</h2>
-                <p class="section-subtitle">Die meisten Kunden kommen zu uns, weil sie keine Lust haben, Elektriker, Sanitär und Fliesenleger selbst zu koordinieren. Das übernehmen wir.</p>
+                <h2 class="section-title">Bleiben Sie Kunde. Die Bauleitung übernehmen wir.</h2>
+                <p class="section-subtitle">Koordination, Zeitplan, Verantwortung – bei uns liegt alles in einer Hand. Sie entscheiden, wie Ihr Bad aussehen soll. Wir kümmern uns um alles andere.</p>
             </div>
 
             <div class="contrast-grid">
@@ -144,8 +140,9 @@ $pageSlug        = 'startseite';
     </section>
 
     <!-- ============================================
-         SEKTION 4 – REFERENZ-TEASER
+         SEKTION 4 – REFERENZ-TEASER (vorübergehend ausgeblendet)
          ============================================ -->
+    <!--
     <section class="section" id="referenzen-preview">
         <div class="container">
             <div class="section-header">
@@ -153,11 +150,9 @@ $pageSlug        = 'startseite';
                 <h2 class="section-title">Echte Projekte. Echte Ergebnisse.</h2>
                 <p class="section-subtitle">Jedes Bad ist individuell – hier ein Einblick in aktuelle Projekte.</p>
             </div>
-
             <div class="project-grid">
                 <div class="project-card">
                     <div class="project-card-image">
-                        <!-- <img src="/assets/img/referenz-01.jpg" alt="Komplett-Badsanierung Einfamilienhaus" width="600" height="450" loading="lazy"> -->
                         <div class="placeholder-visual"><span>Projektbild 1</span></div>
                     </div>
                     <div class="project-card-body">
@@ -173,7 +168,6 @@ $pageSlug        = 'startseite';
                 </div>
                 <div class="project-card">
                     <div class="project-card-image">
-                        <!-- <img src="/assets/img/referenz-02.jpg" alt="Barrierefreier Badumbau" width="600" height="450" loading="lazy"> -->
                         <div class="placeholder-visual"><span>Projektbild 2</span></div>
                     </div>
                     <div class="project-card-body">
@@ -188,12 +182,12 @@ $pageSlug        = 'startseite';
                     </div>
                 </div>
             </div>
-
             <div class="section-cta">
                 <a href="/referenzen" class="btn btn-outline-dark">Alle Referenzen ansehen</a>
             </div>
         </div>
     </section>
+    -->
 
     <!-- ============================================
          SEKTION 5 – 3D-PLANUNG & AUSSTELLUNG
@@ -213,7 +207,13 @@ $pageSlug        = 'startseite';
                     </ul>
                 </div>
                 <div class="content-split-visual">
-                    <div class="placeholder-visual" style="min-height: 400px;"><span>3D-Planung vs. Ergebnis</span></div>
+                    <div class="tilt-card" id="tilt-card">
+                        <div class="tilt-card-inner">
+                            <img src="/assets/img/badsanierung.webp" alt="3D-Planung Badsanierung" width="600" height="450" loading="lazy" class="tilt-card-image">
+                            <div class="tilt-card-grid" aria-hidden="true"></div>
+                            <div class="tilt-card-shine"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -255,10 +255,14 @@ $pageSlug        = 'startseite';
          ============================================ -->
     <section class="section section-cta-block">
         <div class="container">
-            <div class="cta-block">
-                <h2 class="cta-title">Bereit für Ihr neues Bad?</h2>
-                <p class="cta-text">Lassen Sie uns Ihr Badprojekt besprechen – unverbindlich und persönlich. Wir nehmen uns Zeit für Ihre Fragen.</p>
-                <a href="/kontakt" class="btn btn-primary btn-lg">Termin zur Badplanung vereinbaren</a>
+            <div class="cta-block cta-block-image" id="cta-block">
+                <img src="/assets/img/5.webp" alt="" class="cta-block-bg" loading="lazy" aria-hidden="true">
+                <div class="cta-block-overlay"></div>
+                <div class="cta-block-content">
+                    <h2 class="cta-title">Bereit für Ihr neues Bad?</h2>
+                    <p class="cta-text">Lassen Sie uns Ihr Badprojekt besprechen – unverbindlich und persönlich. Wir nehmen uns Zeit für Ihre Fragen.</p>
+                    <a href="/kontakt" class="btn btn-cta-highlight btn-lg">Termin zur Badplanung vereinbaren</a>
+                </div>
             </div>
         </div>
     </section>

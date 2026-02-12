@@ -8,13 +8,19 @@ AddDefaultCharset UTF-8
 # --- Rewrite Engine aktivieren ---
 RewriteEngine On
 
-# --- HTTPS erzwingen ---
-RewriteCond %{HTTPS} !=on
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# =================================================
+# !!! HTTPS NICHT erzwingen (SSL kommt später) !!!
+# =================================================
+# Die folgenden Regeln wurden bewusst entfernt:
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#
+# Und auch die www->non-www Weiterleitung darf NICHT auf https gehen,
+# solange kein SSL aktiv ist. Deshalb unten nur noch http.
 
-# --- www auf non-www umleiten ---
+# --- www auf non-www umleiten (OHNE https-Zwang) ---
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+RewriteRule ^ http://%1%{REQUEST_URI} [L,R=301]
 
 # --- Zugriff auf /includes blockieren ---
 RewriteRule ^includes/ - [F,L]

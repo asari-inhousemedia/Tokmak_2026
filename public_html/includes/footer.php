@@ -1,10 +1,20 @@
 <footer class="site-footer">
     <div class="container footer-inner">
         <div class="footer-grid">
-            <div class="footer-col">
-                <span class="footer-brand"><?php echo SITE_NAME; ?></span>
-                <p class="footer-tagline"><?php echo SITE_TAGLINE; ?></p>
-                <p class="footer-desc">Komplett-Badsanierung, Fliesenarbeiten und Innenausbau – geplant, koordiniert und zuverlässig umgesetzt.</p>
+            <div class="footer-col footer-col-brand">
+                <a href="/" class="footer-logo-link" aria-label="Zur Startseite">
+                    <img src="/assets/img/TOKMAK_Logo.png" alt="<?php echo SITE_NAME; ?>" width="320" height="96" class="footer-logo-img" loading="lazy">
+                </a>
+                <div class="footer-inhaber">
+                    <div class="footer-inhaber-portrait">
+                        <img src="/assets/img/inhaber.webp" alt="Tufan Tokmak – Inhaber" width="80" height="80" loading="lazy">
+                    </div>
+                    <div class="footer-inhaber-info">
+                        <span class="footer-inhaber-name">Tufan Tokmak</span>
+                        <span class="footer-inhaber-role">Inhaber</span>
+                        <blockquote class="footer-inhaber-quote">&bdquo;Qualität zeigt sich da, wo man keine Sicht mehr hat.&ldquo;</blockquote>
+                    </div>
+                </div>
             </div>
 
             <div class="footer-col">

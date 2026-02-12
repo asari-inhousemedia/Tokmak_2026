@@ -1,7 +1,7 @@
 <header class="site-header" id="site-header">
     <div class="header-inner container">
         <a href="/" class="site-logo" aria-label="Zur Startseite">
-            <img src="/assets/img/TOKMAK_Logo.svg" alt="<?php echo SITE_NAME; ?> – <?php echo SITE_TAGLINE; ?>" width="160" height="48" class="logo-img">
+            <img src="/assets/img/TOKMAK_Logo.png" alt="<?php echo SITE_NAME; ?> – <?php echo SITE_TAGLINE; ?>" width="320" height="96" class="logo-img">
             <!--<span class="logo-text"><?php echo SITE_NAME; ?></span>
             <span class="logo-tagline"><?php echo SITE_TAGLINE; ?></span>-->
         </a>
@@ -20,9 +20,11 @@
                 <li class="nav-item">
                     <a href="/badsanierung" class="nav-link<?php echo ($pageSlug === 'badsanierung') ? ' is-active' : ''; ?>">Badsanierung</a>
                 </li>
+                <!-- Referenzen vorübergehend ausgeblendet
                 <li class="nav-item">
                     <a href="/referenzen" class="nav-link<?php echo ($pageSlug === 'referenzen') ? ' is-active' : ''; ?>">Referenzen</a>
                 </li>
+                -->
                 <li class="nav-item">
                     <a href="/ueber-uns" class="nav-link<?php echo ($pageSlug === 'ueber-uns') ? ' is-active' : ''; ?>">Über uns</a>
                 </li>
