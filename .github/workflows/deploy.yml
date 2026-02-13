@@ -19,4 +19,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: public_html/
-          server-dir: /tokmak-gmbh.de/
+          server-dir: /w020e585/tokmak-gmbh.de/
