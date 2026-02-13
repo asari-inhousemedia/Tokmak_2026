@@ -1,7 +1,7 @@
 <header class="site-header" id="site-header">
     <div class="header-inner container">
         <a href="/" class="site-logo" aria-label="Zur Startseite">
-            <img src="/assets/img/TOKMAK_Logo.png" alt="<?php echo SITE_NAME; ?> – <?php echo SITE_TAGLINE; ?>" width="320" height="96" class="logo-img">
+            <img src="/assets/img/TOKMAK_Logo.png" alt="<?php echo SITE_NAME; ?> – <?php echo SITE_TAGLINE; ?>" width="480" height="144" class="logo-img">
             <!--<span class="logo-text"><?php echo SITE_NAME; ?></span>
             <span class="logo-tagline"><?php echo SITE_TAGLINE; ?></span>-->
         </a>

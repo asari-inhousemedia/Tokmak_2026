@@ -3,7 +3,7 @@
         <div class="footer-grid">
             <div class="footer-col footer-col-brand">
                 <a href="/" class="footer-logo-link" aria-label="Zur Startseite">
-                    <img src="/assets/img/TOKMAK_Logo.png" alt="<?php echo SITE_NAME; ?>" width="320" height="96" class="footer-logo-img" loading="lazy">
+                    <img src="/assets/img/TOKMAK_Logo.png" alt="<?php echo SITE_NAME; ?>" width="480" height="144" class="footer-logo-img" loading="lazy">
                 </a>
                 <div class="footer-inhaber">
                     <div class="footer-inhaber-portrait">
@@ -12,7 +12,7 @@
                     <div class="footer-inhaber-info">
                         <span class="footer-inhaber-name">Tufan Tokmak</span>
                         <span class="footer-inhaber-role">Inhaber</span>
-                        <blockquote class="footer-inhaber-quote">&bdquo;Qualität zeigt sich da, wo man keine Sicht mehr hat.&ldquo;</blockquote>
+                        <blockquote class="footer-inhaber-quote">&bdquo;Qualit&auml;t zeigt sich da, wo man keine Sicht mehr hat.&ldquo;</blockquote>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,6 @@
                     <li><a href="/badsanierung">Badsanierung</a></li>
                     <li><a href="/leistungen">Fliesenarbeiten</a></li>
                     <li><a href="/leistungen">Innenausbau</a></li>
-                    <li><a href="/referenzen">Referenzen</a></li>
                 </ul>
             </div>
 
@@ -35,14 +34,22 @@
                     <a href="tel:<?php echo CONTACT_PHONE; ?>"><?php echo CONTACT_PHONE_DISPLAY; ?></a><br>
                     <a href="mailto:<?php echo CONTACT_EMAIL; ?>"><?php echo CONTACT_EMAIL; ?></a>
                 </address>
+                <div class="footer-legal-inline">
+                    <a href="/impressum">Impressum</a>
+                    <span class="footer-legal-sep">&middot;</span>
+                    <a href="/datenschutz">Datenschutz</a>
+                </div>
             </div>
 
-            <div class="footer-col">
-                <h3 class="footer-heading">Rechtliches</h3>
-                <ul class="footer-links">
-                    <li><a href="/impressum">Impressum</a></li>
-                    <li><a href="/datenschutz">Datenschutz</a></li>
-                </ul>
+            <div class="footer-col footer-col-map">
+                <h3 class="footer-heading">Unser Standort</h3>
+                <div class="footer-map-wrapper">
+                    <div id="footer-map" class="footer-map"></div>
+                    <div class="footer-map-address">
+                        <svg class="footer-map-pin" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span><?php echo CONTACT_ADDRESS_STREET; ?>, <?php echo CONTACT_ADDRESS_ZIP . ' ' . CONTACT_ADDRESS_CITY; ?></span>
+                    </div>
+                </div>
             </div>
         </div>
 
