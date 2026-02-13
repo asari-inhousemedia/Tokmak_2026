@@ -18,5 +18,8 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
           local-dir: public_html/
-          server-dir: /w020e585/tokmak-gmbh.de/
+          server-dir: /tokmak-gmbh.de/
+          dangerous-clean-slate: false
