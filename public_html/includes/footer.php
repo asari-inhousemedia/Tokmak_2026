@@ -52,7 +52,7 @@
                         <span><?php echo CONTACT_ADDRESS_STREET; ?>, <?php echo CONTACT_ADDRESS_ZIP . ' ' . CONTACT_ADDRESS_CITY; ?></span>
                     </div>
                 </div>
-                <a href="/kontakt" class="btn btn-outline-light btn-sm footer-cta">Jetzt unverbindlich anfragen</a>
+                <a href="/kontakt#kontakt-formular" class="footer-cta">Jetzt unverbindlich anfragen</a>
             </div>
         </div>
 

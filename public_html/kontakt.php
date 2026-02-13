@@ -98,7 +98,7 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
                     </div>
                     <?php endif; ?>
 
-                    <form class="contact-form" action="/includes/form-handler.php" method="POST" novalidate>
+                    <form id="kontakt-formular" class="contact-form" action="/includes/form-handler.php" method="POST" novalidate>
 
                         <!-- Honeypot -->
                         <div class="form-field-hp" aria-hidden="true" tabindex="-1">
