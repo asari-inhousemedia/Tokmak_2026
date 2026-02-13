@@ -20,6 +20,10 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
 <main class="site-main">
 
     <section class="page-header">
+        <div class="page-header-bg">
+            <img src="/assets/img/hero.webp" alt="" class="page-header-bg-image" width="1920" height="1080" loading="eager">
+            <div class="page-header-overlay"></div>
+        </div>
         <div class="container">
             <span class="page-header-label">Projekt besprechen</span>
             <h1 class="page-header-title">Kontakt</h1>

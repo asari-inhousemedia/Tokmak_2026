@@ -26,8 +26,8 @@ $pageSlug        = 'startseite';
     <div class="hero-content container">
         <p class="hero-kicker reveal-stagger" data-delay="0"><?php echo SITE_NAME; ?> · <?php echo SITE_REGION; ?></p>
         <h1 class="hero-headline reveal-stagger" data-delay="1">
-            Badsanierung<br>
-            <span class="hero-headline-accent">geplant, koordiniert, übergeben.</span>
+            Ihr neues Bad<br>
+            <span class="hero-headline-accent">beginnt mit Anspruch.</span>
         </h1>
         <p class="hero-subheadline reveal-stagger" data-delay="2">
             Komplett-Badsanierung aus einer Hand – mit 3D-Planung,
@@ -35,7 +35,7 @@ $pageSlug        = 'startseite';
             Ansprechpartner von der ersten Idee bis zur Übergabe.
         </p>
         <div class="hero-actions reveal-stagger" data-delay="3">
-            <a href="/kontakt" class="btn btn-primary btn-lg">Jetzt unverbindlich anfragen</a>
+            <a href="http://tokmak-gmbh.de/kontakt" class="btn btn-primary btn-lg btn-glow">Jetzt unverbindlich anfragen</a>
         </div>
 
         <div class="hero-trust reveal-stagger" data-delay="4">
@@ -57,12 +57,12 @@ $pageSlug        = 'startseite';
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Warum Tokmak</span>
-                <h2 class="section-title">Bleiben Sie Kunde. Die Bauleitung übernehmen wir.</h2>
+                <h2 class="section-title">Sie bleiben Entscheider.<br>Wir übernehmen die Bauleitung.</h2>
                 <p class="section-subtitle">Koordination, Zeitplan, Verantwortung – bei uns liegt alles in einer Hand. Sie entscheiden, wie Ihr Bad aussehen soll. Wir kümmern uns um alles andere.</p>
             </div>
 
-            <div class="contrast-grid">
-                <div class="contrast-col contrast-col-problem">
+            <div class="contrast-cards">
+                <div class="contrast-card contrast-card-problem">
                     <span class="contrast-label">Der klassische Weg</span>
                     <h3 class="contrast-title">Eigenkoordination</h3>
                     <ul class="contrast-list">
@@ -73,7 +73,7 @@ $pageSlug        = 'startseite';
                         <li>Keine Visualisierung vor Baubeginn</li>
                     </ul>
                 </div>
-                <div class="contrast-col contrast-col-solution">
+                <div class="contrast-card contrast-card-solution">
                     <span class="contrast-label">Unser Weg</span>
                     <h3 class="contrast-title">Komplettkoordination</h3>
                     <ul class="contrast-list">
@@ -91,7 +91,7 @@ $pageSlug        = 'startseite';
     <!-- ============================================
          SEKTION 3 – PROZESS (5 Schritte)
          ============================================ -->
-    <section class="section section-alt" id="ablauf">
+    <section class="section" id="ablauf">
         <div class="container">
             <div class="section-header is-centered">
                 <span class="section-label">Unser Ablauf</span>
@@ -235,7 +235,7 @@ $pageSlug        = 'startseite';
                     <span class="stat-label">Jahre Erfahrung</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">500+</span>
+                    <span class="stat-number">100+</span>
                     <span class="stat-label">Projekte realisiert</span>
                 </div>
                 <div class="stat-item">
@@ -251,7 +251,77 @@ $pageSlug        = 'startseite';
     </section>
 
     <!-- ============================================
-         SEKTION 7 – CTA BLOCK
+         SEKTION 7 – HÄUFIGE FRAGEN
+         ============================================ -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Häufige Fragen</span>
+                <h2 class="section-title">Was Sie wissen sollten</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Wie lange dauert eine Komplett-Badsanierung?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer" aria-hidden="true">
+                        <div class="faq-answer-inner">
+                            <p>Eine typische Komplett-Badsanierung dauert bei uns 2 bis 4 Wochen – abhängig von Raumgröße und Umfang. Den genauen Zeitplan besprechen wir vor Baubeginn verbindlich.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Wie verbindlich ist das Angebot?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer" aria-hidden="true">
+                        <div class="faq-answer-inner">
+                            <p>Unser Angebot ist verbindlich. Es basiert auf einem persönlichen Aufmaß und einer detaillierten Planung. Nachträgliche Kosten entstehen nur bei Ihren Änderungswünschen oder unvorhergesehenen baulichen Mängeln – darüber sprechen wir offen.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Koordinieren Sie alle Gewerke?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer" aria-hidden="true">
+                        <div class="faq-answer-inner">
+                            <p>Ja. Sanitär, Elektro, Estrich, Abdichtung, Fliesen und Montage – wir koordinieren alle beteiligten Gewerke. Sie haben einen festen Ansprechpartner.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Kann ich Materialien vorab sehen und anfassen?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer" aria-hidden="true">
+                        <div class="faq-answer-inner">
+                            <p>Ja. In unserer Ausstellung zeigen wir Ihnen aktuelle Fliesen, Oberflächen und Materialien. Zusätzlich sehen Sie Ihr Bad als 3D-Visualisierung vor Baubeginn.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Was kostet eine Badsanierung?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer" aria-hidden="true">
+                        <div class="faq-answer-inner">
+                            <p>Die Kosten hängen von Raumgröße, Materialwahl und Umfang ab. Pauschalpreise geben wir bewusst nicht an, weil jedes Projekt individuell ist. Nach dem Aufmaß erhalten Sie ein transparentes, detailliertes Angebot.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SEKTION 8 – CTA BLOCK
          ============================================ -->
     <section class="section section-cta-block">
         <div class="container">
@@ -261,7 +331,7 @@ $pageSlug        = 'startseite';
                 <div class="cta-block-content">
                     <h2 class="cta-title">Bereit für Ihr neues Bad?</h2>
                     <p class="cta-text">Lassen Sie uns Ihr Badprojekt besprechen – unverbindlich und persönlich. Wir nehmen uns Zeit für Ihre Fragen.</p>
-                    <a href="/kontakt" class="btn btn-cta-highlight btn-lg">Jetzt unverbindlich anfragen</a>
+                    <a href="http://tokmak-gmbh.de/kontakt" class="btn btn-cta-highlight btn-lg btn-glow">Jetzt unverbindlich anfragen</a>
                 </div>
             </div>
         </div>

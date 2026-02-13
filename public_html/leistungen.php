@@ -17,6 +17,10 @@ $pageSlug        = 'leistungen';
 <main class="site-main">
 
     <section class="page-header">
+        <div class="page-header-bg">
+            <img src="/assets/img/hero.webp" alt="" class="page-header-bg-image" width="1920" height="1080" loading="eager">
+            <div class="page-header-overlay"></div>
+        </div>
         <div class="container">
             <span class="page-header-label"><?php echo SITE_NAME; ?></span>
             <h1 class="page-header-title">Unsere Leistungen</h1>
@@ -115,10 +119,14 @@ $pageSlug        = 'leistungen';
     <!-- CTA -->
     <section class="section section-cta-block">
         <div class="container">
-            <div class="cta-block">
-                <h2 class="cta-title">Welche Leistung passt zu Ihrem Projekt?</h2>
-                <p class="cta-text">Lassen Sie uns darüber sprechen. Unverbindlich und persönlich.</p>
-                <a href="/kontakt" class="btn btn-primary btn-lg">Jetzt unverbindlich anfragen</a>
+            <div class="cta-block cta-block-image" id="cta-block">
+                <img src="/assets/img/2.webp" alt="" class="cta-block-bg" loading="lazy" aria-hidden="true">
+                <div class="cta-block-overlay"></div>
+                <div class="cta-block-content">
+                    <h2 class="cta-title">Welche Leistung passt zu Ihrem Projekt?</h2>
+                    <p class="cta-text">Lassen Sie uns darüber sprechen. Unverbindlich und persönlich.</p>
+                    <a href="http://tokmak-gmbh.de/kontakt" class="btn btn-cta-highlight btn-lg btn-glow">Jetzt unverbindlich anfragen</a>
+                </div>
             </div>
         </div>
     </section>

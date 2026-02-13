@@ -311,149 +311,46 @@
     }
 
     /* ============================================
-       SCROLL-STOP STEPS – „5 Schritte" Sektion
-       Echtes Scroll-Hijacking: Sektion bleibt fixiert,
-       Scrollen steuert intern Schritt 1→5
+       PROCESS STEPS – Hover-Pop (Desktop) +
+       Staggered Scroll-Reveal (Mobile)
        ============================================ */
-    function initScrollSteps() {
+    function initProcessSteps() {
         var section = document.getElementById('ablauf');
         if (!section) return;
 
         var steps = section.querySelectorAll('.process-step');
-        if (steps.length < 2) return;
+        if (!steps.length) return;
 
-        var stepsContainer = section.querySelector('.process-steps');
-        if (!stepsContainer) return;
+        // Klasse für neue Animationen setzen
+        steps.forEach(function (step) {
+            step.classList.add('step-animate');
+        });
 
-        stepsContainer.classList.add('process-steps-scroll');
-
-        var totalSteps = steps.length;
-        var currentStep = 0;
-        var isLocked = false;
-        var scrollAccumulator = 0;
-        var scrollThreshold = 120; // Pixel pro Step-Wechsel
-        var sectionRect;
-
-        function activateStep(index) {
-            if (index < 0) index = 0;
-            if (index >= totalSteps) index = totalSteps - 1;
-            if (index === currentStep) return;
-            currentStep = index;
-            steps.forEach(function (s, i) {
-                if (i === currentStep) {
-                    s.classList.add('is-active');
-                } else {
-                    s.classList.remove('is-active');
-                }
-            });
-        }
-
-        // Ersten Schritt aktivieren
-        activateStep(0);
-
-        function onWheel(e) {
-            if (!isLocked) return;
-
-            e.preventDefault();
-            scrollAccumulator += e.deltaY;
-
-            if (scrollAccumulator > scrollThreshold) {
-                scrollAccumulator = 0;
-                if (currentStep < totalSteps - 1) {
-                    activateStep(currentStep + 1);
-                } else {
-                    // Letzter Schritt erreicht → Unlock nach unten
-                    unlockScroll();
-                    window.scrollBy({ top: 2, behavior: 'auto' });
-                }
-            } else if (scrollAccumulator < -scrollThreshold) {
-                scrollAccumulator = 0;
-                if (currentStep > 0) {
-                    activateStep(currentStep - 1);
-                } else {
-                    // Erster Schritt → Unlock nach oben
-                    unlockScroll();
-                    window.scrollBy({ top: -2, behavior: 'auto' });
-                }
-            }
-        }
-
-        // Touch-Handling für Mobile
-        var touchStartY = 0;
-        var touchAccumulator = 0;
-
-        function onTouchStart(e) {
-            if (!isLocked) return;
-            touchStartY = e.touches[0].clientY;
-            touchAccumulator = 0;
-        }
-
-        function onTouchMove(e) {
-            if (!isLocked) return;
-            e.preventDefault();
-
-            var touchY = e.touches[0].clientY;
-            var delta = touchStartY - touchY;
-            touchStartY = touchY;
-            touchAccumulator += delta;
-
-            if (touchAccumulator > 60) {
-                touchAccumulator = 0;
-                if (currentStep < totalSteps - 1) {
-                    activateStep(currentStep + 1);
-                } else {
-                    unlockScroll();
-                }
-            } else if (touchAccumulator < -60) {
-                touchAccumulator = 0;
-                if (currentStep > 0) {
-                    activateStep(currentStep - 1);
-                } else {
-                    unlockScroll();
-                }
-            }
-        }
-
-        function lockScroll() {
-            if (isLocked) return;
-            isLocked = true;
-            scrollAccumulator = 0;
-            document.body.style.overflow = 'hidden';
-            window.addEventListener('wheel', onWheel, { passive: false });
-            window.addEventListener('touchstart', onTouchStart, { passive: true });
-            window.addEventListener('touchmove', onTouchMove, { passive: false });
-        }
-
-        function unlockScroll() {
-            if (!isLocked) return;
-            isLocked = false;
-            scrollAccumulator = 0;
-            document.body.style.overflow = '';
-            window.removeEventListener('wheel', onWheel);
-            window.removeEventListener('touchstart', onTouchStart);
-            window.removeEventListener('touchmove', onTouchMove);
-        }
-
-        // IntersectionObserver: Lock wenn Sektion voll sichtbar
+        // Mobile: Staggered Scroll-Reveal (nacheinander einblenden)
         if ('IntersectionObserver' in window) {
-            var lockObserver = new IntersectionObserver(function (entries) {
+            var observer = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
-                    if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
-                        // Sektion ist gut sichtbar → lock
-                        lockScroll();
-                    } else if (!entry.isIntersecting) {
-                        unlockScroll();
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('step-visible');
+                        observer.unobserve(entry.target);
                     }
                 });
             }, {
-                threshold: [0, 0.6, 1.0]
+                threshold: 0.15,
+                rootMargin: '0px 0px -30px 0px'
             });
 
-            lockObserver.observe(section);
+            steps.forEach(function (step, i) {
+                // Stagger-Delay für sequenziellen Effekt
+                step.style.transitionDelay = (i * 0.15) + 's';
+                observer.observe(step);
+            });
+        } else {
+            // Fallback: Alles sofort sichtbar
+            steps.forEach(function (step) {
+                step.classList.add('step-visible');
+            });
         }
-
-        // Cleanup bei Navigation weg
-        window.addEventListener('beforeunload', unlockScroll);
     }
 
     /* ============================================
@@ -480,8 +377,8 @@
                     // Nur wenn sichtbar
                     if (rect.bottom > 0 && rect.top < windowH) {
                         var progress = (windowH - rect.top) / (windowH + rect.height);
-                        var offset = (progress - 0.5) * 40; // Subtiler als Hero
-                        ctaBg.style.transform = 'translate3d(0, ' + offset + 'px, 0)';
+                        var offset = (progress - 0.5) * 120; // Deutlicher Parallax
+                        ctaBg.style.transform = 'translate3d(0, ' + offset + 'px, 0) scale(1.05)';
                     }
                     ticking = false;
                 });
@@ -507,29 +404,27 @@
         var maxTilt = 8;
         var isUserInteracting = false;
 
-        // Auto-Animation beim ersten In-View
+        // Endlos sanftes Wackeln wenn sichtbar und nicht gehovered
+        var isInView = false;
+
         if ('IntersectionObserver' in window) {
             var tiltObserver = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        // Initiale Mini-Bewegung
-                        card.classList.add('is-animating');
-                        setTimeout(function () {
-                            if (!isUserInteracting) {
-                                card.classList.remove('is-animating');
-                            }
-                        }, 2200);
-                        tiltObserver.disconnect();
+                    isInView = entry.isIntersecting;
+                    if (isInView && !isUserInteracting) {
+                        card.classList.add('is-idle-wobble');
+                    } else if (!isInView) {
+                        card.classList.remove('is-idle-wobble');
                     }
                 });
-            }, { threshold: 0.4 });
+            }, { threshold: 0.3 });
             tiltObserver.observe(card);
         }
 
         // Desktop: Maus-Tracking
         card.addEventListener('mousemove', function (e) {
             isUserInteracting = true;
-            card.classList.remove('is-animating');
+            card.classList.remove('is-idle-wobble');
 
             var rect = card.getBoundingClientRect();
             var x = e.clientX - rect.left;
@@ -551,6 +446,12 @@
         card.addEventListener('mouseleave', function () {
             isUserInteracting = false;
             inner.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg)';
+            // Wackel-Animation wieder starten
+            if (isInView) {
+                setTimeout(function () {
+                    if (!isUserInteracting) card.classList.add('is-idle-wobble');
+                }, 600);
+            }
         });
 
         // Mobile: Gyroscope (subtil, kein Zappeln)
@@ -579,6 +480,67 @@
     }
 
     /* ============================================
+       PAGE HEADER – Parallax (Unterseiten)
+       ============================================ */
+    function initPageHeaderParallax() {
+        var headerBgImg = document.querySelector('.page-header-bg-image');
+        var pageHeader = document.querySelector('.page-header');
+        if (!headerBgImg || !pageHeader) return;
+        if (window.innerWidth < 680) return;
+
+        var ticking = false;
+
+        function onScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(function () {
+                    var scrollY = window.scrollY;
+                    var headerHeight = pageHeader.offsetHeight;
+                    if (scrollY < headerHeight) {
+                        headerBgImg.style.transform = 'translate3d(0, ' + (scrollY * 0.3) + 'px, 0)';
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
+    /* ============================================
+       CTA PARALLAX – Alle Seiten (querySelectorAll)
+       ============================================ */
+    function initAllCtaParallax() {
+        var ctaBlocks = document.querySelectorAll('.cta-block-image');
+        if (!ctaBlocks.length) return;
+        if (window.innerWidth < 680) return;
+
+        var ticking = false;
+
+        function onScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(function () {
+                    var windowH = window.innerHeight;
+                    ctaBlocks.forEach(function (block) {
+                        var bg = block.querySelector('.cta-block-bg');
+                        if (!bg) return;
+                        var rect = block.getBoundingClientRect();
+                        if (rect.bottom > 0 && rect.top < windowH) {
+                            var progress = (windowH - rect.top) / (windowH + rect.height);
+                            var offset = (progress - 0.5) * 120;
+                            bg.style.transform = 'translate3d(0, ' + offset + 'px, 0) scale(1.05)';
+                        }
+                    });
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
+    /* ============================================
        INIT
        ============================================ */
     document.addEventListener('DOMContentLoaded', function () {
@@ -591,8 +553,9 @@
         initFormValidation();
         initScrollReveal();
         initCountUp();
-        initScrollSteps();
-        initCtaParallax();
+        initProcessSteps();
+        initAllCtaParallax();
+        initPageHeaderParallax();
         initTiltCard();
     });
 

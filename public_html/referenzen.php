@@ -17,6 +17,10 @@ $pageSlug        = 'referenzen';
 <main class="site-main">
 
     <section class="page-header">
+        <div class="page-header-bg">
+            <img src="/assets/img/hero.webp" alt="" class="page-header-bg-image" width="1920" height="1080" loading="eager">
+            <div class="page-header-overlay"></div>
+        </div>
         <div class="container">
             <span class="page-header-label">Unsere Arbeit</span>
             <h1 class="page-header-title">Referenzen</h1>
@@ -126,10 +130,14 @@ $pageSlug        = 'referenzen';
     <!-- CTA -->
     <section class="section section-cta-block">
         <div class="container">
-            <div class="cta-block">
-                <h2 class="cta-title">Wie soll Ihr neues Bad aussehen?</h2>
-                <p class="cta-text">Lassen Sie sich Ihr Bad in 3D planen – wir zeigen Ihnen, wie es werden kann.</p>
-                <a href="/kontakt" class="btn btn-primary btn-lg">Jetzt unverbindlich anfragen</a>
+            <div class="cta-block cta-block-image" id="cta-block">
+                <img src="/assets/img/2.webp" alt="" class="cta-block-bg" loading="lazy" aria-hidden="true">
+                <div class="cta-block-overlay"></div>
+                <div class="cta-block-content">
+                    <h2 class="cta-title">Wie soll Ihr neues Bad aussehen?</h2>
+                    <p class="cta-text">Lassen Sie sich Ihr Bad in 3D planen – wir zeigen Ihnen, wie es werden kann.</p>
+                    <a href="http://tokmak-gmbh.de/kontakt" class="btn btn-cta-highlight btn-lg btn-glow">Jetzt unverbindlich anfragen</a>
+                </div>
             </div>
         </div>
     </section>

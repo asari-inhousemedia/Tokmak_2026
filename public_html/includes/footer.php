@@ -45,7 +45,7 @@
 
             <!-- Spalte 4: Button + Map -->
             <div class="footer-col footer-col-map">
-                <a href="/kontakt#kontakt-formular" class="footer-cta">Jetzt unverbindlich anfragen</a>
+                <a href="http://tokmak-gmbh.de/kontakt" class="footer-cta btn-glow-subtle">Jetzt unverbindlich anfragen</a>
                 <div class="footer-map-wrapper">
                     <div class="footer-map">
                         <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=9.2408%2C48.4215%2C9.2608%2C48.4315&layer=mapnik&marker=48.4265%2C9.2508" width="100%" height="100%" style="border:0;" loading="lazy" title="Standort <?php echo SITE_NAME; ?>"></iframe>
