@@ -1619,23 +1619,24 @@ address {
 .footer-col-map {
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    gap: var(--space-sm);
+    align-items: stretch;
 }
 
 .footer-map-wrapper {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: 4px;
 }
 
 .footer-map {
     width: 100%;
-    height: 160px;
-    border-radius: var(--radius-lg);
+    height: 120px;
+    border-radius: var(--radius-md);
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: #1a1a1a;
-    filter: grayscale(1) brightness(1.15) contrast(0.9) invert(1);
+    filter: grayscale(1) brightness(1.1) contrast(0.85) invert(1);
 }
 
 .footer-map iframe {
@@ -1660,23 +1661,24 @@ address {
 
 /* Footer CTA Button */
 .footer-cta {
-    display: inline-block;
-    margin-top: var(--space-sm);
-    font-size: var(--text-xs);
-    font-weight: 400;
-    padding: 0.55rem 1.4rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: 0.65rem 1.2rem;
+    background: var(--color-primary);
+    border: none;
     border-radius: var(--radius-md);
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--color-white);
     text-decoration: none;
-    transition: all var(--transition-fast);
+    transition: background var(--transition-fast), transform var(--transition-fast);
     text-align: center;
+    letter-spacing: 0.01em;
 }
 
 .footer-cta:hover {
-    border-color: var(--color-white);
+    background: var(--color-primary-dark);
     color: var(--color-white);
-    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-1px);
 }
 
 .footer-bottom {
@@ -1932,18 +1934,18 @@ address {
 
 .footer-inhaber {
     display: flex;
-    align-items: flex-start;
-    gap: var(--space-lg);
-    margin-top: var(--space-md);
+    align-items: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-xs);
 }
 
 .footer-inhaber-portrait {
-    width: 72px;
-    height: 72px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-inhaber-portrait img {
@@ -1955,14 +1957,15 @@ address {
 .footer-inhaber-info {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 1px;
 }
 
 .footer-inhaber-name {
     font-family: var(--font-heading);
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
     font-weight: 700;
     color: var(--color-white);
+    line-height: 1.2;
 }
 
 .footer-inhaber-role {
@@ -1970,7 +1973,7 @@ address {
     font-weight: 300;
     color: rgba(255, 255, 255, 0.45);
     text-transform: none;
-    letter-spacing: var(--tracking-wide);
+    line-height: 1.2;
 }
 
 .footer-inhaber-quote {
@@ -2031,7 +2034,7 @@ address {
     }
 
     .footer-map {
-        height: 180px;
+        height: 100px;
     }
 
     .process-steps {
@@ -2084,12 +2087,12 @@ address {
     }
 
     .footer-inhaber {
-        gap: var(--space-md);
+        gap: var(--space-sm);
     }
 
     .footer-inhaber-portrait {
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
     }
 
     /* CTA Mobile */
@@ -2171,20 +2174,16 @@ address {
 
     /* Footer */
     .footer-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-xl);
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
     }
 
     .footer-col-brand {
-        order: 1;
-    }
-
-    .footer-col-map {
-        order: 2;
+        grid-column: 1 / -1;
     }
 
     .footer-map {
-        height: 180px;
+        height: 100px;
     }
 
     /* Hero */
@@ -2242,7 +2241,7 @@ address {
     }
 
     .footer-map {
-        height: 160px;
+        height: 100px;
     }
 }
 

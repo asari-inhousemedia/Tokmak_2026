@@ -1,6 +1,7 @@
 <footer class="site-footer">
     <div class="container footer-inner">
         <div class="footer-grid">
+            <!-- Spalte 1: Logo + Inhaber -->
             <div class="footer-col footer-col-brand">
                 <a href="/" class="footer-logo-link" aria-label="Zur Startseite">
                     <img src="/assets/img/TOKMAK_Logo.png" alt="<?php echo SITE_NAME; ?>" width="480" height="144" class="footer-logo-img" loading="lazy">
@@ -12,11 +13,11 @@
                     <div class="footer-inhaber-info">
                         <span class="footer-inhaber-name">Tufan Tokmak</span>
                         <span class="footer-inhaber-role">Inhaber</span>
-                        <blockquote class="footer-inhaber-quote">&bdquo;Qualit&auml;t zeigt sich da, wo man keine Sicht mehr hat.&ldquo;</blockquote>
                     </div>
                 </div>
             </div>
 
+            <!-- Spalte 2: Leistungen + Rechtliches -->
             <div class="footer-col">
                 <h3 class="footer-heading">Leistungen</h3>
                 <ul class="footer-links">
@@ -24,8 +25,14 @@
                     <li><a href="/leistungen">Fliesenarbeiten</a></li>
                     <li><a href="/leistungen">Innenausbau</a></li>
                 </ul>
+                <div class="footer-legal-inline">
+                    <a href="/impressum">Impressum</a>
+                    <span class="footer-legal-sep">&middot;</span>
+                    <a href="/datenschutz">Datenschutz</a>
+                </div>
             </div>
 
+            <!-- Spalte 3: Kontakt -->
             <div class="footer-col">
                 <h3 class="footer-heading">Kontakt</h3>
                 <address class="footer-address">
@@ -34,15 +41,11 @@
                     <a href="tel:<?php echo CONTACT_PHONE; ?>"><?php echo CONTACT_PHONE_DISPLAY; ?></a><br>
                     <a href="mailto:<?php echo CONTACT_EMAIL; ?>"><?php echo CONTACT_EMAIL; ?></a>
                 </address>
-                <div class="footer-legal-inline">
-                    <a href="/impressum">Impressum</a>
-                    <span class="footer-legal-sep">&middot;</span>
-                    <a href="/datenschutz">Datenschutz</a>
-                </div>
             </div>
 
+            <!-- Spalte 4: Button + Map -->
             <div class="footer-col footer-col-map">
-                <h3 class="footer-heading">Unser Standort</h3>
+                <a href="/kontakt#kontakt-formular" class="footer-cta">Jetzt unverbindlich anfragen</a>
                 <div class="footer-map-wrapper">
                     <div class="footer-map">
                         <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=9.2408%2C48.4215%2C9.2608%2C48.4315&layer=mapnik&marker=48.4265%2C9.2508" width="100%" height="100%" style="border:0;" loading="lazy" title="Standort <?php echo SITE_NAME; ?>"></iframe>
@@ -52,7 +55,6 @@
                         <span><?php echo CONTACT_ADDRESS_STREET; ?>, <?php echo CONTACT_ADDRESS_ZIP . ' ' . CONTACT_ADDRESS_CITY; ?></span>
                     </div>
                 </div>
-                <a href="/kontakt#kontakt-formular" class="footer-cta">Jetzt unverbindlich anfragen</a>
             </div>
         </div>
 
