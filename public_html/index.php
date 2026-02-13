@@ -1,4 +1,3 @@
-<!-- TEST 123 --> 
 <?php
 require_once __DIR__ . '/includes/config.php';
 
@@ -75,7 +74,7 @@ $pageSlug        = 'startseite';
                     </ul>
                 </div>
                 <div class="contrast-col contrast-col-solution">
-                    <span class="contrast-label">Der Tokmak-Weg</span>
+                    <span class="contrast-label">Unser Weg</span>
                     <h3 class="contrast-title">Komplettkoordination</h3>
                     <ul class="contrast-list">
                         <li>Ein Ansprechpartner für alle Gewerke</li>

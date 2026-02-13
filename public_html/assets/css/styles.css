@@ -837,15 +837,19 @@ address {
 .contrast-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2px;
+    gap: 0;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 12px 48px rgba(45, 41, 38, 0.1);
+    box-shadow:
+        0 4px 12px rgba(45, 41, 38, 0.06),
+        0 16px 56px rgba(45, 41, 38, 0.12);
 }
 
 .contrast-col {
     padding: var(--space-2xl) clamp(var(--space-xl), 3vw, var(--space-2xl));
     position: relative;
+    transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.35s ease;
 }
 
 .contrast-col-problem {
@@ -855,10 +859,21 @@ address {
     border-radius: var(--radius-lg) 0 0 var(--radius-lg);
 }
 
+.contrast-col-problem:hover {
+    box-shadow: inset 0 0 0 1px var(--color-border),
+                0 8px 32px rgba(45, 41, 38, 0.08);
+}
+
 .contrast-col-solution {
     background: var(--color-secondary);
     color: var(--color-white);
     border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.15);
+}
+
+.contrast-col-solution:hover {
+    box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.15),
+                0 8px 32px rgba(45, 41, 38, 0.2);
 }
 
 .contrast-label {
@@ -868,6 +883,11 @@ address {
     text-transform: uppercase;
     margin-bottom: var(--space-lg);
     opacity: 0.45;
+}
+
+.contrast-col-solution .contrast-label {
+    opacity: 0.6;
+    color: var(--color-primary-light);
 }
 
 .contrast-title {
