@@ -115,7 +115,7 @@ $pageSlug        = 'ueber-uns';
             <div class="cta-block">
                 <h2 class="cta-title">Lernen Sie uns kennen.</h2>
                 <p class="cta-text">Vereinbaren Sie ein unverbindliches Erstgespräch – persönlich, vor Ort oder telefonisch.</p>
-                <a href="/kontakt" class="btn btn-primary btn-lg">Kontakt aufnehmen</a>
+                <a href="/kontakt" class="btn btn-primary btn-lg">Jetzt unverbindlich anfragen</a>
             </div>
         </div>
     </section>

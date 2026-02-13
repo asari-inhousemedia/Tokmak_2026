@@ -257,7 +257,7 @@ $pageSlug        = 'badsanierung';
             <div class="cta-block">
                 <h2 class="cta-title">Ihr Bad ist bereit für eine Veränderung?</h2>
                 <p class="cta-text">Sprechen Sie mit uns über Ihr Projekt – persönlich, unverbindlich und mit klarer Struktur von Anfang an.</p>
-                <a href="/kontakt" class="btn btn-primary btn-lg">Badprojekt besprechen</a>
+                <a href="/kontakt" class="btn btn-primary btn-lg">Jetzt unverbindlich anfragen</a>
             </div>
         </div>
     </section>

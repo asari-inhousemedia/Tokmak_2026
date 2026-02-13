@@ -579,62 +579,6 @@
     }
 
     /* ============================================
-       FOOTER MAP – Dark Leaflet Map
-       ============================================ */
-    function initFooterMap() {
-        var mapEl = document.getElementById('footer-map');
-        if (!mapEl) return;
-        if (typeof L === 'undefined') {
-            /* Leaflet noch nicht geladen – nochmal versuchen */
-            setTimeout(initFooterMap, 500);
-            return;
-        }
-
-        var lat = 48.4265;
-        var lng = 9.2508;
-
-        var map = L.map(mapEl, {
-            center: [lat, lng],
-            zoom: 15,
-            zoomControl: false,
-            attributionControl: false,
-            dragging: false,
-            scrollWheelZoom: false,
-            doubleClickZoom: false,
-            touchZoom: false,
-            boxZoom: false,
-            keyboard: false
-        });
-
-        /* Dark Tile Layer – CartoDB Dark Matter (no labels, minimal) */
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
-            subdomains: 'abcd',
-            maxZoom: 19
-        }).addTo(map);
-
-        /* Dezenter weisser Custom-Marker */
-        var pinIcon = L.divIcon({
-            className: 'footer-map-marker',
-            html: '<svg width="28" height="36" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12c0 9 12 20 12 20s12-11 12-20c0-6.627-5.373-12-12-12z" fill="rgba(255,255,255,0.85)"/><circle cx="12" cy="12" r="5" fill="#1C1917"/></svg>',
-            iconSize: [28, 36],
-            iconAnchor: [14, 36]
-        });
-
-        L.marker([lat, lng], { icon: pinIcon }).addTo(map);
-
-        /* Attribution für Accessibility (unsichtbar, aber vorhanden) */
-        L.control.attribution({
-            position: 'bottomright',
-            prefix: false
-        }).addTo(map).addAttribution('&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>');
-
-        /* Map-Size nach kurzer Verzögerung aktualisieren (Leaflet-Bug bei versteckten Containern) */
-        setTimeout(function () {
-            map.invalidateSize();
-        }, 300);
-    }
-
-    /* ============================================
        INIT
        ============================================ */
     document.addEventListener('DOMContentLoaded', function () {
@@ -650,7 +594,6 @@
         initScrollSteps();
         initCtaParallax();
         initTiltCard();
-        initFooterMap();
     });
 
 })();

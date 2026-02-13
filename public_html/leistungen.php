@@ -118,7 +118,7 @@ $pageSlug        = 'leistungen';
             <div class="cta-block">
                 <h2 class="cta-title">Welche Leistung passt zu Ihrem Projekt?</h2>
                 <p class="cta-text">Lassen Sie uns darüber sprechen. Unverbindlich und persönlich.</p>
-                <a href="/kontakt" class="btn btn-primary btn-lg">Projekt besprechen</a>
+                <a href="/kontakt" class="btn btn-primary btn-lg">Jetzt unverbindlich anfragen</a>
             </div>
         </div>
     </section>

@@ -171,7 +171,7 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
                         </div>
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-lg btn-full">Projektanfrage senden</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-full">Jetzt unverbindlich anfragen</button>
                         </div>
                     </form>
                 </div>

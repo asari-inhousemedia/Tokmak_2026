@@ -23,9 +23,6 @@
     <link rel="preload" href="<?php echo ASSETS_URL; ?>/fonts/karla-bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="<?php echo ASSETS_URL; ?>/fonts/karla-regular.woff2" as="font" type="font/woff2" crossorigin>
 
-    <!-- Leaflet Map (DSGVO-konform, kein Google) -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-
     <!-- CSS -->
     <link rel="stylesheet" href="<?php echo ASSETS_URL; ?>/css/styles.css">
 

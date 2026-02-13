@@ -88,7 +88,7 @@ $pageSlug        = 'karriere';
             <div class="cta-block">
                 <h2 class="cta-title">Interesse? Melden Sie sich bei uns.</h2>
                 <p class="cta-text">Schicken Sie uns eine kurze Nachricht oder rufen Sie an. Unkompliziert und direkt.</p>
-                <a href="/kontakt" class="btn btn-primary btn-lg">Jetzt bewerben</a>
+                <a href="/kontakt" class="btn btn-primary btn-lg">Jetzt unverbindlich anfragen</a>
             </div>
         </div>
     </section>

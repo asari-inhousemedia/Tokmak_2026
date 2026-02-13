@@ -44,12 +44,15 @@
             <div class="footer-col footer-col-map">
                 <h3 class="footer-heading">Unser Standort</h3>
                 <div class="footer-map-wrapper">
-                    <div id="footer-map" class="footer-map"></div>
+                    <div class="footer-map">
+                        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=9.2408%2C48.4215%2C9.2608%2C48.4315&layer=mapnik&marker=48.4265%2C9.2508" width="100%" height="100%" style="border:0;" loading="lazy" title="Standort <?php echo SITE_NAME; ?>"></iframe>
+                    </div>
                     <div class="footer-map-address">
                         <svg class="footer-map-pin" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                         <span><?php echo CONTACT_ADDRESS_STREET; ?>, <?php echo CONTACT_ADDRESS_ZIP . ' ' . CONTACT_ADDRESS_CITY; ?></span>
                     </div>
                 </div>
+                <a href="/kontakt" class="btn btn-outline-light btn-sm footer-cta">Jetzt unverbindlich anfragen</a>
             </div>
         </div>
 

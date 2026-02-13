@@ -35,7 +35,7 @@ $pageSlug        = 'startseite';
             Ansprechpartner von der ersten Idee bis zur Übergabe.
         </p>
         <div class="hero-actions reveal-stagger" data-delay="3">
-            <a href="/kontakt" class="btn btn-primary btn-lg">Badprojekt besprechen</a>
+            <a href="/kontakt" class="btn btn-primary btn-lg">Jetzt unverbindlich anfragen</a>
         </div>
 
         <div class="hero-trust reveal-stagger" data-delay="4">
@@ -261,7 +261,7 @@ $pageSlug        = 'startseite';
                 <div class="cta-block-content">
                     <h2 class="cta-title">Bereit für Ihr neues Bad?</h2>
                     <p class="cta-text">Lassen Sie uns Ihr Badprojekt besprechen – unverbindlich und persönlich. Wir nehmen uns Zeit für Ihre Fragen.</p>
-                    <a href="/kontakt" class="btn btn-cta-highlight btn-lg">Termin zur Badplanung vereinbaren</a>
+                    <a href="/kontakt" class="btn btn-cta-highlight btn-lg">Jetzt unverbindlich anfragen</a>
                 </div>
             </div>
         </div>

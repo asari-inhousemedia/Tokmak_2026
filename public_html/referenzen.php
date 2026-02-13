@@ -129,7 +129,7 @@ $pageSlug        = 'referenzen';
             <div class="cta-block">
                 <h2 class="cta-title">Wie soll Ihr neues Bad aussehen?</h2>
                 <p class="cta-text">Lassen Sie sich Ihr Bad in 3D planen – wir zeigen Ihnen, wie es werden kann.</p>
-                <a href="/kontakt" class="btn btn-primary btn-lg">3D-Planung anfragen</a>
+                <a href="/kontakt" class="btn btn-primary btn-lg">Jetzt unverbindlich anfragen</a>
             </div>
         </div>
     </section>

@@ -24,7 +24,7 @@ define('CONTACT_ADDRESS_COUNTRY', 'Deutschland');
 
 // --- Rechtliches (MUSS noch angepasst werden) ---
 define('LEGAL_COMPANY', 'Tokmak GmbH');
-define('LEGAL_OWNER', '[Geschäftsführer eintragen]');
+define('LEGAL_OWNER', 'Tufan Tokmak');
 define('LEGAL_REGISTER', '[HRB-Nummer, Amtsgericht eintragen]');
 define('LEGAL_TAX_ID', '[USt-IdNr. eintragen]');
 
