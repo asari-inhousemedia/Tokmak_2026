@@ -72,7 +72,7 @@ const CLIENT = {
         drive: "https://drive.google.com/drive/folders/1boNI70euJ1Ff09SI-OL7udHNvb-Y8JMm?usp=share_link",
         logoDownload: "https://docs.google.com/document/d/1anr03rIyde-gOz7dzA_44c80f91MdE-TXvGOqPUj8Cc/edit?usp=drive_link",
         emailSignature: "https://drive.google.com/file/d/1UqhBg24gD-uWWmq3dfpFr6Py2-rM2oAt/view?usp=share_link",
-        emailSetupGuide: "",
+        emailSetupGuide: "email-einrichtung.html",
         signatureDownload: "https://docs.google.com/document/d/1bD97vx-m2_CBYahzamPCqDdfYtX2aYNfuh8O7tqDpZ8/edit?usp=share_link",
         documentation: "dokumentation.html",
         loomVideo: ""

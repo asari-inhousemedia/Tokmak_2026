@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>E-Mail Einrichtung – Tokmak GmbH</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .doc-container { max-width: 800px; margin: 0 auto; padding: 48px 24px 96px; }
+        .doc-back { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8125rem; color: var(--color-text-muted); margin-bottom: 40px; text-decoration: none; }
+        .doc-back:hover { color: var(--color-primary); }
+        .doc-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+        .doc-meta { font-size: 0.8125rem; color: var(--color-text-muted); margin-bottom: 48px; }
+        .doc-section { margin-bottom: 48px; }
+        .doc-section-title { font-size: 1.125rem; font-weight: 700; color: var(--color-primary); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--color-surface-border); }
+        .doc-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+        .doc-table th { text-align: left; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); padding: 8px 12px; border-bottom: 1px solid var(--color-surface-border); }
+        .doc-table td { font-size: 0.8125rem; color: var(--color-text); padding: 10px 12px; border-bottom: 1px solid var(--color-surface-border); }
+        .doc-table td.mono { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; color: var(--color-primary); font-size: 0.75rem; }
+        .doc-table tr:last-child td { border-bottom: none; }
+        .doc-note { background: var(--color-surface); border: 1px solid var(--color-surface-border); border-radius: 8px; padding: 16px; font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.6; margin-top: 12px; }
+        .doc-list { list-style: none; padding: 0; }
+        .doc-list li { font-size: 0.8125rem; color: var(--color-text); padding: 6px 0; border-bottom: 1px solid var(--color-surface-border); }
+        .doc-list li:last-child { border-bottom: none; }
+        .doc-list li::before { content: '›'; color: var(--color-primary); margin-right: 8px; font-weight: 700; }
+        .doc-label { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 8px; }
+        .doc-steps { list-style: none; padding: 0; counter-reset: step; }
+        .doc-steps li { font-size: 0.8125rem; color: var(--color-text); padding: 8px 0 8px 32px; border-bottom: 1px solid var(--color-surface-border); position: relative; line-height: 1.5; }
+        .doc-steps li:last-child { border-bottom: none; }
+        .doc-steps li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 8px; width: 20px; height: 20px; background: var(--color-surface); border: 1px solid var(--color-surface-border); border-radius: 50%; font-size: 0.6875rem; font-weight: 700; color: var(--color-primary); display: flex; align-items: center; justify-content: center; }
+    </style>
+</head>
+<body>
+    <div class="doc-container">
+
+        <a href="index.html" class="doc-back">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Zurück zum Dashboard
+        </a>
+
+        <h1 class="doc-title">E-Mail Einrichtung</h1>
+        <p class="doc-meta">Tokmak GmbH – Stand: Februar 2026 – Erstellt von DigiStart</p>
+
+        <!-- ZUGANGSDATEN -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">Ihre E-Mail-Zugangsdaten</h2>
+            <table class="doc-table">
+                <tr><th>Eigenschaft</th><th>Wert</th></tr>
+                <tr><td>Posteingangsserver (IMAP)</td><td class="mono">w020e585.kasserver.com</td></tr>
+                <tr><td>Postausgangsserver (SMTP)</td><td class="mono">w020e585.kasserver.com</td></tr>
+                <tr><td>Port IMAP</td><td class="mono">993 (SSL/TLS)</td></tr>
+                <tr><td>Port SMTP</td><td class="mono">465 (SSL/TLS)</td></tr>
+                <tr><td>Benutzername</td><td>Ihre vollständige E-Mail-Adresse</td></tr>
+                <tr><td>Passwort</td><td>Ihr E-Mail-Passwort (siehe Zugangsdaten)</td></tr>
+                <tr><td>Verschlüsselung</td><td>SSL/TLS</td></tr>
+            </table>
+            <div class="doc-note">
+                <strong>Wichtig:</strong> IMAP und SMTP verwenden denselben Server. Der Benutzername ist immer die vollständige E-Mail-Adresse (z.B. info@tokmak-gmbh.de).
+            </div>
+        </div>
+
+        <!-- 1. APPLE MAIL iPhone -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">1. Apple Mail (iPhone / iPad)</h2>
+            <ol class="doc-steps">
+                <li>Einstellungen → Mail → Accounts → Account hinzufügen</li>
+                <li><strong>Andere</strong> wählen → Mail-Account hinzufügen</li>
+                <li>Eingeben: Name, E-Mail-Adresse, Passwort, Beschreibung: <span class="mono" style="color:var(--color-primary)">Tokmak GmbH</span></li>
+                <li><strong>Weiter</strong> tippen → <strong>IMAP</strong> wählen</li>
+                <li>Server für eintreffende E-Mails: <span class="mono" style="color:var(--color-primary)">w020e585.kasserver.com</span></li>
+                <li>Server für ausgehende E-Mails: <span class="mono" style="color:var(--color-primary)">w020e585.kasserver.com</span></li>
+                <li><strong>Sichern</strong> tippen – fertig</li>
+            </ol>
+
+            <div class="doc-label" style="margin-top: 16px">Signatur einrichten</div>
+            <ol class="doc-steps">
+                <li>Einstellungen → Mail → Signatur</li>
+                <li><strong>Pro Account</strong> wählen</li>
+                <li>Den Account auswählen und Signaturtext eingeben</li>
+            </ol>
+            <div class="doc-note">
+                Auf iPhone/iPad ist nur Klartext möglich – kein HTML. Empfehlung: Name, Firma, Telefon und Website als einfachen Text eintragen.
+            </div>
+        </div>
+
+        <!-- 2. APPLE MAIL Mac -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">2. Apple Mail (Mac)</h2>
+            <ol class="doc-steps">
+                <li>Mail → Einstellungen → Accounts → <strong>+</strong> klicken</li>
+                <li><strong>Anderer Mail-Account</strong> wählen</li>
+                <li>Name, E-Mail-Adresse und Passwort eingeben</li>
+                <li><strong>Anmelden</strong> klicken</li>
+                <li>Falls manuelle Eingabe nötig: IMAP wählen, Eingangs- und Ausgangsserver: <span class="mono" style="color:var(--color-primary)">w020e585.kasserver.com</span></li>
+            </ol>
+
+            <div class="doc-label" style="margin-top: 16px">HTML-Signatur einrichten</div>
+            <ol class="doc-steps">
+                <li>Mail → Einstellungen → Signaturen → Account auswählen → <strong>+</strong></li>
+                <li>Platzhalter-Text eingeben, dann Mail <strong>komplett beenden</strong></li>
+                <li>Finder → Gehe zu → Gehe zum Ordner: <span class="mono" style="color:var(--color-primary)">~/Library/Mail/V10/MailData/Signatures/</span></li>
+                <li>Zuletzt geänderte <strong>.mailsignature</strong>-Datei mit TextEdit öffnen</li>
+                <li>HTML-Code nach dem „Mime-Version" Header ersetzen</li>
+                <li>Datei speichern → Im Finder <strong>Datei sperren</strong> (Rechtsklick → Informationen → Geschützt)</li>
+                <li>Mail neu starten</li>
+            </ol>
+        </div>
+
+        <!-- 3. OUTLOOK -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">3. Microsoft Outlook (Windows / Mac)</h2>
+
+            <div class="doc-label">Outlook für Windows (Microsoft 365)</div>
+            <ol class="doc-steps">
+                <li>Einstellungen (Zahnrad) → Konten → E-Mail-Konten → Konto hinzufügen</li>
+                <li>E-Mail-Adresse eingeben → <strong>Erweiterte Optionen</strong> → Ich möchte mein Konto manuell einrichten</li>
+                <li><strong>IMAP</strong> wählen</li>
+                <li>Eingangsserver: <span class="mono" style="color:var(--color-primary)">w020e585.kasserver.com</span>, Port 993, SSL/TLS</li>
+                <li>Ausgangsserver: <span class="mono" style="color:var(--color-primary)">w020e585.kasserver.com</span>, Port 465, SSL/TLS</li>
+                <li>Anmelden – fertig</li>
+            </ol>
+
+            <div class="doc-label" style="margin-top: 16px">Outlook für Mac</div>
+            <ol class="doc-steps">
+                <li>Outlook → Einstellungen → Konten → <strong>+</strong> → Neues Konto</li>
+                <li>E-Mail-Adresse eingeben</li>
+                <li><strong>Nicht IMAP</strong> wählen falls Exchange vorgeschlagen wird</li>
+                <li>IMAP-Daten wie oben eingeben</li>
+            </ol>
+
+            <div class="doc-label" style="margin-top: 16px">HTML-Signatur in Outlook (Windows)</div>
+            <ol class="doc-steps">
+                <li>Datei → Optionen → E-Mail → Signaturen → <strong>Neu</strong></li>
+                <li>Name vergeben und Signatur-Text eingeben</li>
+                <li>Für HTML: Signatur-Datei im Ordner ablegen: <span class="mono" style="color:var(--color-primary)">C:\Users\[Name]\AppData\Roaming\Microsoft\Signatures\</span></li>
+                <li>Outlook neu starten → Signatur auswählen</li>
+            </ol>
+        </div>
+
+        <!-- 4. GMAIL -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">4. Gmail (Webbrowser)</h2>
+
+            <div class="doc-label">Konto hinzufügen</div>
+            <ol class="doc-steps">
+                <li>Gmail öffnen → Zahnrad → <strong>Alle Einstellungen</strong></li>
+                <li>Tab <strong>Konten und Import</strong></li>
+                <li>E-Mails von anderen Konten abrufen → <strong>E-Mail-Konto hinzufügen</strong></li>
+                <li>E-Mail-Adresse eingeben (z.B. info@tokmak-gmbh.de)</li>
+                <li>IMAP-Daten eingeben mit Passwort</li>
+                <li>Auch als Alias senden: SMTP-Server <span class="mono" style="color:var(--color-primary)">w020e585.kasserver.com</span>, Port 465, SSL</li>
+            </ol>
+
+            <div class="doc-label" style="margin-top: 16px">HTML-Signatur in Gmail</div>
+            <ol class="doc-steps">
+                <li>Gmail → Zahnrad → Alle Einstellungen → Allgemein</li>
+                <li>Runterscrollen zu <strong>Signatur</strong> → Neue Signatur erstellen</li>
+                <li>HTML-Signatur-Datei im Browser öffnen</li>
+                <li>Alles markieren (Strg+A) → Kopieren (Strg+C)</li>
+                <li>In das Gmail-Signaturfeld einfügen (Strg+V) → <strong>Änderungen speichern</strong></li>
+            </ol>
+        </div>
+
+        <!-- 5. THUNDERBIRD -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">5. Thunderbird (Windows / Mac / Linux)</h2>
+            <ol class="doc-steps">
+                <li>Thunderbird → Einstellungen → Konten-Einstellungen</li>
+                <li>Konten-Aktionen → <strong>E-Mail-Konto hinzufügen</strong></li>
+                <li>Name, E-Mail-Adresse und Passwort eingeben</li>
+                <li><strong>Manuell konfigurieren</strong> klicken</li>
+                <li>Eingang: IMAP, <span class="mono" style="color:var(--color-primary)">w020e585.kasserver.com</span>, Port 993, SSL/TLS</li>
+                <li>Ausgang: SMTP, <span class="mono" style="color:var(--color-primary)">w020e585.kasserver.com</span>, Port 465, SSL/TLS</li>
+                <li><strong>Fertig</strong> klicken</li>
+            </ol>
+
+            <div class="doc-label" style="margin-top: 16px">HTML-Signatur</div>
+            <ol class="doc-steps">
+                <li>Einstellungen → Konten-Einstellungen → Ihr Konto</li>
+                <li>Checkbox <strong>HTML-Signatur verwenden</strong> aktivieren</li>
+                <li>Datei anhängen → HTML-Signatur-Datei auswählen</li>
+            </ol>
+        </div>
+
+        <!-- 6. SAMSUNG / ANDROID -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">6. Samsung Mail / Android</h2>
+
+            <div class="doc-label">Samsung Mail</div>
+            <ol class="doc-steps">
+                <li>Samsung Mail App → Einstellungen → Konto hinzufügen</li>
+                <li><strong>Andere</strong> wählen</li>
+                <li>E-Mail-Adresse und Passwort eingeben</li>
+                <li><strong>Manuelles Setup</strong> → IMAP</li>
+                <li>Eingangsserver: <span class="mono" style="color:var(--color-primary)">w020e585.kasserver.com</span>, Port 993, SSL/TLS</li>
+                <li>Ausgangsserver: <span class="mono" style="color:var(--color-primary)">w020e585.kasserver.com</span>, Port 465, SSL/TLS</li>
+            </ol>
+
+            <div class="doc-label" style="margin-top: 16px">Gmail App (Android)</div>
+            <ol class="doc-steps">
+                <li>Gmail App → Profilbild → <strong>Weiteres Konto hinzufügen</strong></li>
+                <li><strong>Sonstige</strong> wählen</li>
+                <li>E-Mail-Adresse eingeben → Manuelles Setup</li>
+                <li><strong>Privat (IMAP)</strong> wählen</li>
+                <li>Serverdaten wie oben eingeben</li>
+            </ol>
+
+            <div class="doc-note">
+                Auf Android ist in der Gmail App nur Klartext-Signatur möglich. Empfehlung: Name, Firma, Telefon und Website als einfachen Text eintragen.
+            </div>
+        </div>
+
+        <!-- ALLGEMEINE HINWEISE -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">Allgemeine Hinweise</h2>
+            <ul class="doc-list">
+                <li>Benutzername ist immer die vollständige E-Mail-Adresse</li>
+                <li>Passwörter finden Sie im Zugangsdaten-Dokument</li>
+                <li>Immer SSL/TLS verwenden – nie unverschlüsselt</li>
+                <li>IMAP synchronisiert E-Mails auf allen Geräten</li>
+                <li>Bei Problemen: Antivirus/Firewall prüfen (Port 993 und 465 müssen offen sein)</li>
+                <li>HTML-Signatur-Datei finden Sie im Google Drive unter „E-Mail-Signatur"</li>
+                <li>Für die Webmail-Oberfläche: webmail.all-inkl.com (keine Einrichtung nötig)</li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>
