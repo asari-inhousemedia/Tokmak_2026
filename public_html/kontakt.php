@@ -31,11 +31,9 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
         </div>
     </section>
 
-    <!-- Erwartungsmanagement -->
     <section class="section">
         <div class="container">
 
-            <!-- Was passiert nach der Anfrage -->
             <div class="section-header" style="margin-bottom: var(--space-2xl);">
                 <span class="section-label">So geht es weiter</span>
                 <h2 class="section-title">Was nach Ihrer Anfrage passiert</h2>
@@ -53,7 +51,6 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
 
             <div class="contact-grid">
 
-                <!-- Kontaktinfos -->
                 <div class="contact-info">
                     <h2 class="contact-info-title">So erreichen Sie uns</h2>
                     <address class="contact-details">
@@ -81,7 +78,6 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
                     </div>
                 </div>
 
-                <!-- Vorqualifiziertes Anfrageformular -->
                 <div class="contact-form-wrap">
 
                     <?php if ($formStatus === 'success'): ?>
@@ -102,9 +98,9 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
                     </div>
                     <?php endif; ?>
 
+                    <!-- WICHTIG: action zeigt jetzt auf den echten Handler -->
                     <form id="kontakt-formular" class="contact-form" action="/includes/form-handler.php" method="POST" novalidate>
 
-                        <!-- Honeypot -->
                         <div class="form-field-hp" aria-hidden="true" tabindex="-1">
                             <label for="website_url">Website</label>
                             <input type="text" name="website_url" id="website_url" autocomplete="off" tabindex="-1">
@@ -126,7 +122,6 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
                             <input type="tel" id="phone" name="phone" class="form-input<?php echo in_array('phone', $formFields) ? ' is-invalid' : ''; ?>" placeholder="+49 123 456 789" autocomplete="tel">
                         </div>
 
-                        <!-- Vorqualifizierung -->
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="project_type" class="form-label">Projektart <span class="required" aria-label="Pflichtfeld">*</span></label>
@@ -187,7 +182,6 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
 </main>
 
 <?php require_once INCLUDES_PATH . '/footer.php'; ?>
-
 <?php require_once INCLUDES_PATH . '/scripts.php'; ?>
 </body>
 </html>

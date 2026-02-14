@@ -859,12 +859,22 @@ address {
     padding: var(--space-xl);
     border-radius: var(--radius-md);
     border: 1px solid var(--color-light);
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    transition: transform 0.45s cubic-bezier(.25,.46,.45,.94),
+                box-shadow 0.45s cubic-bezier(.25,.46,.45,.94),
+                border-color 0.3s ease;
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+}
+
+.card.card-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.10);
+    border-color: var(--color-warmgray);
 }
 
 .card-number {
@@ -1107,12 +1117,34 @@ address {
     background: var(--color-white);
     border-radius: var(--radius-md);
     border-left: 3px solid var(--color-secondary);
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.4s ease,
+                border-color 0.3s ease;
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.feature-block.feature-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.feature-block:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 12px 36px rgba(45, 41, 38, 0.10);
+    border-left-color: var(--color-primary);
+}
+
+.feature-block:hover .feature-title {
+    color: var(--color-primary);
 }
 
 .feature-title {
     font-size: var(--text-lg);
     font-weight: 700;
     margin-bottom: var(--space-sm);
+    transition: color 0.3s ease;
 }
 
 .feature-text {
@@ -1825,21 +1857,79 @@ address {
 }
 
 .benefit-card {
-    padding: var(--space-xl);
+    padding: var(--space-2xl) var(--space-xl);
     border: 1px solid var(--color-light);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     text-align: center;
+    background: var(--color-white);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.4s ease,
+                border-color 0.3s ease;
+}
+
+.benefit-card.benefit-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    animation: benefitPopIn 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes benefitPopIn {
+    0%   { transform: translateY(30px) scale(0.85); opacity: 0; }
+    50%  { transform: translateY(-6px) scale(1.04); opacity: 1; }
+    70%  { transform: translateY(2px) scale(0.99); }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-warmgray));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.benefit-card:hover::before {
+    transform: scaleX(1);
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(45, 41, 38, 0.12);
+    border-color: var(--color-warmgray);
 }
 
 .benefit-icon {
-    font-size: 2rem;
-    margin-bottom: var(--space-md);
+    font-size: 2.4rem;
+    margin-bottom: var(--space-lg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--color-offwhite);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                background 0.3s ease;
+}
+
+.benefit-card:hover .benefit-icon {
+    transform: scale(1.15) rotate(-5deg);
+    background: var(--color-light);
 }
 
 .benefit-title {
-    font-size: var(--text-base);
+    font-size: var(--text-lg);
     font-weight: 700;
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-sm);
 }
 
 .benefit-text {
@@ -2017,15 +2107,27 @@ address {
 /* Scroll-Reveal: Startzustand (unsichtbar) */
 .process-step.step-animate {
     opacity: 0;
-    transform: translateY(30px) scale(0.95);
-    transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
-                transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transform: translateY(30px) scale(0.85);
+    transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+                transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 /* Scroll-Reveal: Sichtbar */
 .process-step.step-animate.step-visible {
     opacity: 1;
     transform: translateY(0) scale(1);
+}
+
+/* Initialer Pop-Effekt beim ersten Einblenden */
+.process-step.step-pop {
+    animation: stepPopIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes stepPopIn {
+    0%   { transform: translateY(30px) scale(0.85); opacity: 0; }
+    50%  { transform: translateY(-8px) scale(1.06); opacity: 1; }
+    70%  { transform: translateY(3px) scale(0.98); }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
 /* Desktop: Hover-Pop-Effekt */
@@ -2154,6 +2256,13 @@ address {
     transform: translateY(0);
 }
 
+/* Rechtstexte (Datenschutz, Impressum) – sofort sichtbar, kein Reveal */
+.section:has(.content-narrow) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+}
+
 /* ============================================
    RESPONSIVE
    ============================================ */
@@ -2224,63 +2333,55 @@ address {
 /* Mobile */
 @media (max-width: 680px) {
     :root {
-        --header-height: 120px;
+        --header-height: 100px;
+    }
+
+    /* ===== GLOBAL MOBILE STABILITY ===== */
+    *,
+    *::before,
+    *::after {
+        max-width: 100vw;
+    }
+
+    .site-footer {
+        overflow-x: clip;
+    }
+
+    /* Header: overflow aufheben damit Mobile-Nav sichtbar wird */
+    .site-header {
+        overflow: visible;
     }
 
     /* Logo auf Mobile */
     .logo-img {
-        height: 108px;
+        height: 80px;
     }
 
-    /* Footer Mobile */
-    .footer-logo-img {
-        height: 108px;
-    }
-
-    .footer-inhaber {
-        gap: var(--space-md);
-    }
-
-    .footer-inhaber-portrait {
-        width: 60px;
-        height: 60px;
-    }
-
-    /* CTA Mobile */
-    .cta-block-bg {
-        inset: -10%;
-        width: 120%;
-        height: 120%;
-    }
-
-    .cta-block-image .btn-lg {
-        width: 100%;
-        max-width: 320px;
-    }
-
-    /* Tilt auf Mobile: kein Grab-Cursor */
-    .tilt-card {
-        cursor: default;
-    }
-
-    /* Mobile Navigation */
+    /* ===== MOBILE NAVIGATION (Burger) ===== */
     .nav-toggle {
         display: flex;
+        width: 44px;
+        height: 44px;
     }
 
     .main-nav {
         position: fixed;
-        inset: 0;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        background: var(--color-secondary);
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         opacity: 0;
         visibility: hidden;
-        transition: opacity var(--transition-base), visibility var(--transition-base);
-        z-index: 999;
+        transition: opacity 0.35s ease, visibility 0.35s ease;
+        z-index: 10000;
     }
 
     .main-nav.is-open {
@@ -2290,65 +2391,71 @@ address {
 
     .nav-list {
         flex-direction: column;
-        gap: var(--space-lg);
+        gap: 0;
         text-align: center;
+        width: 100%;
+        padding: 0 var(--space-xl);
+    }
+
+    .nav-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-item:last-child {
+        border-bottom: none;
     }
 
     .nav-link {
-        font-size: var(--text-lg);
+        font-size: var(--text-xl);
+        color: var(--color-white);
+        display: block;
+        padding: var(--space-lg) var(--space-md);
+        font-weight: 400;
+        letter-spacing: var(--tracking-wide);
+        transition: background 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.is-active {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--color-white);
     }
 
     .nav-link-cta {
-        font-size: var(--text-base);
-        margin-top: var(--space-sm);
+        font-size: var(--text-lg);
+        margin-top: var(--space-lg);
+        background: var(--color-white) !important;
+        color: var(--color-secondary) !important;
+        padding: var(--space-md) var(--space-xl) !important;
+        border-radius: var(--radius-sm);
+        font-weight: 700;
+        display: inline-block;
+        width: auto;
+        letter-spacing: var(--tracking-heading);
+        box-shadow: none;
     }
 
-    /* Grids */
-    .grid-2,
-    .grid-3,
-    .grid-4 {
-        grid-template-columns: 1fr;
+    .nav-link-cta:hover,
+    .nav-link-cta.is-active {
+        background: var(--color-white) !important;
+        color: var(--color-secondary) !important;
     }
 
-    /* Process Steps */
-    .process-steps {
-        grid-template-columns: 1fr;
-        gap: var(--space-xl);
+    /* Burger Toggle auf Mobile: über Nav-Overlay */
+    .nav-toggle {
+        position: relative;
+        z-index: 10001;
     }
 
-    .process-step {
-        display: grid;
-        grid-template-columns: 48px 1fr;
-        text-align: left;
-        gap: var(--space-md);
-        align-items: start;
+    /* Burger X icon white on dark bg */
+    .nav-toggle.is-open .nav-toggle-bar {
+        background: var(--color-white);
     }
 
-    .process-step-number {
-        margin: 0;
-    }
-
-    /* Footer */
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-xl);
-    }
-
-    .footer-col-brand {
-        order: 1;
-    }
-
-    .footer-col-map {
-        order: 2;
-    }
-
-    .footer-map {
-        height: 180px;
-    }
-
-    /* Page Header Mobile */
+    /* ===== PAGE HEADER (Unterseiten Hero) – Mobile ===== */
     .page-header {
-        min-height: 50vh;
+        min-height: 55vh;
+        padding-top: calc(var(--header-height) + var(--space-2xl));
         padding-bottom: var(--space-2xl);
     }
 
@@ -2356,23 +2463,52 @@ address {
         text-align: center;
     }
 
+    .page-header-title {
+        font-size: clamp(1.8rem, 1.2rem + 3vw, 2.8rem);
+    }
+
     .page-header-subtitle {
         margin-inline: auto;
+        font-size: var(--text-base);
+    }
+
+    .page-header-bg {
+        position: absolute;
+        inset: 0;
     }
 
     .page-header-bg img {
-        height: 140%;
-        object-position: center 50%;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
     }
 
-    /* Hero */
+    .page-header-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            180deg,
+            rgba(45, 41, 38, 0.75) 0%,
+            rgba(45, 41, 38, 0.55) 100%
+        );
+        z-index: 1;
+    }
+
+    /* ===== HERO (Startseite) – Mobile ===== */
     .hero {
-        min-height: 88vh;
-        padding-bottom: var(--space-4xl);
+        min-height: 85vh;
+        padding-bottom: var(--space-3xl);
     }
 
     .hero-content {
         text-align: center;
+    }
+
+    .hero-headline {
+        font-size: clamp(1.8rem, 1.2rem + 3vw, 2.8rem);
     }
 
     .hero-actions {
@@ -2392,35 +2528,297 @@ address {
         text-align: center;
     }
 
-    /* CTA */
+    /* ===== CTA BLOCK – Mobile ===== */
     .cta-block {
         padding: var(--space-2xl) var(--space-lg);
     }
 
-    /* Karriere */
-    .benefits-grid {
+    .cta-block-image {
+        border-radius: var(--radius-md);
+    }
+
+    .cta-block-bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .cta-block-overlay {
+        background: linear-gradient(
+            180deg,
+            rgba(45, 41, 38, 0.72) 0%,
+            rgba(45, 41, 38, 0.55) 100%
+        );
+    }
+
+    .cta-title {
+        font-size: clamp(1.4rem, 1rem + 2vw, 2rem);
+    }
+
+    .cta-block-image .btn-lg {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    /* ===== GRIDS – Mobile ===== */
+    .grid-2,
+    .grid-3,
+    .grid-4 {
         grid-template-columns: 1fr;
     }
 
-    /* Stats */
+    /* ===== PROCESS STEPS – Mobile ===== */
+    .process-steps {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+
+    .process-step {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        text-align: left;
+        gap: var(--space-md);
+        align-items: start;
+    }
+
+    .process-step-number {
+        margin: 0;
+    }
+
+    /* Touch-Tap Feedback auf Mobile */
+    .process-step.step-visible {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .process-step.step-visible:active {
+        transform: scale(0.97);
+    }
+
+    /* ===== CONTRAST CARDS – Mobile ===== */
+    .contrast-cards {
+        gap: var(--space-lg);
+    }
+
+    .contrast-card {
+        padding: var(--space-xl);
+    }
+
+    /* ===== CARDS (Leistungsumfang etc.) – Mobile ===== */
+    .card {
+        padding: var(--space-lg);
+    }
+
+    /* Touch Feedback */
+    .card.card-visible:active {
+        transform: scale(0.97);
+    }
+
+    /* ===== BENEFIT CARDS (Karriere) – Mobile ===== */
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+
+    .benefit-card {
+        padding: var(--space-xl);
+    }
+
+    .benefit-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 2rem;
+    }
+
+    /* Touch Feedback */
+    .benefit-card.benefit-visible:active {
+        transform: scale(0.97);
+    }
+
+    /* ===== FEATURE BLOCKS (Stellenangebote) – Mobile ===== */
+    .feature-block {
+        padding: var(--space-lg);
+    }
+
+    .feature-block.feature-visible:active {
+        transform: scale(0.97);
+    }
+
+    /* ===== CONTENT SPLIT – Mobile ===== */
+    .content-split {
+        gap: var(--space-lg);
+    }
+
+    .content-split-visual img {
+        border-radius: var(--radius-md);
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        object-fit: cover;
+    }
+
+    /* ===== FAQ – Mobile ===== */
+    .faq-question {
+        padding: var(--space-md);
+        font-size: var(--text-base);
+    }
+
+    /* ===== STATS – Mobile ===== */
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-md);
+    }
+
+    .stat-number {
+        font-size: var(--text-2xl);
+    }
+
+    /* ===== TILT CARD – Mobile ===== */
+    .tilt-card {
+        cursor: default;
+    }
+
+    /* ===== FOOTER – Mobile ===== */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+
+    .footer-col-brand {
+        order: 1;
+    }
+
+    .footer-col-map {
+        order: 2;
+    }
+
+    .footer-logo-img {
+        height: 100px;
+    }
+
+    .footer-inhaber {
+        gap: var(--space-md);
+    }
+
+    .footer-inhaber-portrait {
+        width: 56px;
+        height: 56px;
+    }
+
+    /* Map – gleich wie Desktop, nur passende Höhe */
+    .footer-map {
+        height: 200px;
+        border-radius: var(--radius-md);
+    }
+
+    .footer-map iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    .footer-map-wrapper {
+        width: 100%;
+    }
+
+    /* ===== CONTACT FORM – Mobile ===== */
+    .contact-grid {
+        gap: var(--space-lg);
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    /* ===== SECTION SPACING – Mobile ===== */
+    .section {
+        padding-block: var(--space-2xl);
+    }
+
+    .section-header {
+        margin-bottom: var(--space-xl);
+    }
+
+    .section-title {
+        font-size: clamp(1.4rem, 1rem + 2vw, 2rem);
+    }
+
+    /* ===== LEGAL PAGES – Mobile ===== */
+    .content-narrow {
+        padding-inline: 0;
+    }
+
+    .content-narrow h2 {
+        font-size: var(--text-xl);
+    }
+
+    .content-narrow h3 {
+        font-size: var(--text-lg);
     }
 }
 
 /* Kleine Handys */
 @media (max-width: 400px) {
-    .hero-headline {
-        font-size: var(--text-3xl);
+    :root {
+        --header-height: 88px;
+    }
+
+    .logo-img {
+        height: 64px;
+    }
+
+    .hero-headline,
+    .page-header-title {
+        font-size: clamp(1.5rem, 1rem + 2.5vw, 2.2rem);
+    }
+
+    .section-title {
+        font-size: clamp(1.2rem, 0.9rem + 1.5vw, 1.6rem);
     }
 
     .stats-grid {
         grid-template-columns: 1fr;
     }
 
+    .stat-number {
+        font-size: var(--text-xl);
+    }
+
     .footer-map {
-        height: 160px;
+        height: 180px;
+    }
+
+    .footer-logo-img {
+        height: 80px;
+    }
+
+    .nav-link {
+        font-size: var(--text-lg);
+        padding: var(--space-md) var(--space-sm);
+    }
+
+    .page-header {
+        min-height: 45vh;
+    }
+
+    .hero {
+        min-height: 80vh;
+    }
+
+    .cta-title {
+        font-size: clamp(1.2rem, 0.8rem + 1.5vw, 1.6rem);
+    }
+
+    .benefit-card,
+    .feature-block,
+    .card {
+        padding: var(--space-md);
+    }
+
+    .contrast-card {
+        padding: var(--space-lg);
     }
 }
 

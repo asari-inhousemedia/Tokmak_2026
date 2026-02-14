@@ -279,7 +279,7 @@ $pageSlug        = 'startseite';
                     </button>
                     <div class="faq-answer" aria-hidden="true">
                         <div class="faq-answer-inner">
-                            <p>Unser Angebot ist verbindlich. Es basiert auf einem persönlichen Aufmaß und einer detaillierten Planung. Nachträgliche Kosten entstehen nur bei Ihren Änderungswünschen oder unvorhergesehenen baulichen Mängeln – darüber sprechen wir offen.</p>
+                            <p>Unsere Beratung und Angebotserstellung sind unverbindlich. Sie erhalten eine transparente Kalkulation und entscheiden in Ruhe. Verbindlich wird es erst mit Ihrer Beauftragung – klar geregelt und nachvollziehbar.</p>
                         </div>
                     </div>
                 </div>

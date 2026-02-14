@@ -1,0 +1,161 @@
+TECHNISCHE DOKUMENTATION
+Tokmak GmbH – Stand: Februar 2026
+Erstellt von DigiStart
+========================================
+
+
+1. HOSTING & DOMAIN
+────────────────────────────────────────
+
+Hoster:              All-Inkl (all-inkl.com)
+Kundennummer:        847428
+KAS-Login:           kas.all-inkl.com
+Hauptdomain:         tokmak-gmbh.de
+Dashboard:           dashboard.tokmak-gmbh.de
+SSL:                 Let's Encrypt (automatisch über All-Inkl)
+Server:              Shared Hosting, PHP 8.x
+
+Hinweis: Das KAS (Kunden-Administrations-System) von All-Inkl ist die zentrale Verwaltung für Domain, E-Mail, FTP, Datenbanken und SSL-Zertifikate. Login unter kas.all-inkl.com mit der Kundennummer.
+
+
+2. WEBSITE-STRUKTUR
+────────────────────────────────────────
+
+Technologie:         PHP (statisch, kein CMS, kein WordPress)
+Framework:           Keines – reines HTML/CSS/JS/PHP
+Schriftart:          Karla (lokal gehostet, DSGVO-konform)
+Externe Abhängigkeiten: Keine (kein CDN, keine externen Fonts)
+
+Seiten:
+• index.php              – Startseite
+• leistungen.php         – Leistungsübersicht
+• badsanierung.php       – Landingpage Badsanierung
+• referenzen.php         – Referenzprojekte
+• ueber-uns.php          – Über das Unternehmen
+• kontakt.php            – Kontaktformular
+• karriere.php           – Stellenangebote
+• danke.php              – Bestätigungsseite nach Formularversand
+• impressum.php          – Impressum
+• datenschutz.php        – Datenschutzerklärung
+
+Includes (wiederverwendbare Module):
+• includes/config.php         – Zentrale Konfiguration (Firmendaten, Kontakt, Pfade)
+• includes/header.php         – Navigation & Kopfbereich
+• includes/footer.php         – Fußzeile
+• includes/head-meta.php      – Meta-Tags, SEO, Open Graph
+• includes/scripts.php        – JavaScript-Einbindung
+• includes/gdpr-features.php  – Cookie-Banner & DSGVO-Funktionen
+• includes/form-handler.php   – Kontaktformular-Verarbeitung
+
+
+3. KONTAKTFORMULAR
+────────────────────────────────────────
+
+Verarbeitung:        form-handler.php (serverseitig)
+Empfänger:           info@tokmak-gmbh.de
+Lead-Speicherung:    storage/leads.json
+Rate-Limiting:       30 Sekunden zwischen Absendungen
+Spam-Schutz:         Honeypot-Feld + Rate-Limiting
+
+Hinweis: Alle Formular-Anfragen werden doppelt gesichert: per E-Mail an info@ und als JSON in storage/leads.json. Die leads.json ist durch eine .htaccess vor direktem Zugriff geschützt.
+
+
+4. E-MAIL-SYSTEM
+────────────────────────────────────────
+
+info@tokmak-gmbh.de          – Allgemeine Anfragen, Kontaktformular
+buchhaltung@tokmak-gmbh.de   – Rechnungen, Finanzen
+tufantokmak@tokmak-gmbh.de   – Persönliches Postfach Geschäftsführer
+
+Webmail:             webmail.all-inkl.com
+Verwaltung:          Über KAS (kas.all-inkl.com) → E-Mail
+Protokoll:           IMAP / SMTP über All-Inkl
+
+
+5. GOOGLE-INFRASTRUKTUR
+────────────────────────────────────────
+
+Google Konto:        tokmak.digital@gmail.com
+Google Profil:       Aktiv & verifiziert auf Google Maps
+Google Drive:        Zentrale Dateiablage (Logo, Dokumente)
+Rezensionslink:      g.page/r/CYTV5e0OsVNZEBM/review
+
+Hinweis: Das Google Konto ist der zentrale Schlüssel für alle Google-Dienste. Darüber wird das Unternehmensprofil verwaltet, Drive genutzt und der Rezensionslink generiert. Login erfolgt mit tokmak.digital@gmail.com.
+
+
+6. BRANDING & DESIGN
+────────────────────────────────────────
+
+SCHRIFT:
+Karla – Light 300, Regular 400, Bold 700
+Einbindung: Lokal (DSGVO-konform, kein Google CDN)
+
+FARBEN:
+Warmgrau     #8C8279     Primärfarbe, Akzente, Buttons
+Anthrazit    #2D2926     Hintergrund dunkel, Footer, Header
+Hellgrau     #F8F7F5     Hintergrund hell, Sektionen
+Textfarbe    #3D3835     Fließtext
+
+FIRMENDATEN:
+Firmenname:          Tokmak GmbH
+Claim:               Räume mit Stil
+Schwerpunkt:         Komplett-Badsanierung aus einer Hand
+Inhaber:             Tufan Tokmak
+Handelsregister:     HRB 803281, Amtsgericht Stuttgart
+
+
+7. DSGVO & DATENSCHUTZ
+────────────────────────────────────────
+
+• Keine externen Fonts (Karla lokal gehostet)
+• Keine CDN-Einbindungen
+• Kein Google Analytics / kein Tracking
+• Cookie Consent Manager: CCM19 (ccm19.de) – externer Dienst mit eigenem Login
+• Cookie-Banner-Einbindung über gdpr-features.php
+• Impressum & Datenschutzerklärung als eigene Seiten
+• Kontaktformular-Daten nur lokal gespeichert (leads.json)
+• SSL-Verschlüsselung auf allen Seiten
+
+
+8. EXTERNE DIENSTE & ZUGÄNGE
+────────────────────────────────────────
+
+All-Inkl KAS          kas.all-inkl.com          Domain, E-Mail, FTP, SSL verwalten
+CCM19                 ccm19.de                  Cookie Consent Manager – Banner konfigurieren
+Google Konto          mail.google.com           Gmail, Drive, Unternehmensprofil, YouTube
+
+Hinweis: CCM19 ist der Cookie Consent Manager für die DSGVO-konforme Cookie-Verwaltung. Über das CCM19-Dashboard werden Cookie-Kategorien, Texte und das Erscheinungsbild des Banners konfiguriert. Das Skript wird über gdpr-features.php in die Website eingebunden. Zugangsdaten befinden sich im Zugangsdaten-Dokument.
+
+
+9. KONTAKTDATEN UNTERNEHMEN
+────────────────────────────────────────
+
+Telefon:             0151 629 883 17
+E-Mail:              info@tokmak-gmbh.de
+Adresse:             Daimlerstr. 8, 72805 Lichtenstein
+Region:              Lichtenstein & Umgebung
+
+
+10. WICHTIGE HINWEISE FÜR SPÄTERE BEARBEITUNG
+────────────────────────────────────────
+
+Website-Änderungen:
+Alle Firmendaten (Name, Telefon, Adresse) werden zentral in includes/config.php gepflegt. Eine Änderung dort wirkt sich auf alle Seiten aus.
+
+Neue Seiten:
+PHP-Datei im Hauptverzeichnis anlegen, header.php und footer.php per include einbinden.
+
+E-Mail-Postfächer:
+Neue Adressen über KAS (kas.all-inkl.com) anlegen. Kundennr. 847428.
+
+SSL-Zertifikat:
+Erneuert sich automatisch über All-Inkl (Let's Encrypt).
+
+Bilder:
+Liegen unter public_html/assets/img/ im .webp-Format für optimale Ladezeit.
+
+Cookie-Banner:
+Wird über CCM19 (ccm19.de) verwaltet. Texte, Kategorien und Design des Banners werden dort konfiguriert. Eingebunden über gdpr-features.php.
+
+Dashboard:
+Nur die Datei system/config/client-config.js anpassen – alles andere generiert sich automatisch.

@@ -110,7 +110,7 @@ $pageSlug        = 'leistungen';
                     </ul>
                 </div>
                 <div class="content-split-visual">
-                    <div class="placeholder-visual" style="min-height: 350px;"><span>Bild: Innenausbau</span></div>
+                    <img src="/assets/img/innenausbau.webp" alt="Innenausbau – Tokmak GmbH" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md); min-height:350px;" loading="lazy">
                 </div>
             </div>
         </div>

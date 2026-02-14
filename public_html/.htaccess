@@ -6,23 +6,29 @@
 AddDefaultCharset UTF-8
 
 # --- Rewrite Engine aktivieren ---
+
 RewriteEngine On
 
-# =================================================
-# !!! HTTPS NICHT erzwingen (SSL kommt später) !!!
-# =================================================
-# Die folgenden Regeln wurden bewusst entfernt:
-# RewriteCond %{HTTPS} !=on
-# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-#
-# Und auch die www->non-www Weiterleitung darf NICHT auf https gehen,
-# solange kein SSL aktiv ist. Deshalb unten nur noch http.
+# --- Assets nicht umschreiben ---
+RewriteRule ^assets/ - [L]
 
-# --- www auf non-www umleiten (OHNE https-Zwang) ---
+# --- Favicon nicht umschreiben ---
+RewriteRule ^favicon\.png$ - [L]
+
+
+# --- HTTPS erzwingen ---
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# --- Form-Handler explizit erlauben (nicht umschreiben) ---
+RewriteRule ^includes/form-handler\.php$ - [L]
+
+# --- www auf non-www umleiten ---
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-RewriteRule ^ http://%1%{REQUEST_URI} [L,R=301]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
-# --- Zugriff auf /includes blockieren ---
+# --- Zugriff auf /includes blockieren (AUSSER form-handler.php) ---
+RewriteCond %{REQUEST_URI} !^/includes/form-handler\.php$
 RewriteRule ^includes/ - [F,L]
 
 # --- Zugriff auf /storage blockieren ---
@@ -34,7 +40,8 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^([^/]+)/?$ $1.php [L,QSA]
 
-# --- Direkten Zugriff auf .php-Dateien umleiten ---
+# --- Direkten Zugriff auf .php-Dateien umleiten (AUSSER form-handler.php) ---
+RewriteCond %{REQUEST_URI} !^/includes/form-handler\.php$ [NC]
 RewriteCond %{THE_REQUEST} \s/([^.]+)\.php[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
 

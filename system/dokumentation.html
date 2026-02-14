@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Technische Dokumentation – Tokmak GmbH</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .doc-container { max-width: 800px; margin: 0 auto; padding: 48px 24px 96px; }
+        .doc-back { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8125rem; color: var(--color-text-muted); margin-bottom: 40px; text-decoration: none; }
+        .doc-back:hover { color: var(--color-primary); }
+        .doc-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+        .doc-meta { font-size: 0.8125rem; color: var(--color-text-muted); margin-bottom: 48px; }
+        .doc-section { margin-bottom: 48px; }
+        .doc-section-title { font-size: 1.125rem; font-weight: 700; color: var(--color-primary); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--color-surface-border); }
+        .doc-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+        .doc-table th { text-align: left; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); padding: 8px 12px; border-bottom: 1px solid var(--color-surface-border); }
+        .doc-table td { font-size: 0.8125rem; color: var(--color-text); padding: 10px 12px; border-bottom: 1px solid var(--color-surface-border); }
+        .doc-table td.mono { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; color: var(--color-primary); font-size: 0.75rem; }
+        .doc-table tr:last-child td { border-bottom: none; }
+        .doc-note { background: var(--color-surface); border: 1px solid var(--color-surface-border); border-radius: 8px; padding: 16px; font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.6; margin-top: 12px; }
+        .doc-list { list-style: none; padding: 0; }
+        .doc-list li { font-size: 0.8125rem; color: var(--color-text); padding: 6px 0; border-bottom: 1px solid var(--color-surface-border); }
+        .doc-list li:last-child { border-bottom: none; }
+        .doc-list li::before { content: '›'; color: var(--color-primary); margin-right: 8px; font-weight: 700; }
+        .doc-label { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <div class="doc-container">
+
+        <a href="index.html" class="doc-back">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Zurück zum Dashboard
+        </a>
+
+        <h1 class="doc-title">Technische Dokumentation</h1>
+        <p class="doc-meta">Tokmak GmbH – Stand: Februar 2026 – Erstellt von DigiStart</p>
+
+        <!-- 1. HOSTING & DOMAIN -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">1. Hosting & Domain</h2>
+            <table class="doc-table">
+                <tr><th>Eigenschaft</th><th>Wert</th></tr>
+                <tr><td>Hoster</td><td>All-Inkl (all-inkl.com)</td></tr>
+                <tr><td>Kundennummer</td><td class="mono">847428</td></tr>
+                <tr><td>KAS-Login</td><td class="mono">kas.all-inkl.com</td></tr>
+                <tr><td>Hauptdomain</td><td class="mono">tokmak-gmbh.de</td></tr>
+                <tr><td>Dashboard</td><td class="mono">dashboard.tokmak-gmbh.de</td></tr>
+                <tr><td>SSL</td><td>Let's Encrypt (automatisch über All-Inkl)</td></tr>
+                <tr><td>Server</td><td>Shared Hosting, PHP 8.x</td></tr>
+            </table>
+            <div class="doc-note">
+                Das KAS (Kunden-Administrations-System) von All-Inkl ist die zentrale Verwaltung für Domain, E-Mail, FTP, Datenbanken und SSL-Zertifikate. Login unter kas.all-inkl.com mit der Kundennummer.
+            </div>
+        </div>
+
+        <!-- 2. WEBSITE-STRUKTUR -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">2. Website-Struktur</h2>
+            <table class="doc-table">
+                <tr><th>Eigenschaft</th><th>Wert</th></tr>
+                <tr><td>Technologie</td><td>PHP (statisch, kein CMS, kein WordPress)</td></tr>
+                <tr><td>Framework</td><td>Keines – reines HTML/CSS/JS/PHP</td></tr>
+                <tr><td>Schriftart</td><td>Karla (lokal gehostet, DSGVO-konform)</td></tr>
+                <tr><td>Externe Abhängigkeiten</td><td>Keine (kein CDN, keine externen Fonts)</td></tr>
+            </table>
+
+            <div class="doc-label">Seiten</div>
+            <ul class="doc-list">
+                <li>index.php – Startseite</li>
+                <li>leistungen.php – Leistungsübersicht</li>
+                <li>badsanierung.php – Landingpage Badsanierung</li>
+                <li>referenzen.php – Referenzprojekte</li>
+                <li>ueber-uns.php – Über das Unternehmen</li>
+                <li>kontakt.php – Kontaktformular</li>
+                <li>karriere.php – Stellenangebote</li>
+                <li>danke.php – Bestätigungsseite nach Formularversand</li>
+                <li>impressum.php – Impressum</li>
+                <li>datenschutz.php – Datenschutzerklärung</li>
+            </ul>
+
+            <div class="doc-label" style="margin-top:16px">Includes (wiederverwendbare Module)</div>
+            <ul class="doc-list">
+                <li>includes/config.php – Zentrale Konfiguration (Firmendaten, Kontakt, Pfade)</li>
+                <li>includes/header.php – Navigation & Kopfbereich</li>
+                <li>includes/footer.php – Fußzeile</li>
+                <li>includes/head-meta.php – Meta-Tags, SEO, Open Graph</li>
+                <li>includes/scripts.php – JavaScript-Einbindung</li>
+                <li>includes/gdpr-features.php – Cookie-Banner & DSGVO-Funktionen</li>
+                <li>includes/form-handler.php – Kontaktformular-Verarbeitung</li>
+            </ul>
+        </div>
+
+        <!-- 3. KONTAKTFORMULAR -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">3. Kontaktformular</h2>
+            <table class="doc-table">
+                <tr><th>Eigenschaft</th><th>Wert</th></tr>
+                <tr><td>Verarbeitung</td><td>form-handler.php (serverseitig)</td></tr>
+                <tr><td>Empfänger</td><td class="mono">info@tokmak-gmbh.de</td></tr>
+                <tr><td>Lead-Speicherung</td><td class="mono">storage/leads.json</td></tr>
+                <tr><td>Rate-Limiting</td><td>30 Sekunden zwischen Absendungen</td></tr>
+                <tr><td>Spam-Schutz</td><td>Honeypot-Feld + Rate-Limiting</td></tr>
+            </table>
+            <div class="doc-note">
+                Alle Formular-Anfragen werden doppelt gesichert: per E-Mail an info@ und als JSON in storage/leads.json. Die leads.json ist durch eine .htaccess vor direktem Zugriff geschützt.
+            </div>
+        </div>
+
+        <!-- 4. E-MAIL -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">4. E-Mail-System</h2>
+            <table class="doc-table">
+                <tr><th>Adresse</th><th>Verwendung</th></tr>
+                <tr><td class="mono">info@tokmak-gmbh.de</td><td>Allgemeine Anfragen, Kontaktformular</td></tr>
+                <tr><td class="mono">buchhaltung@tokmak-gmbh.de</td><td>Rechnungen, Finanzen</td></tr>
+                <tr><td class="mono">tufantokmak@tokmak-gmbh.de</td><td>Persönliches Postfach Geschäftsführer</td></tr>
+            </table>
+            <table class="doc-table" style="margin-top:16px">
+                <tr><th>Eigenschaft</th><th>Wert</th></tr>
+                <tr><td>Webmail</td><td class="mono">webmail.all-inkl.com</td></tr>
+                <tr><td>Verwaltung</td><td>Über KAS (kas.all-inkl.com) → E-Mail</td></tr>
+                <tr><td>Protokoll</td><td>IMAP / SMTP über All-Inkl</td></tr>
+            </table>
+        </div>
+
+        <!-- 5. GOOGLE-INFRASTRUKTUR -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">5. Google-Infrastruktur</h2>
+            <table class="doc-table">
+                <tr><th>Dienst</th><th>Details</th></tr>
+                <tr><td>Google Konto</td><td class="mono">tokmak.digital@gmail.com</td></tr>
+                <tr><td>Google Unternehmensprofil</td><td>Aktiv & verifiziert auf Google Maps</td></tr>
+                <tr><td>Google Drive</td><td>Zentrale Dateiablage (Logo, Dokumente)</td></tr>
+                <tr><td>Rezensionslink</td><td class="mono">g.page/r/CYTV5e0OsVNZEBM/review</td></tr>
+            </table>
+            <div class="doc-note">
+                Das Google Konto ist der zentrale Schlüssel für alle Google-Dienste. Darüber wird das Unternehmensprofil verwaltet, Drive genutzt und der Rezensionslink generiert. Login erfolgt mit tokmak.digital@gmail.com.
+            </div>
+        </div>
+
+        <!-- 6. BRANDING -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">6. Branding & Design</h2>
+
+            <div class="doc-label">Schrift</div>
+            <table class="doc-table">
+                <tr><th>Schriftart</th><th>Schnitte</th><th>Einbindung</th></tr>
+                <tr><td>Karla</td><td class="mono">Light 300, Regular 400, Bold 700</td><td>Lokal (DSGVO-konform, kein Google CDN)</td></tr>
+            </table>
+
+            <div class="doc-label" style="margin-top:16px">Farben</div>
+            <table class="doc-table">
+                <tr><th>Name</th><th>HEX</th><th>Verwendung</th></tr>
+                <tr><td>Warmgrau</td><td class="mono">#8C8279</td><td>Primärfarbe, Akzente, Buttons</td></tr>
+                <tr><td>Anthrazit</td><td class="mono">#2D2926</td><td>Hintergrund dunkel, Footer, Header</td></tr>
+                <tr><td>Hellgrau</td><td class="mono">#F8F7F5</td><td>Hintergrund hell, Sektionen</td></tr>
+                <tr><td>Textfarbe</td><td class="mono">#3D3835</td><td>Fließtext</td></tr>
+            </table>
+
+            <div class="doc-label" style="margin-top:16px">Firmendaten</div>
+            <table class="doc-table">
+                <tr><th>Feld</th><th>Wert</th></tr>
+                <tr><td>Firmenname</td><td>Tokmak GmbH</td></tr>
+                <tr><td>Claim</td><td>Räume mit Stil</td></tr>
+                <tr><td>Schwerpunkt</td><td>Komplett-Badsanierung aus einer Hand</td></tr>
+                <tr><td>Inhaber</td><td>Tufan Tokmak</td></tr>
+                <tr><td>Handelsregister</td><td>HRB 803281, Amtsgericht Stuttgart</td></tr>
+            </table>
+        </div>
+
+        <!-- 7. DSGVO -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">7. DSGVO & Datenschutz</h2>
+            <ul class="doc-list">
+                <li>Keine externen Fonts (Karla lokal gehostet)</li>
+                <li>Keine CDN-Einbindungen</li>
+                <li>Kein Google Analytics / kein Tracking</li>
+                <li>Cookie Consent Manager: CCM19 (ccm19.de) – externer Dienst mit eigenem Login</li>
+                <li>Cookie-Banner-Einbindung über gdpr-features.php</li>
+                <li>Impressum & Datenschutzerklärung als eigene Seiten</li>
+                <li>Kontaktformular-Daten nur lokal gespeichert (leads.json)</li>
+                <li>SSL-Verschlüsselung auf allen Seiten</li>
+            </ul>
+        </div>
+
+        <!-- 8. EXTERNE DIENSTE -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">8. Externe Dienste & Zugänge</h2>
+            <table class="doc-table">
+                <tr><th>Dienst</th><th>URL</th><th>Zweck</th></tr>
+                <tr><td>All-Inkl KAS</td><td class="mono">kas.all-inkl.com</td><td>Domain, E-Mail, FTP, SSL verwalten</td></tr>
+                <tr><td>CCM19</td><td class="mono">ccm19.de</td><td>Cookie Consent Manager – Banner konfigurieren</td></tr>
+                <tr><td>Google Konto</td><td class="mono">mail.google.com</td><td>Gmail, Drive, Unternehmensprofil, YouTube</td></tr>
+            </table>
+            <div class="doc-note">
+                <strong>CCM19</strong> ist der Cookie Consent Manager für die DSGVO-konforme Cookie-Verwaltung. Über das CCM19-Dashboard werden Cookie-Kategorien, Texte und das Erscheinungsbild des Banners konfiguriert. Das Skript wird über gdpr-features.php in die Website eingebunden. Zugangsdaten befinden sich im Zugangsdaten-Dokument.
+            </div>
+        </div>
+
+        <!-- 9. KONTAKTDATEN -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">9. Kontaktdaten Unternehmen</h2>
+            <table class="doc-table">
+                <tr><th>Feld</th><th>Wert</th></tr>
+                <tr><td>Telefon</td><td class="mono">0151 629 883 17</td></tr>
+                <tr><td>E-Mail</td><td class="mono">info@tokmak-gmbh.de</td></tr>
+                <tr><td>Adresse</td><td>Daimlerstr. 8, 72805 Lichtenstein</td></tr>
+                <tr><td>Region</td><td>Lichtenstein & Umgebung</td></tr>
+            </table>
+        </div>
+
+        <!-- 10. WICHTIGE HINWEISE -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">10. Wichtige Hinweise für spätere Bearbeitung</h2>
+            <div class="doc-note">
+                <strong>Website-Änderungen:</strong> Alle Firmendaten (Name, Telefon, Adresse) werden zentral in includes/config.php gepflegt. Eine Änderung dort wirkt sich auf alle Seiten aus.<br><br>
+                <strong>Neue Seiten:</strong> PHP-Datei im Hauptverzeichnis anlegen, header.php und footer.php per include einbinden.<br><br>
+                <strong>E-Mail-Postfächer:</strong> Neue Adressen über KAS (kas.all-inkl.com) anlegen. Kundennr. 847428.<br><br>
+                <strong>SSL-Zertifikat:</strong> Erneuert sich automatisch über All-Inkl (Let's Encrypt).<br><br>
+                <strong>Bilder:</strong> Liegen unter public_html/assets/img/ im .webp-Format für optimale Ladezeit.<br><br>
+                <strong>Cookie-Banner:</strong> Wird über CCM19 (ccm19.de) verwaltet. Texte, Kategorien und Design des Banners werden dort konfiguriert. Eingebunden über gdpr-features.php.<br><br>
+                <strong>Dashboard:</strong> Nur die Datei system/config/client-config.js anpassen – alles andere generiert sich automatisch.
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

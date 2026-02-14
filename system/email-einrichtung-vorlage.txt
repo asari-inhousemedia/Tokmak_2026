@@ -1,0 +1,198 @@
+E-MAIL EINRICHTUNG & SIGNATUR
+Anleitung für alle Systeme
+========================================
+Stand: Februar 2026
+Erstellt von DigiStart / Inhouse Media
+
+
+IHRE E-MAIL-ZUGANGSDATEN
+────────────────────────────────────────
+
+Posteingangsserver (IMAP):  w020e585.kasserver.com
+Postausgangsserver (SMTP):  w020e585.kasserver.com
+Port IMAP:                  993 (SSL/TLS)
+Port SMTP:                  465 (SSL/TLS)
+Benutzername:               Ihre vollständige E-Mail-Adresse
+Passwort:                   Ihr E-Mail-Passwort (siehe Zugangsdaten-Dokument)
+Authentifizierung:          Passwort (normal)
+Verschlüsselung:            SSL/TLS
+
+Wichtig: IMAP und SMTP verwenden denselben Server!
+
+
+1. APPLE MAIL (iPhone / iPad)
+────────────────────────────────────────
+
+1. Einstellungen > Mail > Accounts > Account hinzufügen
+2. "Andere" wählen > "Mail-Account hinzufügen"
+3. Eingeben:
+   - Name: Ihr Name (z.B. Tufan Tokmak)
+   - E-Mail: info@tokmak-gmbh.de
+   - Passwort: Ihr E-Mail-Passwort
+   - Beschreibung: Tokmak GmbH
+4. "Weiter" tippen > IMAP wählen
+5. Server für eintreffende E-Mails:
+   - Hostname: w020e585.kasserver.com
+   - Benutzername: info@tokmak-gmbh.de
+   - Passwort: Ihr Passwort
+6. Server für ausgehende E-Mails:
+   - Hostname: w020e585.kasserver.com
+   - Benutzername: info@tokmak-gmbh.de
+   - Passwort: Ihr Passwort
+7. "Sichern" tippen
+
+SIGNATUR EINRICHTEN (iPhone/iPad):
+1. Einstellungen > Mail > Signatur
+2. "Pro Account" wählen
+3. Den Account auswählen
+4. Signaturtext eingeben (Klartext, kein HTML möglich auf iOS)
+
+
+2. APPLE MAIL (Mac)
+────────────────────────────────────────
+
+1. Mail > Einstellungen > Accounts > "+" klicken
+2. "Anderer Mail-Account" wählen
+3. Eingeben:
+   - Name: Ihr Name
+   - E-Mail-Adresse: info@tokmak-gmbh.de
+   - Passwort: Ihr E-Mail-Passwort
+4. "Anmelden" klicken
+5. Falls manuelle Eingabe nötig:
+   - Accounttyp: IMAP
+   - Eingangsserver: w020e585.kasserver.com
+   - Ausgangsserver: w020e585.kasserver.com
+
+HTML-SIGNATUR EINRICHTEN (Mac):
+1. Mail > Einstellungen > Signaturen
+2. Account auswählen > "+" klicken > Platzhalter-Text eingeben
+3. Mail komplett beenden
+4. Finder > Gehe zu > Gehe zum Ordner:
+   ~/Library/Mail/V10/MailData/Signatures/
+5. Die zuletzt geänderte .mailsignature-Datei öffnen (mit TextEdit)
+6. Den HTML-Code nach dem "Mime-Version" Header ersetzen
+7. Datei speichern > Im Finder "Datei sperren" (Rechtsklick > Informationen > Geschützt)
+8. Mail neu starten
+
+
+3. MICROSOFT OUTLOOK (Windows / Mac)
+────────────────────────────────────────
+
+OUTLOOK FÜR WINDOWS (Neue Version / Microsoft 365):
+1. Einstellungen (Zahnrad) > Konten > E-Mail-Konten > Konto hinzufügen
+2. E-Mail-Adresse eingeben > "Erweiterte Optionen" > "Ich möchte mein Konto manuell einrichten"
+3. IMAP wählen
+4. Eingeben:
+   - Eingangsserver: w020e585.kasserver.com, Port 993, SSL/TLS
+   - Ausgangsserver: w020e585.kasserver.com, Port 465, SSL/TLS
+5. Anmelden
+
+OUTLOOK FÜR MAC:
+1. Outlook > Einstellungen > Konten > "+" > Neues Konto
+2. E-Mail-Adresse eingeben
+3. "Nicht IMAP" wählen falls Exchange vorgeschlagen wird
+4. IMAP-Daten wie oben eingeben
+
+HTML-SIGNATUR IN OUTLOOK (Windows):
+1. Datei > Optionen > E-Mail > Signaturen
+2. "Neu" klicken > Name vergeben
+3. Im Signatur-Editor: Text eingeben ODER
+4. Für HTML: Die Signatur-HTML-Datei herunterladen
+5. Im Signatur-Ordner ablegen:
+   C:\Users\[Name]\AppData\Roaming\Microsoft\Signatures\
+6. Outlook neu starten > Signatur auswählen
+
+HTML-SIGNATUR IN OUTLOOK (Mac):
+1. Outlook > Einstellungen > Signaturen
+2. "+" klicken > Signatur bearbeiten
+3. Hinweis: Outlook Mac unterstützt nur eingeschränkt HTML
+   Empfehlung: Signatur als Bild + Text gestalten
+
+
+4. GMAIL (Webbrowser)
+────────────────────────────────────────
+
+KONTO HINZUFÜGEN (E-Mail in Gmail empfangen):
+1. Gmail öffnen > Zahnrad > Alle Einstellungen
+2. Tab "Konten und Import"
+3. "E-Mails von anderen Konten abrufen" > "E-Mail-Konto hinzufügen"
+4. E-Mail-Adresse eingeben (z.B. info@tokmak-gmbh.de)
+5. IMAP-Daten eingeben:
+   - Benutzername: info@tokmak-gmbh.de
+   - Passwort: Ihr Passwort
+   - POP-Server: Alternativ IMAP verwenden
+6. "Auch als Alias senden" konfigurieren:
+   - SMTP-Server: w020e585.kasserver.com
+   - Port: 465
+   - SSL verwenden
+
+HTML-SIGNATUR IN GMAIL:
+1. Gmail > Zahnrad > Alle Einstellungen > Allgemein
+2. Runterscrollen zu "Signatur"
+3. "Neue Signatur erstellen"
+4. Für HTML-Signatur:
+   a) Die HTML-Signatur-Datei im Browser öffnen
+   b) Alles markieren (Strg+A / Cmd+A)
+   c) Kopieren (Strg+C / Cmd+C)
+   d) In das Signaturfeld in Gmail einfügen (Strg+V / Cmd+V)
+5. "Änderungen speichern"
+
+
+5. THUNDERBIRD (Windows / Mac / Linux)
+────────────────────────────────────────
+
+1. Thunderbird öffnen > Einstellungen > Konten-Einstellungen
+2. "Konten-Aktionen" > "E-Mail-Konto hinzufügen"
+3. Eingeben:
+   - Ihr Name
+   - E-Mail-Adresse
+   - Passwort
+4. "Manuell konfigurieren" klicken
+5. Eingeben:
+   - Eingang: IMAP, w020e585.kasserver.com, Port 993, SSL/TLS
+   - Ausgang: SMTP, w020e585.kasserver.com, Port 465, SSL/TLS
+   - Authentifizierung: Normales Passwort
+6. "Fertig" klicken
+
+HTML-SIGNATUR IN THUNDERBIRD:
+1. Einstellungen > Konten-Einstellungen > [Ihr Konto]
+2. Checkbox "HTML-Signatur verwenden" aktivieren
+3. "Datei anhängen" wählen > HTML-Signatur-Datei auswählen
+   ODER direkt HTML-Code in das Signaturfeld einfügen
+4. OK klicken
+
+
+6. SAMSUNG MAIL / ANDROID
+────────────────────────────────────────
+
+SAMSUNG MAIL:
+1. Samsung Mail App > Einstellungen > Konto hinzufügen
+2. "Andere" wählen
+3. E-Mail-Adresse und Passwort eingeben
+4. "Manuelles Setup" wählen > IMAP
+5. Eingangsserver: w020e585.kasserver.com, Port 993, Sicherheitstyp: SSL/TLS
+6. Ausgangsserver: w020e585.kasserver.com, Port 465, Sicherheitstyp: SSL/TLS
+
+GMAIL APP (Android):
+1. Gmail App > Profilbild > "Weiteres Konto hinzufügen"
+2. "Sonstige" wählen
+3. E-Mail-Adresse eingeben > "Manuelles Setup"
+4. "Privat (IMAP)" wählen
+5. Serverdaten wie oben eingeben
+
+SIGNATUR (Android):
+1. Gmail App > Einstellungen > [Konto auswählen] > Signatur
+2. Nur Klartext möglich (kein HTML in der Gmail App)
+   Empfehlung: Minimalversion mit Name, Firma, Telefon, Website
+
+
+ALLGEMEINE HINWEISE
+────────────────────────────────────────
+
+• Benutzername ist immer die vollständige E-Mail-Adresse
+• Passwörter finden Sie im Zugangsdaten-Dokument
+• Immer SSL/TLS verwenden (nie unverschlüsselt)
+• IMAP synchronisiert E-Mails auf allen Geräten
+• Bei Problemen: Antivirus/Firewall prüfen (Port 993 und 465 müssen offen sein)
+• HTML-Signatur-Datei finden Sie im Google Drive unter "E-Mail-Signatur"
+• Für die Webmail-Oberfläche: webmail.all-inkl.com (keine Einrichtung nötig)

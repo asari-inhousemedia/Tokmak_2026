@@ -9,7 +9,7 @@
 $gdprFeatures = [
     'contact_form' => true,
     'analytics'    => false,
-    'maps'         => false,
+    'maps'         => true,
     'newsletter'   => false,
     'social_media' => false,
 ];
@@ -26,11 +26,24 @@ $gdprTexts = [
         Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage
         und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre
         Einwilligung weiter.</p>
+        <p>Im Einzelnen werden folgende Daten erhoben:</p>
+        <ul>
+            <li>Name (Pflichtfeld)</li>
+            <li>E-Mail-Adresse (Pflichtfeld)</li>
+            <li>Telefonnummer (optional)</li>
+            <li>Projektart (Pflichtfeld)</li>
+            <li>Objektart (optional)</li>
+            <li>Gewünschter Zeitraum (optional)</li>
+            <li>Nachricht (Pflichtfeld)</li>
+        </ul>
         <p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre
         Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher
         Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten
         Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO)
         oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).</p>
+        <p>Die Daten werden per E-Mail an uns übermittelt und serverseitig zur Nachverfolgung gespeichert.
+        Ein automatisierter Spam-Schutz (Honeypot-Verfahren) wird eingesetzt, der keine personenbezogenen
+        Daten verarbeitet.</p>
         <p>Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung
         auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung
         entfällt. Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.</p>'
@@ -47,12 +60,14 @@ $gdprTexts = [
     ],
 
     'maps' => [
-        'title' => 'Kartendienste',
-        'text'  => '<p>Diese Website nutzt einen Kartendienst zur Darstellung von Standortinformationen.
-        Beim Aufruf der Karte werden Daten an den Kartenanbieter übertragen. Dies geschieht erst nach
-        Ihrer aktiven Einwilligung (Opt-In).</p>
-        <p>Die Nutzung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Eine erteilte
-        Einwilligung kann jederzeit widerrufen werden.</p>'
+        'title' => 'OpenStreetMap',
+        'text'  => '<p>Diese Website nutzt den Kartendienst OpenStreetMap (OSM) zur Darstellung unseres Standorts im Footer-Bereich.
+        Die Karte wird über die Server der OpenStreetMap Foundation (OSMF), St John\'s Innovation Centre, Cowley Road, Cambridge, CB4 0WS, United Kingdom, eingebunden.</p>
+        <p>Beim Laden der Kartenansicht wird eine Verbindung zu den Servern von OpenStreetMap hergestellt.
+        Dabei kann Ihre IP-Adresse an die OSMF übermittelt werden. Weitere Informationen finden Sie in der
+        Datenschutzerklärung von OpenStreetMap: <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">https://wiki.osmfoundation.org/wiki/Privacy_Policy</a></p>
+        <p>Die Nutzung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse
+        an der Darstellung unseres Standorts zur Erleichterung der Kontaktaufnahme und Anfahrt.</p>'
     ],
 
     'newsletter' => [

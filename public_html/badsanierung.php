@@ -34,12 +34,20 @@ $pageSlug        = 'badsanierung';
             <div class="content-split">
                 <div class="content-split-text">
                     <span class="section-label">Was uns unterscheidet</span>
-                    <h2 class="section-title">Badsanierung heißt bei uns: Komplettverantwortung.</h2>
-                    <p>Eine Badsanierung ist kein Einzelgewerk. Sanitär, Elektro, Estrich, Fliesen, Abdichtung – alles muss zusammenpassen. Bei Tokmak übernehmen wir die Planung und Koordination aller beteiligten Gewerke.</p>
-                    <p>Sie haben einen festen Ansprechpartner, einen verbindlichen Zeitplan und ein transparentes Angebot. Kein Abstimmungschaos, keine Überraschungen.</p>
+                    <h2 class="section-title">Badsanierung bedeutet für uns: Verantwortung ohne Kompromisse.</h2>
+                    <p>Eine hochwertige Badsanierung ist kein Zusammenspiel einzelner Gewerke – sondern ein präzise geführtes Gesamtkonzept. Sanitär, Elektro, Estrich, Fliesen und Abdichtung greifen nahtlos ineinander.</p>
+                    <p>Wir übernehmen die vollständige Planung, Koordination und Bauleitung aller beteiligten Gewerke.</p>
+                    <p>Sie profitieren von:</p>
+                    <ul class="check-list">
+                        <li>einem festen Ansprechpartner</li>
+                        <li>einem verbindlichen Zeitplan</li>
+                        <li>klar kalkulierten, transparenten Angeboten</li>
+                        <li>strukturierten Abläufen ohne Abstimmungschaos</li>
+                    </ul>
+                    <p>Keine Überraschungen. Keine Reibungsverluste. Nur saubere Ergebnisse.</p>
                 </div>
                 <div class="content-split-visual">
-                    <div class="placeholder-visual"><span>Bild: Fertiges Bad</span></div>
+                    <img src="/assets/img/4.webp" alt="Fertiges Bad – Tokmak GmbH" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md);" loading="lazy">
                 </div>
             </div>
         </div>
@@ -102,7 +110,7 @@ $pageSlug        = 'badsanierung';
                     </ul>
                 </div>
                 <div class="content-split-visual">
-                    <div class="placeholder-visual"><span>Bild: Großformatfliesen</span></div>
+                    <img src="/assets/img/grossformat.webp" alt="Großformatfliesen – Tokmak GmbH" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md);" loading="lazy">
                 </div>
             </div>
 
@@ -117,7 +125,7 @@ $pageSlug        = 'badsanierung';
                     </ul>
                 </div>
                 <div class="content-split-visual">
-                    <div class="placeholder-visual"><span>Bild: Fugenloses Bad</span></div>
+                    <img src="/assets/img/fugenfrei.webp" alt="Fugenloses Bad – Tokmak GmbH" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md);" loading="lazy">
                 </div>
             </div>
 
@@ -132,7 +140,7 @@ $pageSlug        = 'badsanierung';
                     </ul>
                 </div>
                 <div class="content-split-visual">
-                    <div class="placeholder-visual"><span>Bild: Barrierefreies Bad</span></div>
+                    <img src="/assets/img/altersgerecht.webp" alt="Altersgerechter Badumbau – Tokmak GmbH" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md);" loading="lazy">
                 </div>
             </div>
         </div>
@@ -143,7 +151,7 @@ $pageSlug        = 'badsanierung';
         <div class="container">
             <div class="section-header is-centered">
                 <span class="section-label">Ihr Weg zum neuen Bad</span>
-                <h2 class="section-title">So läuft eine Badsanierung bei Tokmak ab</h2>
+                <h2 class="section-title">So läuft eine Badsanierung bei uns ab</h2>
                 <p class="section-subtitle">Transparent, strukturiert und mit klaren Verantwortlichkeiten.</p>
             </div>
 
@@ -157,8 +165,8 @@ $pageSlug        = 'badsanierung';
                     <p class="feature-text">Auf Basis des Aufmaßes erstellen wir eine 3D-Visualisierung. In unserer Ausstellung wählen Sie Fliesen, Armaturen und Oberflächen.</p>
                 </div>
                 <div class="feature-block">
-                    <h3 class="feature-title">3. Verbindliches Angebot</h3>
-                    <p class="feature-text">Sie erhalten ein detailliertes Gesamtangebot – alle Gewerke, alle Positionen, transparent aufgeschlüsselt.</p>
+                    <h3 class="feature-title">3. Unverbindliches Angebot</h3>
+                    <p class="feature-text">Sie erhalten ein detailliertes und unverbindliches Gesamtangebot – alle Gewerke, alle Positionen, transparent aufgeschlüsselt.</p>
                 </div>
                 <div class="feature-block">
                     <h3 class="feature-title">4. Koordinierte Umsetzung</h3>
@@ -171,85 +179,6 @@ $pageSlug        = 'badsanierung';
                 <div class="feature-block">
                     <h3 class="feature-title">Und danach?</h3>
                     <p class="feature-text">Auch nach Abschluss sind wir erreichbar. Bei Fragen oder Gewährleistungsanliegen haben Sie weiterhin einen direkten Ansprechpartner.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Häufige Fragen</span>
-                <h2 class="section-title">Was Sie wissen sollten</h2>
-            </div>
-
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Wie lange dauert eine Komplett-Badsanierung?</span>
-                        <span class="faq-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="faq-answer" aria-hidden="true">
-                        <div class="faq-answer-inner">
-                            <p>Eine typische Komplett-Badsanierung dauert bei uns 2 bis 4 Wochen – abhängig von Raumgröße und Umfang. Den genauen Zeitplan besprechen wir vor Baubeginn verbindlich.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Wie verbindlich ist das Angebot?</span>
-                        <span class="faq-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="faq-answer" aria-hidden="true">
-                        <div class="faq-answer-inner">
-                            <p>Unser Angebot ist verbindlich. Es basiert auf einem persönlichen Aufmaß und einer detaillierten Planung. Nachträgliche Kosten entstehen nur bei Ihren Änderungswünschen oder unvorhergesehenen baulichen Mängeln – darüber sprechen wir offen.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Koordinieren Sie alle Gewerke?</span>
-                        <span class="faq-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="faq-answer" aria-hidden="true">
-                        <div class="faq-answer-inner">
-                            <p>Ja. Sanitär, Elektro, Estrich, Abdichtung, Fliesen und Montage – wir koordinieren alle beteiligten Gewerke. Sie haben einen festen Ansprechpartner.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Kann ich Materialien vorab sehen und anfassen?</span>
-                        <span class="faq-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="faq-answer" aria-hidden="true">
-                        <div class="faq-answer-inner">
-                            <p>Ja. In unserer Ausstellung zeigen wir Ihnen aktuelle Fliesen, Oberflächen und Materialien. Zusätzlich sehen Sie Ihr Bad als 3D-Visualisierung vor Baubeginn.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Was kostet eine Badsanierung?</span>
-                        <span class="faq-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="faq-answer" aria-hidden="true">
-                        <div class="faq-answer-inner">
-                            <p>Die Kosten hängen von Raumgröße, Materialwahl und Umfang ab. Pauschalpreise geben wir bewusst nicht an, weil jedes Projekt individuell ist. Nach dem Aufmaß erhalten Sie ein transparentes, detailliertes Angebot.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Was passiert bei unerwarteten Problemen?</span>
-                        <span class="faq-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="faq-answer" aria-hidden="true">
-                        <div class="faq-answer-inner">
-                            <p>Sollten bei der Demontage unvorhergesehene Mängel auftauchen, informieren wir Sie sofort und besprechen die nächsten Schritte transparent – inkl. möglicher Mehrkosten.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -39,8 +39,7 @@ $pageSlug        = 'ueber-uns';
                     <p>Unser Fokus liegt auf Planungssicherheit, transparenter Kommunikation und sauberer Ausführung. Jedes Projekt wird individuell geplant und mit einem festen Ansprechpartner koordiniert.</p>
                 </div>
                 <div class="content-split-visual">
-                    <!-- <img src="/assets/img/team.jpg" alt="Team Tokmak GmbH" width="600" height="450" loading="lazy"> -->
-                    <div class="placeholder-visual"><span>Team- / Firmenfoto</span></div>
+                    <img src="/assets/img/tokmak.webp" alt="Tokmak GmbH" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md);" loading="lazy">
                 </div>
             </div>
         </div>
@@ -83,7 +82,7 @@ $pageSlug        = 'ueber-uns';
                     <a href="/kontakt" class="btn btn-primary" style="margin-top: var(--space-md);">Ausstellungstermin vereinbaren</a>
                 </div>
                 <div class="content-split-visual">
-                    <div class="placeholder-visual" style="min-height: 350px;"><span>Bild: Ausstellung</span></div>
+                    <img src="/assets/img/materialien.webp" alt="Materialien erleben – Tokmak GmbH" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md); min-height:350px;" loading="lazy">
                 </div>
             </div>
         </div>

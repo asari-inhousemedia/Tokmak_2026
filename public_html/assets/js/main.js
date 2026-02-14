@@ -321,30 +321,32 @@
         var steps = section.querySelectorAll('.process-step');
         if (!steps.length) return;
 
-        // Klasse für neue Animationen setzen
+        // Klasse für Animation-Startzustand setzen
         steps.forEach(function (step) {
             step.classList.add('step-animate');
         });
 
-        // Mobile: Staggered Scroll-Reveal (nacheinander einblenden)
         if ('IntersectionObserver' in window) {
-            var observer = new IntersectionObserver(function (entries) {
+            // Beobachte die gesamte Sektion (nicht einzelne Steps)
+            var sectionObserver = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('step-visible');
-                        observer.unobserve(entry.target);
+                        // Gestaffeltes Auto-Pop von links nach rechts
+                        steps.forEach(function (step, i) {
+                            setTimeout(function () {
+                                step.classList.add('step-visible');
+                                step.classList.add('step-pop');
+                            }, i * 180);
+                        });
+                        sectionObserver.unobserve(entry.target);
                     }
                 });
             }, {
-                threshold: 0.15,
-                rootMargin: '0px 0px -30px 0px'
+                threshold: 0.2,
+                rootMargin: '0px 0px -40px 0px'
             });
 
-            steps.forEach(function (step, i) {
-                // Stagger-Delay für sequenziellen Effekt
-                step.style.transitionDelay = (i * 0.15) + 's';
-                observer.observe(step);
-            });
+            sectionObserver.observe(section);
         } else {
             // Fallback: Alles sofort sichtbar
             steps.forEach(function (step) {
@@ -541,6 +543,101 @@
     }
 
     /* ============================================
+       CARD STAGGERED REVEAL
+       ============================================ */
+    function initCardReveal() {
+        var cards = document.querySelectorAll('.grid .card');
+        if (!cards.length) return;
+
+        if (!('IntersectionObserver' in window)) {
+            cards.forEach(function(c) { c.classList.add('card-visible'); });
+            return;
+        }
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var card = entry.target;
+                    var parent = card.closest('.grid');
+                    var siblings = Array.prototype.slice.call(parent.querySelectorAll('.card'));
+                    var idx = siblings.indexOf(card);
+                    setTimeout(function() {
+                        card.classList.add('card-visible');
+                    }, idx * 120);
+                    observer.unobserve(card);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        cards.forEach(function(c) { observer.observe(c); });
+    }
+
+    /* ============================================
+       BENEFIT CARDS – Staggered Pop (Karriere)
+       ============================================ */
+    function initBenefitCards() {
+        var cards = document.querySelectorAll('.benefit-card');
+        if (!cards.length) return;
+
+        if (!('IntersectionObserver' in window)) {
+            cards.forEach(function(c) { c.classList.add('benefit-visible'); });
+            return;
+        }
+
+        var grid = cards[0].closest('.benefits-grid');
+        if (!grid) return;
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    cards.forEach(function(card, i) {
+                        setTimeout(function() {
+                            card.classList.add('benefit-visible');
+                        }, i * 200);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        observer.observe(grid);
+    }
+
+    /* ============================================
+       FEATURE BLOCKS – Staggered Slide-In
+       ============================================ */
+    function initFeatureBlocks() {
+        var blocks = document.querySelectorAll('.feature-block');
+        if (!blocks.length) return;
+
+        if (!('IntersectionObserver' in window)) {
+            blocks.forEach(function(b) { b.classList.add('feature-visible'); });
+            return;
+        }
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var parent = entry.target.closest('.grid');
+                    if (!parent) {
+                        entry.target.classList.add('feature-visible');
+                        observer.unobserve(entry.target);
+                        return;
+                    }
+                    var siblings = Array.prototype.slice.call(parent.querySelectorAll('.feature-block'));
+                    var idx = siblings.indexOf(entry.target);
+                    setTimeout(function() {
+                        entry.target.classList.add('feature-visible');
+                    }, idx * 150);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        blocks.forEach(function(b) { observer.observe(b); });
+    }
+
+    /* ============================================
        INIT
        ============================================ */
     document.addEventListener('DOMContentLoaded', function () {
@@ -554,6 +651,9 @@
         initScrollReveal();
         initCountUp();
         initProcessSteps();
+        initCardReveal();
+        initBenefitCards();
+        initFeatureBlocks();
         initAllCtaParallax();
         initPageHeaderParallax();
         initTiltCard();

@@ -88,20 +88,27 @@ $timeLabels = [
 ];
 
 // --- E-Mail ---
-$subject = 'Projektanfrage: ' . ($projectLabels[$projectType] ?? $projectType) . ' – ' . $name;
+$subject = 'Neue Anfrage über Kontaktformular';
 
-$body  = "Neue Projektanfrage über die Website\n";
-$body .= "=====================================\n\n";
-$body .= "Name:         {$name}\n";
-$body .= "E-Mail:       {$email}\n";
-$body .= "Telefon:      " . ($phone ?: 'Nicht angegeben') . "\n\n";
-$body .= "Projektart:   " . ($projectLabels[$projectType] ?? '-') . "\n";
-$body .= "Objektart:    " . ($objectLabels[$objectType] ?? 'Nicht angegeben') . "\n";
-$body .= "Zeitraum:     " . ($timeLabels[$timeframe] ?? 'Nicht angegeben') . "\n\n";
-$body .= "Nachricht:\n{$message}\n\n";
-$body .= "-------------------------------------\n";
-$body .= "Gesendet am: " . date('d.m.Y H:i') . " Uhr\n";
-$body .= "IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'unbekannt') . "\n";
+$body  = "Neue Anfrage über das Kontaktformular\n";
+$body .= "======================================\n\n";
+$body .= "KONTAKTDATEN\n";
+$body .= "--------------------------------------\n";
+$body .= "Name:           {$name}\n";
+$body .= "E-Mail:         {$email}\n";
+$body .= "Telefon:        " . ($phone ?: '– nicht angegeben –') . "\n\n";
+$body .= "PROJEKTDETAILS\n";
+$body .= "--------------------------------------\n";
+$body .= "Projektart:     " . ($projectLabels[$projectType] ?? '-') . "\n";
+$body .= "Objektart:      " . ($objectLabels[$objectType] ?? '– nicht angegeben –') . "\n";
+$body .= "Zeitraum:       " . ($timeLabels[$timeframe] ?? '– nicht angegeben –') . "\n\n";
+$body .= "NACHRICHT\n";
+$body .= "--------------------------------------\n";
+$body .= "{$message}\n\n";
+$body .= "======================================\n";
+$body .= "Gesendet am:    " . date('d.m.Y \u\m H:i') . " Uhr\n";
+$body .= "IP-Adresse:     " . ($_SERVER['REMOTE_ADDR'] ?? 'unbekannt') . "\n";
+$body .= "Quelle:         Kontaktformular tokmak-gmbh.de\n";
 
 $headers  = "From: noreply@" . SITE_DOMAIN . "\r\n";
 $headers .= "Reply-To: {$email}\r\n";
@@ -148,7 +155,8 @@ if (FORM_LOG_LEADS) {
 $_SESSION['last_form_submit'] = $now;
 
 if ($mailSent) {
-    header('Location: /kontakt?status=success');
+    $_SESSION['form_success'] = true;
+    header('Location: /danke.php');
 } else {
     header('Location: /kontakt?status=mail_error');
 }
