@@ -1,0 +1,6 @@
+# Icon- und Manifest-Dateien vom Verzeichnisschutz ausnehmen
+# (damit iOS/Android das Logo für die Homescreen-Kachel laden kann)
+<FilesMatch "\.(png|ico|json|webmanifest)$">
+    Satisfy Any
+    Allow from all
+</FilesMatch>
