@@ -245,13 +245,21 @@ function renderDashboard() {
 
             brandingBlock = `
                 <div class="card-branding">
-                    <div class="brand-section">
-                        <div class="brand-section-label">Farben</div>
-                        <div class="brand-colors">${colorsHtml}</div>
+                    <div class="brand-info">
+                        <div class="brand-section">
+                            <div class="brand-section-label">Farben</div>
+                            <div class="brand-colors">${colorsHtml}</div>
+                        </div>
+                        <div class="brand-section">
+                            <div class="brand-section-label">Schriften</div>
+                            ${fontsHtml}
+                        </div>
                     </div>
-                    <div class="brand-section">
-                        <div class="brand-section-label">Schriften</div>
-                        ${fontsHtml}
+                    <div class="brand-logo">
+                        <div class="brand-section-label">Logo</div>
+                        <div class="brand-logo-box">
+                            <img src="assets/img/TOKMAK_Logo.png" alt="${CLIENT.companyName} Logo">
+                        </div>
                     </div>
                 </div>
             `;
