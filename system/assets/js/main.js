@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderHero();
     renderDashboard();
     renderExtensions();
+    renderSecurityHint();
     renderFooter();
 });
 
@@ -213,10 +214,11 @@ function renderDashboard() {
             `;
         }
         const hasLink = card.link && card.link.trim() !== '';
+        const isExternal = hasLink && card.link.startsWith('http');
         const btnClass = hasLink ? 'card-btn card-btn--primary' : 'card-btn card-btn--disabled';
         const btnLabel = hasLink ? card.btnText : 'Bald verfügbar';
         const btnTag = hasLink
-            ? `<a href="${card.link}" target="_blank" rel="noopener noreferrer" class="${btnClass}">${btnLabel}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>`
+            ? `<a href="${card.link}"${isExternal ? ' target="_blank" rel="noopener noreferrer"' : ''} class="${btnClass}">${btnLabel}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>`
             : `<span class="${btnClass}">${btnLabel}</span>`;
 
         /* Branding-Info für Branding Karte */
@@ -318,8 +320,9 @@ function renderDashboard() {
         if (card.extraLinks && card.extraLinks.length > 0) {
             const links = card.extraLinks.map(el => {
                 const hasEl = el.link && el.link.trim() !== '';
+                const isElExternal = hasEl && el.link.startsWith('http');
                 return hasEl
-                    ? `<a href="${el.link}" target="_blank" rel="noopener noreferrer" class="card-btn card-btn--secondary">${el.label}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>`
+                    ? `<a href="${el.link}"${isElExternal ? ' target="_blank" rel="noopener noreferrer"' : ''} class="card-btn card-btn--secondary">${el.label}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>`
                     : `<span class="card-btn card-btn--disabled">${el.label}</span>`;
             }).join('');
             extraLinksBlock = `<div class="card-extra-links">${links}</div>`;
@@ -363,6 +366,21 @@ function renderExtensions() {
                         <p class="ext-description">${item.description}</p>
                     </div>
                 `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+/* --- Security Hint --- */
+function renderSecurityHint() {
+    document.getElementById('security-hint').innerHTML = `
+        <div class="container">
+            <div class="security-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <div>
+                    <strong>Wichtig – Zugangsschutz für dieses Dashboard</strong>
+                    <p>Dieses Dashboard ist durch einen Verzeichnisschutz gesichert. Falls Sie das Passwort zurücksetzen müssen, können Sie dies selbstständig tun: Melden Sie sich unter <a href="https://kas.all-inkl.com" target="_blank" rel="noopener noreferrer">kas.all-inkl.com</a> an → Tools → Verzeichnisschutz → Benutzer bearbeiten → neues Passwort vergeben.</p>
+                </div>
             </div>
         </div>
     `;

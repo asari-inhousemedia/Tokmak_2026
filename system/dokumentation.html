@@ -212,9 +212,29 @@
             </table>
         </div>
 
-        <!-- 10. WICHTIGE HINWEISE -->
+        <!-- 10. VERZEICHNISSCHUTZ / DASHBOARD-ZUGANG -->
         <div class="doc-section">
-            <h2 class="doc-section-title">10. Wichtige Hinweise für spätere Bearbeitung</h2>
+            <h2 class="doc-section-title">10. Verzeichnisschutz (Dashboard-Zugang)</h2>
+            <table class="doc-table">
+                <tr><th>Eigenschaft</th><th>Wert</th></tr>
+                <tr><td>Geschütztes Verzeichnis</td><td class="mono">/system-tokmak/</td></tr>
+                <tr><td>Zugang über</td><td class="mono">system.tokmak-gmbh.de</td></tr>
+                <tr><td>Schutztyp</td><td>HTTP Basic Auth (Verzeichnisschutz via All-Inkl KAS)</td></tr>
+                <tr><td>Verwaltung</td><td class="mono">kas.all-inkl.com → Tools → Verzeichnisschutz</td></tr>
+            </table>
+            <div class="doc-note">
+                <strong>Passwort zurücksetzen:</strong> Falls das Passwort für das Dashboard nicht mehr bekannt ist, kann es selbstständig zurückgesetzt werden:<br><br>
+                1. Anmelden unter <strong>kas.all-inkl.com</strong> (Kundennr. 847428)<br>
+                2. Im Menü: <strong>Tools → Verzeichnisschutz</strong><br>
+                3. Beim Eintrag <strong>/system-tokmak/</strong> auf das Stift-Symbol klicken<br>
+                4. Benutzer auswählen → neues Passwort vergeben → Speichern<br><br>
+                Das neue Passwort ist sofort aktiv. Es ist kein Neustart oder Cache-Leeren nötig.
+            </div>
+        </div>
+
+        <!-- 11. WICHTIGE HINWEISE -->
+        <div class="doc-section">
+            <h2 class="doc-section-title">11. Wichtige Hinweise für spätere Bearbeitung</h2>
             <div class="doc-note">
                 <strong>Website-Änderungen:</strong> Alle Firmendaten (Name, Telefon, Adresse) werden zentral in includes/config.php gepflegt. Eine Änderung dort wirkt sich auf alle Seiten aus.<br><br>
                 <strong>Neue Seiten:</strong> PHP-Datei im Hauptverzeichnis anlegen, header.php und footer.php per include einbinden.<br><br>
