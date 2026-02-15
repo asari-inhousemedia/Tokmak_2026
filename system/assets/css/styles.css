@@ -627,6 +627,50 @@ img {
 }
 
 /* ============================================
+   GOOGLE HINT BANNER
+   ============================================ */
+.google-hint {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: rgba(198, 168, 125, 0.06);
+    border: 1px solid rgba(198, 168, 125, 0.15);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 8px 0 4px;
+}
+
+.google-hint svg {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    stroke: var(--color-primary);
+    margin-top: 1px;
+}
+
+.google-hint span {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+.google-hint strong {
+    color: var(--color-primary);
+}
+
+.google-hint a {
+    color: var(--color-primary);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(198, 168, 125, 0.3);
+    transition: border-color 0.2s ease;
+}
+
+.google-hint a:hover {
+    border-color: var(--color-primary);
+}
+
+/* ============================================
    FOOTER
    ============================================ */
 .site-footer {

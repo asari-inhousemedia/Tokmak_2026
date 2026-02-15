@@ -75,7 +75,7 @@ const CLIENT = {
         emailSetupGuide: "email-einrichtung.html",
         signatureDownload: "https://docs.google.com/document/d/1bD97vx-m2_CBYahzamPCqDdfYtX2aYNfuh8O7tqDpZ8/edit?usp=share_link",
         documentation: "dokumentation.html",
-        loomVideo: ""
+        loomVideo: "https://www.loom.com/share/d7b2fdda7dd24655a78745afb88ba995"
     },
 
     /* Optionale Erweiterungen – sichtbar/unsichtbar */

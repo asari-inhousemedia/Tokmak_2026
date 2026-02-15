@@ -197,7 +197,21 @@ function renderDashboard() {
     const cards = getDashboardCards();
     const grid = document.getElementById('dashboard-grid');
 
+    const googleCardIds = ['gmail', 'google', 'reviews', 'drive'];
+    let googleHintInserted = false;
+
     grid.innerHTML = cards.map(card => {
+        /* Google-Hinweis vor der ersten Google-Karte einfügen */
+        let googleHint = '';
+        if (!googleHintInserted && googleCardIds.includes(card.id)) {
+            googleHintInserted = true;
+            googleHint = `
+                <div class="google-hint">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    <span><strong>Wichtig:</strong> Melden Sie sich zuerst unter <a href="https://mail.google.com" target="_blank" rel="noopener noreferrer">mail.google.com</a> mit Ihrem Google-Konto an – so öffnen sich alle folgenden Links direkt im richtigen Account.</span>
+                </div>
+            `;
+        }
         const hasLink = card.link && card.link.trim() !== '';
         const btnClass = hasLink ? 'card-btn card-btn--primary' : 'card-btn card-btn--disabled';
         const btnLabel = hasLink ? card.btnText : 'Bald verfügbar';
@@ -312,6 +326,7 @@ function renderDashboard() {
         }
 
         return `
+            ${googleHint}
             <div class="card" data-card="${card.id}">
                 <div class="card-icon">${card.icon}</div>
                 <h3 class="card-title">${card.title}</h3>
