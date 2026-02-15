@@ -72,3 +72,17 @@
         </div>
     </div>
 </footer>
+
+<!-- Credit-Animation erst bei Sichtbarkeit starten -->
+<script>
+(function(){
+    const el = document.querySelector('.footer-credit');
+    if(!el) return;
+    new IntersectionObserver(function(entries, obs){
+        if(entries[0].isIntersecting){
+            el.classList.add('animate');
+            obs.disconnect();
+        }
+    }, {threshold: 0.5}).observe(el);
+})();
+</script>

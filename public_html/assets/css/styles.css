@@ -1873,7 +1873,7 @@ address {
     color: var(--color-primary);
 }
 
-/* Linie unter dem gesamten Text */
+/* Linie unter dem gesamten Text – wartet auf .animate */
 .credit-line {
     position: absolute;
     bottom: 0;
@@ -1882,11 +1882,14 @@ address {
     height: 1.5px;
     background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
     border-radius: 1px;
+}
+
+.footer-credit.animate .credit-line {
     animation: creditDrawLine 3.5s ease-in-out forwards;
     animation-delay: 0.5s;
 }
 
-/* Stern am Ende */
+/* Stern am Ende – wartet auf .animate */
 .credit-pen-wrap {
     position: relative;
     display: inline-flex;
@@ -1900,9 +1903,12 @@ address {
     width: 14px;
     height: 14px;
     opacity: 0;
+    filter: drop-shadow(0 0 0px var(--color-primary));
+}
+
+.footer-credit.animate .credit-pen {
     animation: creditStarGlow 3.5s ease-in-out forwards;
     animation-delay: 0.5s;
-    filter: drop-shadow(0 0 0px var(--color-primary));
 }
 
 /* Punkt wird nicht mehr gebraucht */
