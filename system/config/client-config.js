@@ -32,7 +32,7 @@ const CLIENT = {
     domain: "tokmak-gmbh.de",
     subdomains: [
         { name: "tokmak-gmbh.de", label: "Hauptdomain – Ihre Unternehmenswebsite" },
-        { name: "dashboard.tokmak-gmbh.de", label: "Management Dashboard – dieses Portal" }
+        { name: "system.tokmak-gmbh.de", label: "Management Dashboard – dieses Portal" }
     ],
 
     /* E-Mail-Adressen */
