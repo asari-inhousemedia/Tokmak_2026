@@ -60,6 +60,15 @@
 
         <div class="footer-bottom">
             <p>&copy; <?php echo date('Y'); ?> <?php echo SITE_NAME; ?>. Alle Rechte vorbehalten.</p>
+            <span class="footer-credit">
+                <span class="credit-line"></span>
+                <span class="credit-text">Webdesign by <a href="https://inhousee.de/digistart" target="_blank" rel="noopener">Inhousee Media</a></span>
+                <span class="credit-pen-wrap">
+                    <svg class="credit-pen" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="12,2 14.5,8 21,9 16.5,13.5 17.5,20 12,17 6.5,20 7.5,13.5 3,9 9.5,8" fill="var(--color-primary)"/>
+                    </svg>
+                </span>
+            </span>
         </div>
     </div>
 </footer>

@@ -1845,6 +1845,82 @@ address {
     font-size: var(--text-xs);
     font-weight: 300;
     color: rgba(255, 255, 255, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* --- Webdesign Credit Animation --- */
+.footer-credit {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: 0.02em;
+    padding-bottom: 6px;
+}
+
+.footer-credit a {
+    color: var(--color-primary-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-credit a:hover {
+    color: var(--color-primary);
+}
+
+/* Linie unter dem gesamten Text */
+.credit-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+    border-radius: 1px;
+    animation: creditDrawLine 3.5s ease-in-out forwards;
+    animation-delay: 0.5s;
+}
+
+/* Stern am Ende */
+.credit-pen-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.credit-pen {
+    width: 14px;
+    height: 14px;
+    opacity: 0;
+    animation: creditStarGlow 3.5s ease-in-out forwards;
+    animation-delay: 0.5s;
+    filter: drop-shadow(0 0 0px var(--color-primary));
+}
+
+/* Punkt wird nicht mehr gebraucht */
+.credit-dot {
+    display: none;
+}
+
+@keyframes creditDrawLine {
+    0% { width: 0; }
+    60% { width: 100%; }
+    100% { width: 100%; }
+}
+
+@keyframes creditStarGlow {
+    0%, 55% { opacity: 0; filter: drop-shadow(0 0 0px var(--color-primary)); }
+    65% { opacity: 1; filter: drop-shadow(0 0 6px var(--color-primary-light)); }
+    80% { opacity: 1; filter: drop-shadow(0 0 3px var(--color-primary)); }
+    100% { opacity: 0.7; filter: drop-shadow(0 0 0px var(--color-primary)); }
 }
 
 /* ============================================
