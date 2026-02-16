@@ -1,18 +1,17 @@
-name: Deploy to All-Inkl
+name: Deploy to ALL-INKL via FTP
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Code holen
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Per FTP hochladen
+      - name: Upload via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -20,6 +19,9 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          local-dir: public_html/
-          server-dir: /tokmak-gmbh.de/
-          dangerous-clean-slate: false
+          local-dir: ./
+          server-dir: /   # ggf. später auf /htdocs/ oder /www/ anpassen
+          exclude: |
+            **/.git*
+            **/.DS_Store
+            node_modules/**
