@@ -20,7 +20,7 @@ jobs:
           protocol: ftp
           port: 21
           local-dir: ./
-          server-dir: /   # ggf. später auf /htdocs/ oder /www/ anpassen
+          server-dir: /tokmak-gmbh.de/   # ggf. später auf /htdocs/ oder /www/ anpassen
           exclude: |
             **/.git*
             **/.DS_Store
