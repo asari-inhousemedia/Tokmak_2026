@@ -26,7 +26,7 @@ define('CONTACT_ADDRESS_COUNTRY', 'Deutschland');
 define('LEGAL_COMPANY', 'Tokmak GmbH');
 define('LEGAL_OWNER', 'Tufan Tokmak');
 define('LEGAL_REGISTER', 'HRB 803281, Amtsgericht Stuttgart');
-define('LEGAL_TAX_ID', 'DE12345678');
+define('LEGAL_TAX_ID', 'DE459571108');
 
 // --- Formular ---
 define('FORM_RECIPIENT', CONTACT_EMAIL);
