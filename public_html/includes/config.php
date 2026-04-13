@@ -11,7 +11,7 @@ define('SITE_TAGLINE', 'Räume mit Stil');
 define('SITE_CLAIM', 'Komplett-Badsanierung aus einer Hand');
 define('SITE_DOMAIN', 'tokmak-gmbh.de');
 define('SITE_URL', 'https://tokmak-gmbh.de');
-define('SITE_REGION', 'Lichtenstein & Umgebung');
+define('SITE_REGION', 'Reutlingen & Umgebung');
 
 // --- Kontaktdaten ---
 define('CONTACT_EMAIL', 'info@tokmak-gmbh.de');

@@ -25,6 +25,6 @@ jobs:
             set net:max-retries 3;
             set net:reconnect-interval-base 5;
             open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }};
-            mirror --reverse --delete --verbose --exclude .git/ --exclude .github/ --exclude .DS_Store --exclude node_modules/ ./ /tokmak-gmbh.de/;
+            mirror --reverse --verbose --only-newer --exclude .git/ --exclude .github/ --exclude .DS_Store --exclude node_modules/ ./public_html/ /tokmak-gmbh.de/;
             quit
           "
