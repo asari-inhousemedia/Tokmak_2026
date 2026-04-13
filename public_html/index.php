@@ -26,7 +26,7 @@ $pageSlug        = 'startseite';
     <div class="hero-content container">
         <p class="hero-kicker reveal-stagger" data-delay="0"><?php echo SITE_NAME; ?> · <?php echo SITE_REGION; ?></p>
         <h1 class="hero-headline reveal-stagger" data-delay="1">
-            Ihr neues Bad<br>
+            TEST123 - Ihr neues Bad<br>
             <span class="hero-headline-accent">beginnt mit Anspruch.</span>
         </h1>
         <p class="hero-subheadline reveal-stagger" data-delay="2">
