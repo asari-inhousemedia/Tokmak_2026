@@ -7,7 +7,7 @@
 
 // --- Firmendaten ---
 define('SITE_NAME', 'Tokmak GmbH');
-define('SITE_TAGLINE', 'Räume mit Stil - TEST123');
+define('SITE_TAGLINE', 'Räume mit Stil');
 define('SITE_CLAIM', 'Komplett-Badsanierung aus einer Hand');
 define('SITE_DOMAIN', 'tokmak-gmbh.de');
 define('SITE_URL', 'https://tokmak-gmbh.de');
