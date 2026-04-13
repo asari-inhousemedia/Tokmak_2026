@@ -3,6 +3,7 @@ name: Deploy to ALL-INKL via FTP
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -20,7 +21,7 @@ jobs:
           protocol: ftp
           port: 21
           local-dir: ./
-          server-dir: /tokmak-gmbh.de/   # ggf. später auf /htdocs/ oder /www/ anpassen
+          server-dir: /tokmak-gmbh.de/
           exclude: |
             **/.git*
             **/.DS_Store
