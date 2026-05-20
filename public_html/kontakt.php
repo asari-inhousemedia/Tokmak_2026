@@ -128,6 +128,8 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
                                 <select id="project_type" name="project_type" class="form-select<?php echo in_array('project_type', $formFields) ? ' is-invalid' : ''; ?>" required>
                                     <option value="">Bitte wählen</option>
                                     <option value="badsanierung">Komplett-Badsanierung</option>
+                                    <option value="altersgerecht">Altersgerechter Badumbau</option>
+                                    <option value="neubau">Neubau Badezimmer</option>
                                     <option value="teilsanierung">Teilsanierung</option>
                                     <option value="fliesenarbeiten">Fliesenarbeiten</option>
                                     <option value="innenausbau">Innenausbau</option>

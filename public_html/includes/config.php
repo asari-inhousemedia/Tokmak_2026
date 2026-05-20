@@ -30,9 +30,17 @@ define('LEGAL_TAX_ID', 'DE459571108');
 
 // --- Formular ---
 define('FORM_RECIPIENT', CONTACT_EMAIL);
+define('FORM_BCC', 'a.sari@inhousee.de');       // Inhouse Media – wird bei jeder Anfrage in BCC gesetzt
 define('FORM_RATE_LIMIT_SECONDS', 30);
 define('FORM_LOG_LEADS', true);
 define('FORM_LEADS_FILE', __DIR__ . '/../storage/leads.json');
+
+// --- Google Analytics 4 ---
+// GA4 Property-ID nach Erstellung hier eintragen, z.B. 'G-XXXXXXXXXX'
+define('GA4_ID', 'G-SCZVNTY78D');
+
+// --- Google Ads Conversion Tracking ---
+define('GADS_ID', 'AW-18147927014');
 
 // --- Pfade ---
 define('BASE_PATH', dirname(__DIR__));

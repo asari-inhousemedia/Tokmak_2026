@@ -5,6 +5,26 @@
 <!-- CCM19 Cookie Consent Manager -->
 <script src="https://cloud.ccm19.de/app.js?apiKey=736577814ab107c72d60dd65628fb631e5e0a0ec85496964&amp;domain=698f88c00e7704cf4303be32" referrerpolicy="origin"></script>
 
+<?php if (!empty(GA4_ID)): ?>
+<!-- Google Analytics 4 + Google Ads – via CCM19 Consent -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    wait_for_update: 500
+});
+gtag('js', new Date());
+gtag('config', '<?php echo GA4_ID; ?>');
+<?php if (!empty(GADS_ID)): ?>
+gtag('config', '<?php echo GADS_ID; ?>');
+<?php endif; ?>
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo GA4_ID; ?>"></script>
+<?php endif; ?>
+
+
 <title><?php echo htmlspecialchars($pageTitle); ?> | <?php echo SITE_NAME; ?></title>
 <meta name="description" content="<?php echo htmlspecialchars($pageDescription); ?>">
 <meta name="robots" content="index, follow">

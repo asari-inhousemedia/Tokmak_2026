@@ -138,9 +138,10 @@ $pageSlug        = 'badsanierung';
                         <li>Rutschfeste Oberflächen und Haltesysteme</li>
                         <li>Beratung zu Fördermöglichkeiten</li>
                     </ul>
+                    <a href="/altersgerechter-badumbau" class="btn btn-primary" style="margin-top: var(--space-lg);">Mehr zum altersgerechten Badumbau</a>
                 </div>
                 <div class="content-split-visual">
-                    <img src="/assets/img/altersgerecht.webp" alt="Altersgerechter Badumbau – Tokmak GmbH" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md);" loading="lazy">
+                    <img src="/assets/img/alter.webp" alt="Altersgerechter Badumbau – Tokmak GmbH" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md);" loading="lazy">
                 </div>
             </div>
         </div>

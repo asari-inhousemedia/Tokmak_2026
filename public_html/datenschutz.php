@@ -193,15 +193,23 @@ $pageSlug        = 'datenschutz';
             <h2>4. Datenerfassung auf dieser Website</h2>
 
             <h3>Cookies und Sessions</h3>
-            <p>Diese Website verwendet technisch notwendige PHP-Sessions. Dabei wird ein Session-Cookie
-            (PHPSESSID) in Ihrem Browser gesetzt, das für die Funktionalität der Website erforderlich ist
-            (z.&nbsp;B. Spam-Schutz durch Rate Limiting beim Kontaktformular). Dieses Cookie enthält keine
-            personenbezogenen Daten und wird beim Schließen des Browsers automatisch gelöscht.</p>
-            <p>Darüber hinaus werden auf dieser Website keine Cookies gesetzt. Es werden keine Tracking-,
-            Marketing- oder Analyse-Cookies verwendet.</p>
-            <p>Die Nutzung technisch notwendiger Cookies/Sessions erfolgt auf Grundlage von Art. 6 Abs. 1
-            lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien
-            und sicheren Bereitstellung seiner Website.</p>
+            <p>Diese Website verwendet Cookies unterschiedlicher Kategorien. Nachfolgend erhalten Sie einen
+            Überblick über die eingesetzten Cookie-Typen.</p>
+
+            <p><strong>Technisch notwendige Cookies:</strong><br>
+            Für den Betrieb der Website wird ein PHP-Session-Cookie (PHPSESSID) gesetzt. Es ist für die
+            technische Funktionalität erforderlich (z.&nbsp;B. Spam-Schutz beim Kontaktformular) und enthält
+            keine personenbezogenen Daten. Es wird beim Schließen des Browsers automatisch gelöscht.
+            Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+            <p><strong>Einwilligungsbasierte Cookies (nur nach Ihrer Zustimmung):</strong><br>
+            Nach Ihrer ausdrücklichen Einwilligung über unser Cookie-Consent-Tool können weitere Cookies
+            gesetzt werden, insbesondere für Web-Analyse (Google Analytics 4). Details dazu finden Sie
+            in den entsprechenden Abschnitten dieser Datenschutzerklärung.</p>
+
+            <p><strong>Cookie-Einwilligung verwalten:</strong><br>
+            Sie können Ihre Cookie-Einstellungen jederzeit über den Button unten links auf der Website
+            anpassen oder widerrufen.</p>
 
             <h3>Server-Log-Dateien</h3>
             <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten
@@ -268,7 +276,7 @@ $pageSlug        = 'datenschutz';
 
             <!-- ============================================ -->
             <h2><?php echo $sectionNumber; ?>. Aktualität und Änderung dieser Datenschutzerklärung</h2>
-            <p>Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Februar 2026.</p>
+            <p>Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Mai 2026.</p>
             <p>Durch die Weiterentwicklung unserer Website und Angebote darüber oder aufgrund geänderter
             gesetzlicher beziehungsweise behördlicher Vorgaben kann es notwendig werden, diese
             Datenschutzerklärung zu ändern. Die jeweils aktuelle Datenschutzerklärung kann jederzeit auf

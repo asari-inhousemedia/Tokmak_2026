@@ -20,6 +20,9 @@
                 <li class="nav-item">
                     <a href="/badsanierung" class="nav-link<?php echo ($pageSlug === 'badsanierung') ? ' is-active' : ''; ?>">Badsanierung</a>
                 </li>
+                <li class="nav-item">
+                    <a href="/altersgerechter-badumbau" class="nav-link<?php echo ($pageSlug === 'altersgerechter-badumbau') ? ' is-active' : ''; ?>">Altersgerechter Umbau</a>
+                </li>
                 <!-- Referenzen vorübergehend ausgeblendet
                 <li class="nav-item">
                     <a href="/referenzen" class="nav-link<?php echo ($pageSlug === 'referenzen') ? ' is-active' : ''; ?>">Referenzen</a>

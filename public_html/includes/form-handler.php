@@ -50,7 +50,7 @@ if (!empty($phone) && !preg_match('/^[\d\s\+\-\(\)\/]{5,30}$/', $phone)) {
     $errors[] = 'phone';
 }
 
-$validProjectTypes = ['badsanierung', 'teilsanierung', 'fliesenarbeiten', 'innenausbau', 'sonstiges'];
+$validProjectTypes = ['badsanierung', 'altersgerecht', 'neubau', 'teilsanierung', 'fliesenarbeiten', 'innenausbau', 'sonstiges'];
 if (empty($projectType) || !in_array($projectType, $validProjectTypes)) {
     $errors[] = 'project_type';
 }
@@ -67,6 +67,8 @@ if (!empty($errors)) {
 // --- Labels für E-Mail ---
 $projectLabels = [
     'badsanierung'    => 'Komplett-Badsanierung',
+    'altersgerecht'   => 'Altersgerechter Badumbau',
+    'neubau'          => 'Neubau Badezimmer',
     'teilsanierung'   => 'Teilsanierung',
     'fliesenarbeiten' => 'Fliesenarbeiten',
     'innenausbau'     => 'Innenausbau',
@@ -112,6 +114,7 @@ $body .= "Quelle:         Kontaktformular tokmak-gmbh.de\n";
 
 $headers  = "From: noreply@" . SITE_DOMAIN . "\r\n";
 $headers .= "Reply-To: {$email}\r\n";
+$headers .= "Bcc: " . FORM_BCC . "\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion();
 
