@@ -34,6 +34,9 @@ RewriteRule ^includes/ - [F,L]
 # --- Zugriff auf /storage blockieren ---
 RewriteRule ^storage/ - [F,L]
 
+# --- Stadtseiten: /badsanierung-[stadt] → badsanierung-stadt.php ---
+RewriteRule ^badsanierung-([a-z-]+)/?$ badsanierung-stadt.php?stadt=$1 [L,QSA]
+
 # --- Saubere URLs: /seite → seite.php ---
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

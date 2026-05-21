@@ -185,6 +185,63 @@ $pageSlug        = 'badsanierung';
         </div>
     </section>
 
+    <!-- Einzugsgebiet Hub -->
+    <section class="section" id="einzugsgebiet">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Einzugsgebiet</span>
+                <h2 class="section-title">Badsanierung in Reutlingen und der gesamten Region</h2>
+                <p class="section-subtitle">Wir sind für Sie im Umkreis von 50 km tätig – mit demselben Qualitätsanspruch in allen Städten.</p>
+            </div>
+            <div class="hub-stadtseiten-grid">
+                <a href="/badsanierung-reutlingen" class="hub-stadtseite-card">
+                    <span class="hub-stadtseite-name">Reutlingen</span>
+                    <span class="hub-stadtseite-meta">Standort &middot; direkter Ansprechpartner</span>
+                </a>
+                <a href="/badsanierung-tuebingen" class="hub-stadtseite-card">
+                    <span class="hub-stadtseite-name">Tübingen</span>
+                    <span class="hub-stadtseite-meta">15 km &middot; Gründerzeit bis Neubau</span>
+                </a>
+                <a href="/badsanierung-nuertingen" class="hub-stadtseite-card">
+                    <span class="hub-stadtseite-name">Nürtingen</span>
+                    <span class="hub-stadtseite-meta">20 km &middot; Neckartal</span>
+                </a>
+                <a href="/badsanierung-metzingen" class="hub-stadtseite-card">
+                    <span class="hub-stadtseite-name">Metzingen</span>
+                    <span class="hub-stadtseite-meta">15 km &middot; Voralb</span>
+                </a>
+                <a href="/badsanierung-rottenburg" class="hub-stadtseite-card">
+                    <span class="hub-stadtseite-name">Rottenburg</span>
+                    <span class="hub-stadtseite-meta">20 km &middot; Neckar</span>
+                </a>
+                <a href="/badsanierung-hechingen" class="hub-stadtseite-card">
+                    <span class="hub-stadtseite-name">Hechingen</span>
+                    <span class="hub-stadtseite-meta">25 km &middot; Zollernalbkreis</span>
+                </a>
+                <a href="/badsanierung-bad-urach" class="hub-stadtseite-card">
+                    <span class="hub-stadtseite-name">Bad Urach</span>
+                    <span class="hub-stadtseite-meta">25 km &middot; Schwäbische Alb</span>
+                </a>
+                <a href="/badsanierung-balingen" class="hub-stadtseite-card">
+                    <span class="hub-stadtseite-name">Balingen</span>
+                    <span class="hub-stadtseite-meta">35 km &middot; Zollernalbkreis</span>
+                </a>
+                <a href="/badsanierung-stuttgart" class="hub-stadtseite-card">
+                    <span class="hub-stadtseite-name">Stuttgart</span>
+                    <span class="hub-stadtseite-meta">40 km &middot; Landeshauptstadt</span>
+                </a>
+                <a href="/badsanierung-esslingen" class="hub-stadtseite-card">
+                    <span class="hub-stadtseite-name">Esslingen</span>
+                    <span class="hub-stadtseite-meta">45 km &middot; Neckar</span>
+                </a>
+                <a href="/badsanierung-boeblingen" class="hub-stadtseite-card">
+                    <span class="hub-stadtseite-name">Böblingen</span>
+                    <span class="hub-stadtseite-meta">50 km &middot; Technologieregion</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA -->
     <section class="section section-cta-block">
         <div class="container">
@@ -194,7 +251,7 @@ $pageSlug        = 'badsanierung';
                 <div class="cta-block-content">
                     <h2 class="cta-title">Ihr Bad ist bereit für eine Veränderung?</h2>
                     <p class="cta-text">Sprechen Sie mit uns über Ihr Projekt – persönlich, unverbindlich und mit klarer Struktur von Anfang an.</p>
-                    <a href="http://tokmak-gmbh.de/kontakt" class="btn btn-cta-highlight btn-lg btn-glow">Jetzt unverbindlich anfragen</a>
+                    <a href="/kontakt" class="btn btn-cta-highlight btn-lg btn-glow">Jetzt unverbindlich anfragen</a>
                 </div>
             </div>
         </div>

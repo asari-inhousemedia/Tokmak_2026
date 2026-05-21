@@ -251,6 +251,47 @@ $pageSlug        = 'startseite';
     </section>
 
     <!-- ============================================
+         SEKTION 6b – KUNDENSTIMMEN
+         ============================================ -->
+    <section class="section" id="kundenstimmen">
+        <div class="container">
+            <div class="section-header is-centered">
+                <span class="section-label">Kundenstimmen</span>
+                <h2 class="section-title">Was Kunden sagen</h2>
+            </div>
+            <div class="bewertungen-grid">
+                <div class="bewertung-card">
+                    <div class="bewertung-sterne" aria-label="5 von 5 Sternen">★★★★★</div>
+                    <p class="bewertung-text">Festpreis angekündigt, Festpreis gehalten. Unser Altbau hatte ein paar Tücken – alle vorher besprochen. Keine Nachträge.</p>
+                    <div class="bewertung-meta">
+                        <span class="bewertung-name">Stefan R.</span>
+                        <span class="bewertung-ort">Reutlingen-Betzingen</span>
+                        <span class="bewertung-projekt">Komplett-Badsanierung, ca. 7 m²</span>
+                    </div>
+                </div>
+                <div class="bewertung-card">
+                    <div class="bewertung-sterne" aria-label="5 von 5 Sternen">★★★★★</div>
+                    <p class="bewertung-text">Vorher drei verschiedene Handwerker, die nicht miteinander geredet haben. Das hier war komplett anders – ein Ablauf, ein Ansprechpartner.</p>
+                    <div class="bewertung-meta">
+                        <span class="bewertung-name">Markus F.</span>
+                        <span class="bewertung-ort">Stuttgart-Bad Cannstatt</span>
+                        <span class="bewertung-projekt">Komplett-Badsanierung, 9 m²</span>
+                    </div>
+                </div>
+                <div class="bewertung-card">
+                    <div class="bewertung-sterne" aria-label="5 von 5 Sternen">★★★★★</div>
+                    <p class="bewertung-text">Sanitär, Elektro, Estrich, Fliesen – hätte ich das selbst koordiniert, wäre ich wahnsinnig geworden.</p>
+                    <div class="bewertung-meta">
+                        <span class="bewertung-name">Susanne F.</span>
+                        <span class="bewertung-ort">Balingen-Endingen</span>
+                        <span class="bewertung-projekt">Komplett-Badsanierung, alle Gewerke</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
          SEKTION 7 – HÄUFIGE FRAGEN
          ============================================ -->
     <section class="section" id="faq">

@@ -58,6 +58,24 @@
             </div>
         </div>
 
+        <!-- Stadtseiten -->
+        <div class="footer-stadtseiten">
+            <span class="footer-stadtseiten-label">Badsanierung in Ihrer Nähe:</span>
+            <div class="footer-stadtseiten-links">
+                <a href="/badsanierung-reutlingen">Badsanierung Reutlingen</a>
+                <a href="/badsanierung-tuebingen">Badsanierung Tübingen</a>
+                <a href="/badsanierung-stuttgart">Badsanierung Stuttgart</a>
+                <a href="/badsanierung-esslingen">Badsanierung Esslingen</a>
+                <a href="/badsanierung-nuertingen">Badsanierung Nürtingen</a>
+                <a href="/badsanierung-metzingen">Badsanierung Metzingen</a>
+                <a href="/badsanierung-hechingen">Badsanierung Hechingen</a>
+                <a href="/badsanierung-rottenburg">Badsanierung Rottenburg</a>
+                <a href="/badsanierung-bad-urach">Badsanierung Bad Urach</a>
+                <a href="/badsanierung-balingen">Badsanierung Balingen</a>
+                <a href="/badsanierung-boeblingen">Badsanierung Böblingen</a>
+            </div>
+        </div>
+
         <div class="footer-bottom">
             <p>&copy; <?php echo date('Y'); ?> <?php echo SITE_NAME; ?>. Alle Rechte vorbehalten.</p>
             <span class="footer-credit">
