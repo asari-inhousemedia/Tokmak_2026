@@ -13,6 +13,7 @@ $staedte = [
     'bad-urach'   => ['name' => 'Bad Urach',   'km' => 25],
     'balingen'    => ['name' => 'Balingen',    'km' => 35],
     'boeblingen'  => ['name' => 'Böblingen',   'km' => 50],
+    'kirchheim'   => ['name' => 'Kirchheim unter Teck', 'km' => 35],
 ];
 
 $stadtdaten = [
@@ -223,6 +224,25 @@ $stadtdaten = [
             ['name' => 'Michael S.', 'ort' => 'Böblingen-Hulb', 'projekt' => 'Badsanierung mit Großformat, ca. 10 m²', 'text' => 'Hohe Erwartungen gehabt. Wurden erfüllt.'],
             ['name' => 'Sabine R.', 'ort' => 'Böblingen-Stadtmitte', 'projekt' => 'Komplett-Badsanierung, 6 m²', 'text' => 'Ehrliches Erstgespräch, faires Angebot. Kein Schönreden, kein Runterhandeln nötig. Das schätze ich.'],
             ['name' => 'Andreas N.', 'ort' => 'Böblingen-Dagersheim', 'projekt' => 'Altersgerechter Badumbau', 'text' => 'Meine Mutter wollte selbstständig bleiben. Das Bad macht das jetzt möglich – und sieht gut aus.'],
+        ],
+    ],
+    'kirchheim' => [
+        'description'       => 'Badsanierung in Kirchheim unter Teck – Tokmak GmbH, 35 km Entfernung. Alle Gewerke, Festpreis, Termingarantie. Altersgerechter Badumbau mit KfW-Förderung. Jetzt anfragen.',
+        'subtitle_hero'     => 'Komplett-Badsanierung in Kirchheim unter Teck – Festpreis, alle Gewerke aus einer Hand.',
+        'intro'             => 'Kirchheim unter Teck liegt ca. 35 km von unserem Standort entfernt – gut erreichbar, regelmäßig von uns bedient. Die Kreisstadt am Fuß der Schwäbischen Alb hat viele Wohngebiete mit Bestandsimmobilien aus den 1960er bis 1980er Jahren, in denen wir Komplett-Badsanierungen von Grund auf durchführen.',
+        'stadtteile'        => ['Innenstadt', 'Jesingen', 'Nabern', 'Lindach', 'Ötlingen', 'Kirchheim-Ost'],
+        'local_context'     => 'Kirchheim unter Teck hat einen hohen Anteil an Einfamilienhäusern und Reihenhäusern aus der Boomphase der 1960er bis 1980er Jahre. Bäder aus dieser Zeit sind technisch veraltet, oft mit Originalfliesen und veralteter Leitungsführung – der klassische Ausgangspunkt für eine vollständige Neugestaltung. Enge Grundrisse und Altbausubstanz sind für uns Alltag.',
+        'altersgerecht_text'=> 'In Kirchheim unter Teck und den umliegenden Gemeinden wohnen viele Eigenheimbesitzer, die ihr Bad langfristig sicher gestalten wollen. Ein altersgerechter Umbau erhöht Wohnwert und Sicherheit zugleich: bodengleiche Dusche statt Wanne, Haltesysteme an der richtigen Stelle, rutschfeste Beläge. KfW-Programm 455-B fördert solche Maßnahmen mit bis zu 6.250 Euro Zuschuss – wir beraten Sie kostenlos beim ersten Termin.',
+        'faq' => [
+            ['q' => 'Was kostet eine Badsanierung in Kirchheim unter Teck?', 'a' => 'Richtwert: 12.000–20.000 Euro für eine Komplettsanierung (6–10 m²). Exakte Kalkulation nach kostenloser Erstbesichtigung vor Ort – Festpreis, alle Gewerke, keine versteckten Positionen.'],
+            ['q' => 'Wie lange dauert eine Badsanierung in Kirchheim unter Teck?', 'a' => 'Typisch 2–3 Wochen für ein Standard-Bad. Den genauen Terminplan erhalten Sie mit dem Festpreisangebot nach der Erstbesichtigung. Termingarantie gilt ab Auftragserteilung.'],
+            ['q' => 'Was umfasst ein altersgerechter Badumbau in Kirchheim unter Teck?', 'a' => 'Bodengleiche Dusche mit schwellenlosem Zugang, Haltesysteme, rutschfeste Beläge und ergonomische Anordnung der Sanitärobjekte. Wir planen barrierefrei und ästhetisch – kein Pflegebad-Look.'],
+            ['q' => 'Gibt es KfW-Förderung für altersgerechten Umbau in Kirchheim unter Teck?', 'a' => 'Ja – KfW 455-B fördert geeignete Maßnahmen mit bis zu 6.250 Euro Zuschuss. Beim ersten kostenlosen Termin beraten wir, welche Arbeiten förderfähig sind und wie der Antrag läuft.'],
+        ],
+        'bewertungen' => [
+            ['name' => 'Günter R.', 'ort' => 'Kirchheim u. T.-Jesingen', 'projekt' => 'Komplett-Badsanierung, 8 m²', 'text' => 'Haus aus den 70ern, Original-Bad. Ich hatte keinen Plan wie komplex das wird. Wurde mir klar erklärt – alles vorab, keine Überraschungen.'],
+            ['name' => 'Karin S.', 'ort' => 'Kirchheim u. T.-Stadtmitte', 'projekt' => 'Badsanierung mit bodengleicher Dusche', 'text' => 'Festpreis angekündigt, Festpreis gehalten. Das ist leider keine Selbstverständlichkeit.'],
+            ['name' => 'Werner B.', 'ort' => 'Kirchheim u. T.-Nabern', 'projekt' => 'Altersgerechter Badumbau', 'text' => 'Wir sind beide Mitte 70. Das Bad ist jetzt sicher und sieht trotzdem gut aus. Genau das wollten wir.'],
         ],
     ],
 ];

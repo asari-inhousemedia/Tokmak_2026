@@ -73,6 +73,7 @@
                 <a href="/badsanierung-bad-urach">Badsanierung Bad Urach</a>
                 <a href="/badsanierung-balingen">Badsanierung Balingen</a>
                 <a href="/badsanierung-boeblingen">Badsanierung Böblingen</a>
+                <a href="/badsanierung-kirchheim">Badsanierung Kirchheim u. T.</a>
             </div>
         </div>
 
