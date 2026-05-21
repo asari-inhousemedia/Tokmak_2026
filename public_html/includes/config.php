@@ -15,8 +15,8 @@ define('SITE_REGION', 'Reutlingen & Umgebung');
 
 // --- Kontaktdaten ---
 define('CONTACT_EMAIL', 'info@tokmak-gmbh.de');
-define('CONTACT_PHONE', '+49 151 62988317');
-define('CONTACT_PHONE_DISPLAY', '0151 629 883 17');
+define('CONTACT_PHONE', '+497129 4070542');
+define('CONTACT_PHONE_DISPLAY', '+49 7129 4070542');
 define('CONTACT_ADDRESS_STREET', 'Daimlerstr. 8');
 define('CONTACT_ADDRESS_ZIP', '72805');
 define('CONTACT_ADDRESS_CITY', 'Lichtenstein');
