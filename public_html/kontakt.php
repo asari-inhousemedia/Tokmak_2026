@@ -71,8 +71,10 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
                     </div>
                     <?php endif; ?>
 
+                    <p class="form-photo-hint">Optional: Fotos Ihres Bades helfen uns bei der Vorbereitung. Laden Sie diese direkt im Formular hoch.</p>
+
                     <!-- WICHTIG: action zeigt jetzt auf den echten Handler -->
-                    <form id="kontakt-formular" class="contact-form" action="/includes/form-handler.php" method="POST" novalidate>
+                    <form id="kontakt-formular" class="contact-form" action="/includes/form-handler.php" method="POST" enctype="multipart/form-data" novalidate>
 
                         <div class="form-field-hp" aria-hidden="true" tabindex="-1">
                             <label for="website_url">Website</label>
@@ -135,6 +137,12 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
                         <div class="form-group">
                             <label for="message" class="form-label">Nachricht <span class="required" aria-label="Pflichtfeld">*</span></label>
                             <textarea id="message" name="message" class="form-input form-textarea<?php echo in_array('message', $formFields) ? ' is-invalid' : ''; ?>" required minlength="10" maxlength="5000" rows="5" placeholder="Beschreiben Sie kurz Ihr Projekt – Raumgröße, Wünsche, offene Fragen..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="photos" class="form-label">Fotos Ihres Bades <span class="optional">(optional, max. 3 Bilder, je 5 MB)</span></label>
+                            <input type="file" id="photos" name="photos[]" class="form-input form-file" multiple accept=".jpg,.jpeg,.png,.webp,.heic,image/jpeg,image/png,image/webp,image/heic">
+                            <span class="form-hint">Erlaubte Formate: JPG, PNG, WebP, HEIC</span>
                         </div>
 
                         <div class="form-group">

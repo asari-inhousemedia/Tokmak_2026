@@ -89,36 +89,104 @@ $timeLabels = [
     'offen' => 'Noch offen',
 ];
 
-// --- E-Mail ---
-$subject = 'Neue Anfrage über Kontaktformular';
+// --- Datei-Upload verarbeiten ---
+$attachments  = [];
+$allowedMimes = ['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'image/heif'];
+$allowedExts  = ['jpg', 'jpeg', 'png', 'webp', 'heic', 'heif'];
+$maxFileSize  = 5 * 1024 * 1024; // 5 MB
+$maxFiles     = 3;
 
-$body  = "Neue Anfrage über das Kontaktformular\n";
-$body .= "======================================\n\n";
-$body .= "KONTAKTDATEN\n";
-$body .= "--------------------------------------\n";
-$body .= "Name:           {$name}\n";
-$body .= "E-Mail:         {$email}\n";
-$body .= "Telefon:        " . ($phone ?: '– nicht angegeben –') . "\n\n";
-$body .= "PROJEKTDETAILS\n";
-$body .= "--------------------------------------\n";
-$body .= "Projektart:     " . ($projectLabels[$projectType] ?? '-') . "\n";
-$body .= "Objektart:      " . ($objectLabels[$objectType] ?? '– nicht angegeben –') . "\n";
-$body .= "Zeitraum:       " . ($timeLabels[$timeframe] ?? '– nicht angegeben –') . "\n\n";
-$body .= "NACHRICHT\n";
-$body .= "--------------------------------------\n";
-$body .= "{$message}\n\n";
-$body .= "======================================\n";
-$body .= "Gesendet am:    " . date('d.m.Y \u\m H:i') . " Uhr\n";
-$body .= "IP-Adresse:     " . ($_SERVER['REMOTE_ADDR'] ?? 'unbekannt') . "\n";
-$body .= "Quelle:         Kontaktformular tokmak-gmbh.de\n";
+if (!empty($_FILES['photos']['name'][0]) && function_exists('finfo_open')) {
+    $finfo     = new finfo(FILEINFO_MIME_TYPE);
+    $fileCount = min(count($_FILES['photos']['name']), $maxFiles);
+
+    for ($i = 0; $i < $fileCount; $i++) {
+        if ($_FILES['photos']['error'][$i] !== UPLOAD_ERR_OK) {
+            continue;
+        }
+        if ($_FILES['photos']['size'][$i] > $maxFileSize) {
+            continue;
+        }
+
+        $tmpName  = $_FILES['photos']['tmp_name'][$i];
+        $origName = basename($_FILES['photos']['name'][$i]);
+        $mimeType = $finfo->file($tmpName);
+        $ext      = strtolower(pathinfo($origName, PATHINFO_EXTENSION));
+
+        if (!in_array($mimeType, $allowedMimes) && !in_array($ext, $allowedExts)) {
+            continue;
+        }
+        if (!is_uploaded_file($tmpName)) {
+            continue;
+        }
+
+        $attachments[] = [
+            'tmp_name' => $tmpName,
+            'name'     => $origName,
+            'type'     => in_array($mimeType, $allowedMimes) ? $mimeType : 'image/' . $ext,
+        ];
+    }
+}
+
+// --- E-Mail ---
+$subject = '=?UTF-8?B?' . base64_encode('Neue Anfrage über Kontaktformular') . '?=';
+
+$textBody  = "Neue Anfrage über das Kontaktformular\n";
+$textBody .= "======================================\n\n";
+$textBody .= "KONTAKTDATEN\n";
+$textBody .= "--------------------------------------\n";
+$textBody .= "Name:           {$name}\n";
+$textBody .= "E-Mail:         {$email}\n";
+$textBody .= "Telefon:        " . ($phone ?: 'nicht angegeben') . "\n\n";
+$textBody .= "PROJEKTDETAILS\n";
+$textBody .= "--------------------------------------\n";
+$textBody .= "Projektart:     " . ($projectLabels[$projectType] ?? '-') . "\n";
+$textBody .= "Objektart:      " . ($objectLabels[$objectType] ?? 'nicht angegeben') . "\n";
+$textBody .= "Zeitraum:       " . ($timeLabels[$timeframe] ?? 'nicht angegeben') . "\n\n";
+$textBody .= "NACHRICHT\n";
+$textBody .= "--------------------------------------\n";
+$textBody .= "{$message}\n\n";
+$textBody .= "======================================\n";
+$textBody .= "Fotos angehaengt: " . count($attachments) . "\n";
+$textBody .= "Gesendet am:    " . date('d.m.Y \u\m H:i') . " Uhr\n";
+$textBody .= "IP-Adresse:     " . ($_SERVER['REMOTE_ADDR'] ?? 'unbekannt') . "\n";
+$textBody .= "Quelle:         Kontaktformular tokmak-gmbh.de\n";
+
+$boundary = '----=_Part_' . md5(uniqid(mt_rand(), true));
+
+$mimeBody  = "--{$boundary}\r\n";
+$mimeBody .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$mimeBody .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
+$mimeBody .= $textBody . "\r\n";
+
+foreach ($attachments as $att) {
+    $fileData = file_get_contents($att['tmp_name']);
+    $encoded  = chunk_split(base64_encode($fileData));
+    $safeName = preg_replace('/[^\w\.\-]/', '_', $att['name']);
+
+    $mimeBody .= "--{$boundary}\r\n";
+    $mimeBody .= "Content-Type: {$att['type']}; name=\"{$safeName}\"\r\n";
+    $mimeBody .= "Content-Disposition: attachment; filename=\"{$safeName}\"\r\n";
+    $mimeBody .= "Content-Transfer-Encoding: base64\r\n\r\n";
+    $mimeBody .= $encoded . "\r\n";
+}
+
+$mimeBody .= "--{$boundary}--";
 
 $headers  = "From: noreply@" . SITE_DOMAIN . "\r\n";
 $headers .= "Reply-To: {$email}\r\n";
 $headers .= "Bcc: " . FORM_BCC . "\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: multipart/mixed; boundary=\"{$boundary}\"\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion();
 
-$mailSent = mail(FORM_RECIPIENT, $subject, $body, $headers);
+$mailSent = mail(FORM_RECIPIENT, $subject, $mimeBody, $headers);
+
+foreach ($attachments as $att) {
+    if (file_exists($att['tmp_name'])) {
+        @unlink($att['tmp_name']);
+    }
+}
 
 // --- Lead-Logging ---
 if (FORM_LOG_LEADS) {
