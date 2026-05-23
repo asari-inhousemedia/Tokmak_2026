@@ -1432,6 +1432,12 @@ address {
     align-items: start;
 }
 
+.contact-form-wrap {
+    max-width: var(--container-narrow);
+    margin-inline: auto;
+    width: 100%;
+}
+
 .contact-info-title {
     font-size: var(--text-xl);
     font-weight: 700;
