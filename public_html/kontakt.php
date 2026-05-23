@@ -51,33 +51,6 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
 
             <div class="contact-grid">
 
-                <div class="contact-info">
-                    <h2 class="contact-info-title">So erreichen Sie uns</h2>
-                    <address class="contact-details">
-                        <div class="contact-detail">
-                            <strong>Adresse</strong>
-                            <p><?php echo CONTACT_ADDRESS_STREET; ?><br>
-                            <?php echo CONTACT_ADDRESS_ZIP . ' ' . CONTACT_ADDRESS_CITY; ?></p>
-                        </div>
-                        <div class="contact-detail">
-                            <strong>Telefon</strong>
-                            <p><a href="tel:<?php echo CONTACT_PHONE; ?>"><?php echo CONTACT_PHONE_DISPLAY; ?></a></p>
-                        </div>
-                        <div class="contact-detail">
-                            <strong>E-Mail</strong>
-                            <p><a href="mailto:<?php echo CONTACT_EMAIL; ?>"><?php echo CONTACT_EMAIL; ?></a></p>
-                        </div>
-                        <div class="contact-detail">
-                            <strong>Ausstellung</strong>
-                            <p>Besichtigung nach Terminvereinbarung</p>
-                        </div>
-                    </address>
-
-                    <div class="contact-trust">
-                        <p>Unverbindliche Erstberatung. Persönlich, nicht automatisiert. Wir nehmen uns Zeit für Ihr Projekt.</p>
-                    </div>
-                </div>
-
                 <div class="contact-form-wrap">
 
                     <?php if ($formStatus === 'success'): ?>
