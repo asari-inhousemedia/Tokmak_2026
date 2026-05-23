@@ -34,22 +34,21 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
     <section class="section">
         <div class="container">
 
-            <div class="section-header" style="margin-bottom: var(--space-2xl);">
-                <span class="section-label">So geht es weiter</span>
-                <h2 class="section-title">Was nach Ihrer Anfrage passiert</h2>
-                <p class="section-subtitle">Kein Sofort-Angebot, sondern ein persönlicher Prozess. So stellen wir sicher, dass unser Angebot zu Ihrem Projekt passt.</p>
-            </div>
-
-            <div class="contact-process" style="margin-bottom: var(--space-3xl);">
-                <div class="contact-process-steps">
-                    <div class="contact-process-step"><strong>1</strong> Ihre Anfrage geht bei uns ein</div>
-                    <div class="contact-process-step"><strong>2</strong> Wir melden uns innerhalb von 48h</div>
-                    <div class="contact-process-step"><strong>3</strong> Persönliches Gespräch & Aufmaß vor Ort</div>
-                    <div class="contact-process-step"><strong>4</strong> 3D-Planung & verbindliches Angebot</div>
-                </div>
-            </div>
-
             <div class="contact-grid">
+
+                <div class="contact-sidebar">
+                    <div class="contact-sidebar-header">
+                        <span class="section-label">So geht es weiter</span>
+                        <h2 class="section-title">Was nach Ihrer Anfrage passiert</h2>
+                        <p class="section-subtitle">Kein Sofort-Angebot, sondern ein persönlicher Prozess. So stellen wir sicher, dass unser Angebot zu Ihrem Projekt passt.</p>
+                    </div>
+                    <div class="contact-process-steps">
+                        <div class="contact-process-step"><strong>1</strong> Ihre Anfrage geht bei uns ein</div>
+                        <div class="contact-process-step"><strong>2</strong> Wir melden uns innerhalb von 48h</div>
+                        <div class="contact-process-step"><strong>3</strong> Persönliches Gespräch & Aufmaß vor Ort</div>
+                        <div class="contact-process-step"><strong>4</strong> 3D-Planung & verbindliches Angebot</div>
+                    </div>
+                </div>
 
                 <div class="contact-form-wrap">
 

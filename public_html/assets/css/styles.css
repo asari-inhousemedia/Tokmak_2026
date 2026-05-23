@@ -1427,14 +1427,24 @@ address {
    ============================================ */
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1.6fr;
     gap: var(--space-3xl);
     align-items: start;
 }
 
+.contact-sidebar-header {
+    margin-bottom: var(--space-2xl);
+}
+
+.contact-sidebar-header .section-title {
+    text-align: left;
+}
+
+.contact-sidebar-header .section-subtitle {
+    text-align: left;
+}
+
 .contact-form-wrap {
-    max-width: var(--container-narrow);
-    margin-inline: auto;
     width: 100%;
 }
 
@@ -1501,17 +1511,23 @@ address {
 
 .contact-process-steps {
     display: flex;
+    flex-direction: column;
     gap: var(--space-md);
-    flex-wrap: wrap;
 }
 
 .contact-process-step {
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     font-weight: 300;
     color: var(--color-text);
     display: flex;
     align-items: center;
-    gap: var(--space-xs);
+    gap: var(--space-sm);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-light);
+}
+
+.contact-process-step:last-child {
+    border-bottom: none;
 }
 
 .contact-process-step strong {
@@ -2416,6 +2432,11 @@ address {
 
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+
+    .contact-sidebar-header .section-title,
+    .contact-sidebar-header .section-subtitle {
+        text-align: center;
     }
 
     .footer-grid {
