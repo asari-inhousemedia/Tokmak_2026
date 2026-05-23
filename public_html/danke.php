@@ -48,7 +48,7 @@ $pageSlug        = 'danke';
                 Wir melden uns schnellstmöglich bei Ihnen &ndash; in der Regel innerhalb von 48 Stunden.
             </p>
 
-            <a href="/" class="btn btn-primary btn-lg">Zurück zur Startseite</a>
+            <a href="/" class="btn btn-primary btn-lg" style="color:#ffffff;text-decoration:none;">Zurück zur Startseite</a>
 
         </div>
     </section>

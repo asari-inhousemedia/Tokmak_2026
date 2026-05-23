@@ -574,8 +574,18 @@ address {
     border-color: var(--color-secondary);
 }
 
+/* Sicherstellen dass anchor-Buttons immer weisse Schrift haben */
+a.btn-primary,
+a.btn-primary:link,
+a.btn-primary:visited {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
 .btn-primary:hover,
-.btn-primary:focus-visible {
+.btn-primary:focus-visible,
+a.btn-primary:hover,
+a.btn-primary:focus-visible {
     background: var(--color-primary-dark);
     border-color: var(--color-primary-dark);
     color: var(--color-white);
