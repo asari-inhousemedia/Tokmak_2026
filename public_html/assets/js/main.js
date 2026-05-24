@@ -637,6 +637,20 @@
         blocks.forEach(function(b) { observer.observe(b); });
     }
 
+    function initClickTracking() {
+        if (typeof gtag !== 'function') return;
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+            el.addEventListener('click', function() {
+                gtag('event', 'conversion', { 'send_to': 'AW-18147927014/1EefCJ2SsrIcEObHzc1D' });
+            });
+        });
+        document.querySelectorAll('a[href^="mailto:"]').forEach(function(el) {
+            el.addEventListener('click', function() {
+                gtag('event', 'conversion', { 'send_to': 'AW-18147927014/sNyPCKCSsrIcEObHzc1D' });
+            });
+        });
+    }
+
     /* ============================================
        INIT
        ============================================ */
@@ -657,6 +671,7 @@
         initAllCtaParallax();
         initPageHeaderParallax();
         initTiltCard();
+        initClickTracking();
     });
 
 })();
