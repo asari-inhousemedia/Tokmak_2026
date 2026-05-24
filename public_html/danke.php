@@ -58,5 +58,12 @@ $pageSlug        = 'danke';
 <?php require_once INCLUDES_PATH . '/footer.php'; ?>
 
 <?php require_once INCLUDES_PATH . '/scripts.php'; ?>
+
+<!-- Google Ads Conversion: Lead-Formular senden (AW-18147927014/EcbUCJuk17AcEObHzc1D) -->
+<script>
+  if (typeof gtag === 'function') {
+    gtag('event', 'conversion', { 'send_to': 'AW-18147927014/EcbUCJuk17AcEObHzc1D' });
+  }
+</script>
 </body>
 </html>
