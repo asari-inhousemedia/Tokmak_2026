@@ -35,6 +35,10 @@ define('FORM_RATE_LIMIT_SECONDS', 30);
 define('FORM_LOG_LEADS', true);
 define('FORM_LEADS_FILE', __DIR__ . '/../storage/leads.json');
 
+// --- Inhouse Media OS Webhook ---
+define('OS_WEBHOOK_URL',    'https://os.inhousee.de/api/webhooks/tokmak');
+define('OS_WEBHOOK_SECRET', 'd1c9e918a50106fca885da6848a843fe76b6934e6502e39c4e9234e3bbe44b1e');
+
 // --- Google Analytics 4 ---
 // GA4 Property-ID nach Erstellung hier eintragen, z.B. 'G-XXXXXXXXXX'
 define('GA4_ID', 'G-SCZVNTY78D');
