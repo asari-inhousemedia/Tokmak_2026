@@ -345,6 +345,36 @@ if (FORM_LOG_LEADS) {
     );
 }
 
+// --- OS Webhook (Inhouse Media Headquarter) ---
+// Feuert unabhängig vom Mail-Versand, damit kein Lead verloren geht.
+if (defined('OS_WEBHOOK_URL') && OS_WEBHOOK_URL && defined('OS_WEBHOOK_SECRET') && OS_WEBHOOK_SECRET) {
+    $payload = json_encode([
+        'name'         => $name,
+        'email'        => $email,
+        'phone'        => $phone,
+        'project_type' => $projectType,
+        'object_type'  => $objectType,
+        'timeframe'    => $timeframe,
+        'message'      => $message,
+    ], JSON_UNESCAPED_UNICODE);
+
+    $signature = hash_hmac('sha256', $payload, OS_WEBHOOK_SECRET);
+
+    $ch = curl_init(OS_WEBHOOK_URL);
+    curl_setopt_array($ch, [
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => $payload,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT        => 5,
+        CURLOPT_HTTPHEADER     => [
+            'Content-Type: application/json',
+            'x-webhook-signature: ' . $signature,
+        ],
+    ]);
+    curl_exec($ch);
+    curl_close($ch);
+}
+
 $_SESSION['last_form_submit'] = $now;
 
 if ($mailSent) {
