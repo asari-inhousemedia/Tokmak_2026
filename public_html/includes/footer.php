@@ -92,6 +92,8 @@
     </div>
 </footer>
 
+<script>(function(){fetch('https://os.inhousee.de/api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({website:'tokmak',path:location.pathname}),keepalive:true});})();</script>
+
 <!-- Credit-Animation erst bei Sichtbarkeit starten -->
 <script>
 (function(){
