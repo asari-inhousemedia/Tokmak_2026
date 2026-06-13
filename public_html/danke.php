@@ -17,7 +17,6 @@ $pageSlug        = 'danke';
 <html lang="de">
 <head>
 <?php require_once INCLUDES_PATH . '/head-meta.php'; ?>
-<script>gtag('event', 'conversion', {'send_to': 'AW-18147927014/EcbUCJuk17AcEObHzc1D', 'value': 150.0, 'currency': 'EUR'});</script>
 </head>
 <body class="page-danke">
 
@@ -63,7 +62,7 @@ $pageSlug        = 'danke';
 <!-- Google Ads Conversion: Lead-Formular senden (AW-18147927014/EcbUCJuk17AcEObHzc1D) -->
 <script>
   if (typeof gtag === 'function') {
-    gtag('event', 'conversion', { 'send_to': 'AW-18147927014/EcbUCJuk17AcEObHzc1D' });
+    gtag('event', 'conversion', { 'send_to': 'AW-18147927014/EcbUCJuk17AcEObHzc1D', 'value': 150.0, 'currency': 'EUR' });
   }
 </script>
 </body>
