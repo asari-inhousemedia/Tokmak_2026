@@ -46,6 +46,17 @@ define('GA4_ID', 'G-SCZVNTY78D');
 // --- Google Ads Conversion Tracking ---
 define('GADS_ID', 'AW-18147927014');
 
+
+// --- Google Ads API (Server-Side Conversion) ---
+define('GADS_CUSTOMER_ID', '4094794793');
+define('GADS_MCC_ID',      '7673340631');
+define('GADS_CONV_ACTION', 'customers/4094794793/conversionActions/7618286107');
+define('GADS_CONV_VALUE',  150.0);
+// Credentials via gads-secrets.php (nicht in Git – wird im Deploy-Workflow erzeugt)
+$_gads = __DIR__ . '/gads-secrets.php';
+if (file_exists($_gads)) { require_once $_gads; }
+unset($_gads);
+
 // --- Pfade ---
 define('BASE_PATH', dirname(__DIR__));
 define('INCLUDES_PATH', __DIR__);

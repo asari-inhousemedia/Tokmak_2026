@@ -79,6 +79,7 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
                             <label for="website_url">Website</label>
                             <input type="text" name="website_url" id="website_url" autocomplete="off" tabindex="-1">
                         </div>
+                        <input type="hidden" name="gclid" id="gclid_field" value="">
 
                         <div class="form-row">
                             <div class="form-group">
