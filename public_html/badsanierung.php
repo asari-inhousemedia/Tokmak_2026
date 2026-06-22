@@ -283,7 +283,7 @@ $pageSlug        = 'badsanierung';
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="bs_plz" class="form-label">Postleitzahl <span class="required" aria-label="Pflichtfeld">*</span></label>
-                                <input type="text" id="bs_plz" name="plz" class="form-input" maxlength="5" pattern="[0-9]{5}" placeholder="72805" autocomplete="postal-code" inputmode="numeric" required>
+                                <input type="text" id="bs_plz" name="plz" class="form-input" maxlength="5" pattern="[0-9]{5}" autocomplete="postal-code" inputmode="numeric" required>
                             </div>
                             <div class="form-group">
                                 <label for="bs_stadt" class="form-label">Ort</label>
