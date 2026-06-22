@@ -52,7 +52,7 @@ if (!empty($phone) && !preg_match('/^[\d\s\+\-\(\)\/]{5,30}$/', $phone)) {
     $errors[] = 'phone';
 }
 
-if (!empty($plz) && !preg_match('/^\d{5}$/', $plz)) {
+if (empty($plz) || !preg_match('/^\d{5}$/', $plz)) {
     $errors[] = 'plz';
 }
 
