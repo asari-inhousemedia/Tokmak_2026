@@ -99,6 +99,17 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
 
                         <div class="form-row">
                             <div class="form-group">
+                                <label for="plz" class="form-label">Postleitzahl <span class="optional">(optional)</span></label>
+                                <input type="text" id="plz" name="plz" class="form-input" maxlength="5" pattern="[0-9]{5}" placeholder="72805" autocomplete="postal-code" inputmode="numeric">
+                            </div>
+                            <div class="form-group">
+                                <label for="stadt" class="form-label">Ort</label>
+                                <input type="text" id="stadt" name="stadt" class="form-input" placeholder="wird automatisch erkannt" autocomplete="address-level2">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
                                 <label for="project_type" class="form-label">Projektart <span class="required" aria-label="Pflichtfeld">*</span></label>
                                 <select id="project_type" name="project_type" class="form-select<?php echo in_array('project_type', $formFields) ? ' is-invalid' : ''; ?>" required>
                                     <option value="">Bitte wählen</option>

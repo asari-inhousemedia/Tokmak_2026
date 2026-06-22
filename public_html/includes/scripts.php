@@ -24,5 +24,41 @@
     })();
     </script>
 
+    <!-- PLZ → Stadt Erkennung -->
+    <script>
+    (function(){
+        function initPlz(plzId, stadtId) {
+            var p = document.getElementById(plzId);
+            var s = document.getElementById(stadtId);
+            if (!p || !s) return;
+            p.addEventListener('input', function() {
+                var v = this.value.trim();
+                if (/^\d{5}$/.test(v)) {
+                    fetch('https://api.zippopotam.us/de/' + v)
+                        .then(function(r){ return r.ok ? r.json() : null; })
+                        .then(function(d){
+                            if (d && d.places && d.places[0]) {
+                                s.value = d.places[0]['place name'];
+                            } else {
+                                s.value = '';
+                            }
+                        })
+                        .catch(function(){});
+                } else {
+                    s.value = '';
+                }
+            });
+        }
+        function init() {
+            initPlz('plz', 'stadt');
+            initPlz('ab_plz', 'ab_stadt');
+            initPlz('bs_plz', 'bs_stadt');
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else { init(); }
+    })();
+    </script>
+
     <!-- Haupt-JavaScript -->
     <script src="<?php echo ASSETS_URL; ?>/js/main.js" defer></script>

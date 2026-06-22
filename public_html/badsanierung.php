@@ -242,16 +242,63 @@ $pageSlug        = 'badsanierung';
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="section section-cta-block">
+    <!-- Inline-Kontaktformular -->
+    <section class="section section-alt" id="anfrage">
         <div class="container">
-            <div class="cta-block cta-block-image" id="cta-block">
-                <img src="/assets/img/1.webp" alt="" class="cta-block-bg" loading="lazy" aria-hidden="true">
-                <div class="cta-block-overlay"></div>
-                <div class="cta-block-content">
-                    <h2 class="cta-title">Ihr Bad ist bereit für eine Veränderung?</h2>
-                    <p class="cta-text">Sprechen Sie mit uns über Ihr Projekt – persönlich, unverbindlich und mit klarer Struktur von Anfang an.</p>
-                    <a href="/kontakt" class="btn btn-cta-highlight btn-lg btn-glow">Jetzt unverbindlich anfragen</a>
+            <div class="contact-grid">
+                <div class="contact-sidebar">
+                    <div class="contact-sidebar-header">
+                        <span class="section-label">Ihr Bad. Ihr Projekt.</span>
+                        <h2 class="section-title">Anfrage direkt stellen</h2>
+                        <p class="section-subtitle">Beschreiben Sie kurz Ihr Vorhaben – wir melden uns innerhalb von 48 Stunden.</p>
+                    </div>
+                    <div class="contact-process-steps">
+                        <div class="contact-process-step"><strong>1</strong> Ihre Anfrage geht bei uns ein</div>
+                        <div class="contact-process-step"><strong>2</strong> Wir melden uns innerhalb von 48h</div>
+                        <div class="contact-process-step"><strong>3</strong> Persönliches Gespräch &amp; Aufmaß vor Ort</div>
+                        <div class="contact-process-step"><strong>4</strong> 3D-Planung &amp; detailliertes Festpreis-Angebot</div>
+                    </div>
+                </div>
+                <div class="contact-form-wrap">
+                    <form class="contact-form" action="/includes/form-handler.php" method="POST" novalidate>
+                        <input type="hidden" name="project_type" value="badsanierung">
+                        <div class="form-field-hp" aria-hidden="true" tabindex="-1">
+                            <label for="website_url_bs">Website</label>
+                            <input type="text" name="website_url" id="website_url_bs" autocomplete="off" tabindex="-1">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bs_name" class="form-label">Name <span class="required" aria-label="Pflichtfeld">*</span></label>
+                                <input type="text" id="bs_name" name="name" class="form-input" required minlength="2" maxlength="100" placeholder="Ihr vollständiger Name" autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="bs_phone" class="form-label">Telefon <span class="required" aria-label="Pflichtfeld">*</span></label>
+                                <input type="tel" id="bs_phone" name="phone" class="form-input" required placeholder="+49 123 456 789" autocomplete="tel">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="bs_email" class="form-label">E-Mail <span class="required" aria-label="Pflichtfeld">*</span></label>
+                            <input type="email" id="bs_email" name="email" class="form-input" required placeholder="ihre@email.de" autocomplete="email">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bs_plz" class="form-label">Postleitzahl <span class="optional">(optional)</span></label>
+                                <input type="text" id="bs_plz" name="plz" class="form-input" maxlength="5" pattern="[0-9]{5}" placeholder="72805" autocomplete="postal-code" inputmode="numeric">
+                            </div>
+                            <div class="form-group">
+                                <label for="bs_stadt" class="form-label">Ort</label>
+                                <input type="text" id="bs_stadt" name="stadt" class="form-input" placeholder="wird automatisch erkannt" autocomplete="address-level2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="bs_message" class="form-label">Ihr Projekt <span class="required" aria-label="Pflichtfeld">*</span></label>
+                            <textarea id="bs_message" name="message" class="form-input form-textarea" required minlength="10" maxlength="5000" rows="4" placeholder="Kurze Beschreibung: Welche Räume? Ungefähre Größe? Besondere Wünsche?"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <p class="form-privacy">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gemäß unserer <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> zu.</p>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-full">Jetzt unverbindlich anfragen</button>
+                    </form>
                 </div>
             </div>
         </div>

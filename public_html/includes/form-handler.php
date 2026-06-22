@@ -30,6 +30,8 @@ if (!empty($_POST['website_url'])) {
 $name         = trim(strip_tags($_POST['name'] ?? ''));
 $email        = trim(strip_tags($_POST['email'] ?? ''));
 $phone        = trim(strip_tags($_POST['phone'] ?? ''));
+$plz          = trim(strip_tags($_POST['plz'] ?? ''));
+$stadt        = trim(strip_tags($_POST['stadt'] ?? ''));
 $projectType  = trim(strip_tags($_POST['project_type'] ?? ''));
 $objectType   = trim(strip_tags($_POST['object_type'] ?? ''));
 $timeframe    = trim(strip_tags($_POST['timeframe'] ?? ''));
@@ -48,6 +50,10 @@ if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 if (!empty($phone) && !preg_match('/^[\d\s\+\-\(\)\/]{5,30}$/', $phone)) {
     $errors[] = 'phone';
+}
+
+if (!empty($plz) && !preg_match('/^\d{5}$/', $plz)) {
+    $errors[] = 'plz';
 }
 
 $validProjectTypes = ['badsanierung', 'altersgerecht', 'neubau', 'teilsanierung', 'fliesenarbeiten', 'innenausbau', 'sonstiges'];
@@ -186,11 +192,19 @@ $htmlBody = '<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8">
           </td>
         </tr>
         <tr>
-          <td style="padding:10px 0;vertical-align:top;">
+          <td style="padding:10px 0;border-bottom:1px solid #F5F4F2;vertical-align:top;">
             <span style="font-size:10px;color:#A49A91;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;">Telefon</span>
           </td>
-          <td style="padding:10px 0;vertical-align:top;">
+          <td style="padding:10px 0;border-bottom:1px solid #F5F4F2;vertical-align:top;">
             <span style="font-size:15px;color:' . ($phone ? '#2D2926' : '#B0ABA7') . ';">' . ($phone ? $h($phone) : 'nicht angegeben') . '</span>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:10px 0;vertical-align:top;">
+            <span style="font-size:10px;color:#A49A91;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;">Ort</span>
+          </td>
+          <td style="padding:10px 0;vertical-align:top;">
+            <span style="font-size:15px;color:' . (($plz || $stadt) ? '#2D2926' : '#B0ABA7') . ';">' . (($plz || $stadt) ? trim($h($plz) . ' ' . $h($stadt)) : 'nicht angegeben') . '</span>
           </td>
         </tr>
       </table>
@@ -253,7 +267,8 @@ $textBody  = "NEUE ANFRAGE – KONTAKTFORMULAR TOKMAK-GMBH.DE\n\n";
 $textBody .= "KONTAKTDATEN\n";
 $textBody .= "Name:      {$name}\n";
 $textBody .= "E-Mail:    {$email}\n";
-$textBody .= "Telefon:   " . ($phone ?: 'nicht angegeben') . "\n\n";
+$textBody .= "Telefon:   " . ($phone ?: 'nicht angegeben') . "\n";
+$textBody .= "Ort:       " . (($plz || $stadt) ? trim("{$plz} {$stadt}") : 'nicht angegeben') . "\n\n";
 $textBody .= "PROJEKTDETAILS\n";
 $textBody .= "Projektart:  " . ($projectLabels[$projectType] ?? '-') . "\n";
 $textBody .= "Objektart:   " . ($objectLabels[$objectType] ?? 'keine Angabe') . "\n";
@@ -317,6 +332,8 @@ if (FORM_LOG_LEADS) {
         'name'         => $name,
         'email'        => $email,
         'phone'        => $phone,
+        'plz'          => $plz,
+        'stadt'        => $stadt,
         'project_type' => $projectType,
         'object_type'  => $objectType,
         'timeframe'    => $timeframe,
@@ -415,6 +432,8 @@ if (defined('OS_WEBHOOK_URL') && OS_WEBHOOK_URL && defined('OS_WEBHOOK_SECRET') 
         'name'         => $name,
         'email'        => $email,
         'phone'        => $phone,
+        'plz'          => $plz,
+        'stadt'        => $stadt,
         'project_type' => $projectType,
         'object_type'  => $objectType,
         'timeframe'    => $timeframe,
