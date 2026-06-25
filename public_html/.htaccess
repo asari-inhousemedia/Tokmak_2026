@@ -37,6 +37,9 @@ RewriteRule ^storage/ - [F,L]
 # --- Stadtseiten: /badsanierung-[stadt] → badsanierung-stadt.php ---
 RewriteRule ^badsanierung-([a-z-]+)/?$ badsanierung-stadt.php?stadt=$1 [L,QSA]
 
+# --- Stadtseiten: /altersgerechter-badumbau-[stadt] → altersgerechter-badumbau-stadt.php ---
+RewriteRule ^altersgerechter-badumbau-([a-z-]+)/?$ altersgerechter-badumbau-stadt.php?stadt=$1 [L,QSA]
+
 # --- Saubere URLs: /seite → seite.php ---
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
