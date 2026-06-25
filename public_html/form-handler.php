@@ -183,10 +183,12 @@ if (defined('OS_WEBHOOK_URL') && OS_WEBHOOK_URL && defined('OS_WEBHOOK_SECRET') 
 
 $_SESSION['last_form_submit'] = $now;
 
-if ($mailSent) {
-    $_SESSION['form_success'] = true;
-    header('Location: /danke.php');
-} else {
-    header('Location: /kontakt?status=mail_error');
+// Lead ist gueltig und wurde bereits an OS + Lead-Log uebermittelt.
+// Weiterleitung auf danke.php (= Conversion) NICHT an mail() koppeln,
+// sonst gehen Conversions verloren wenn der Mailversand auf dem Server fehlschlaegt.
+$_SESSION['form_success'] = true;
+if (!$mailSent) {
+    error_log('Tokmak Formular: mail() fehlgeschlagen fuer ' . $email . ' — Lead wurde dennoch an OS uebermittelt.');
 }
+header('Location: /danke.php');
 exit;
