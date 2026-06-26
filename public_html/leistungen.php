@@ -86,6 +86,7 @@ $pageSlug        = 'leistungen';
                         <li>Nahtlose Oberflächen ohne Fugen</li>
                         <li>Für Bad, Küche und Wohnräume</li>
                     </ul>
+                    <a href="/fugenloses-bad" class="btn btn-primary" style="margin-top: var(--space-lg);">Mehr zum fugenlosen Bad</a>
                 </div>
                 <div class="content-split-visual">
                     <div class="content-split-image"><img src="/assets/img/fugenlos.webp" alt="Fugenlose Oberflächen mit Cosmato" width="600" height="450" loading="lazy"></div>

@@ -22,6 +22,7 @@
                 <h3 class="footer-heading">Leistungen</h3>
                 <ul class="footer-links">
                     <li><a href="/badsanierung">Badsanierung</a></li>
+                    <li><a href="/fugenloses-bad">Fugenloses Bad</a></li>
                     <li><a href="/leistungen">Fliesenarbeiten</a></li>
                     <li><a href="/leistungen">Innenausbau</a></li>
                 </ul>

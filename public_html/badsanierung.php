@@ -123,6 +123,7 @@ $pageSlug        = 'badsanierung';
                         <li>Nahtlose, pflegeleichte Oberflächen</li>
                         <li>Individuelle Farb- und Strukturwahl</li>
                     </ul>
+                    <a href="/fugenloses-bad" class="btn btn-primary" style="margin-top: var(--space-lg);">Mehr zum fugenlosen Bad</a>
                 </div>
                 <div class="content-split-visual">
                     <img src="/assets/img/fugenfrei.webp" alt="Fugenloses Bad – Tokmak GmbH" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md);" loading="lazy">

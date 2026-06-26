@@ -18,6 +18,13 @@
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
+
+    <url>
+        <loc>https://tokmak-gmbh.de/fugenloses-bad</loc>
+        <lastmod>2026-06-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
     <url>
         <loc>https://tokmak-gmbh.de/altersgerechter-badumbau</loc>
         <lastmod>2026-05-20</lastmod>
