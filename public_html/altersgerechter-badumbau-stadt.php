@@ -475,6 +475,7 @@ $schemaOrg = [
                 <form id="anfrage-formular" class="contact-form" action="/includes/form-handler.php" method="POST" novalidate>
 
                     <input type="hidden" name="project_type" value="altersgerecht">
+                    <input type="hidden" name="gclid" id="gclid_field" value="">
 
                     <div class="form-field-hp" aria-hidden="true" tabindex="-1">
                         <label for="website_url">Website</label>
