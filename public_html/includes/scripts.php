@@ -24,6 +24,26 @@
     })();
     </script>
 
+    <!-- Anruf-Klick auf Telefonnummer als Conversion (Anruf-Klick Website) -->
+    <script>
+    (function(){
+        function trackCall(){
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', { 'send_to': 'AW-18147927014/1EefCJ2SsrIcEObHzc1D', 'value': 150.0, 'currency': 'EUR' });
+            }
+        }
+        function bind(){
+            var links = document.querySelectorAll('a[href^="tel:"]');
+            for (var i = 0; i < links.length; i++) {
+                links[i].addEventListener('click', trackCall);
+            }
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', bind);
+        } else { bind(); }
+    })();
+    </script>
+
     <!-- PLZ → Stadt Erkennung -->
     <script>
     (function(){
