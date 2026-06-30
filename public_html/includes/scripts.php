@@ -80,5 +80,5 @@
     })();
     </script>
 
-    <!-- Haupt-JavaScript -->
-    <script src="<?php echo ASSETS_URL; ?>/js/main.js" defer></script>
+    <!-- Haupt-JavaScript (Cache-Busting per Datei-Aenderungszeit) -->
+    <script src="<?php echo ASSETS_URL; ?>/js/main.js?v=<?php echo @filemtime(BASE_PATH . '/assets/js/main.js') ?: '1'; ?>" defer></script>

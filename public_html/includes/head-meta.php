@@ -62,7 +62,7 @@ gtag('config', '<?php echo GADS_ID; ?>');
 <link rel="preload" href="<?php echo ASSETS_URL; ?>/fonts/karla-regular.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- CSS -->
-<link rel="stylesheet" href="<?php echo ASSETS_URL; ?>/css/styles.css?v=20260521e">
+<link rel="stylesheet" href="<?php echo ASSETS_URL; ?>/css/styles.css?v=<?php echo @filemtime(BASE_PATH . '/assets/css/styles.css') ?: '1'; ?>">
 
 <?php if ($pageSlug === 'startseite'): ?>
 <!-- JSON-LD LocalBusiness -->
