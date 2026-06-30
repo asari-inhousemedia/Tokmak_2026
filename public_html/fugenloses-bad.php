@@ -341,46 +341,7 @@ $schemaOrg = [
                     </div>
                 </div>
                 <div class="contact-form-wrap">
-                    <form class="contact-form" action="/includes/form-handler.php" method="POST" novalidate>
-                        <input type="hidden" name="project_type" value="fugenloses-bad">
-                        <input type="hidden" name="gclid" id="gclid_field" value="">
-                        <div class="form-field-hp" aria-hidden="true" tabindex="-1">
-                            <label for="website_url_fb">Website</label>
-                            <input type="text" name="website_url" id="website_url_fb" autocomplete="off" tabindex="-1">
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="fb_name" class="form-label">Name <span class="required" aria-label="Pflichtfeld">*</span></label>
-                                <input type="text" id="fb_name" name="name" class="form-input" required minlength="2" maxlength="100" placeholder="Ihr vollständiger Name" autocomplete="name">
-                            </div>
-                            <div class="form-group">
-                                <label for="fb_phone" class="form-label">Telefon <span class="required" aria-label="Pflichtfeld">*</span></label>
-                                <input type="tel" id="fb_phone" name="phone" class="form-input" required placeholder="+49 123 456 789" autocomplete="tel">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="fb_email" class="form-label">E-Mail <span class="required" aria-label="Pflichtfeld">*</span></label>
-                            <input type="email" id="fb_email" name="email" class="form-input" required placeholder="ihre@email.de" autocomplete="email">
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="fb_plz" class="form-label">Postleitzahl <span class="required" aria-label="Pflichtfeld">*</span></label>
-                                <input type="text" id="fb_plz" name="plz" class="form-input" maxlength="5" pattern="[0-9]{5}" autocomplete="postal-code" inputmode="numeric" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="fb_stadt" class="form-label">Ort</label>
-                                <input type="text" id="fb_stadt" name="stadt" class="form-input" placeholder="wird automatisch erkannt" autocomplete="address-level2">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="fb_message" class="form-label">Ihr Projekt <span class="required" aria-label="Pflichtfeld">*</span></label>
-                            <textarea id="fb_message" name="message" class="form-input form-textarea" required minlength="10" maxlength="5000" rows="4" placeholder="Kurze Beschreibung: Welche Flächen? Dusche oder ganzes Bad? Sind aktuell Fliesen vorhanden?"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <p class="form-privacy">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gemäß unserer <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> zu.</p>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-lg btn-full">Jetzt unverbindlich anfragen</button>
-                    </form>
+                    <?php include __DIR__ . "/includes/contact-form.php"; ?>
                 </div>
             </div>
         </div>

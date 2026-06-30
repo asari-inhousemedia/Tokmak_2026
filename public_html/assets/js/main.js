@@ -693,6 +693,8 @@
         var curEl = form.querySelector('.ms-cur');
         var total = steps.length;
         var current = 0;
+        var totalEl = form.querySelector('.ms-total');
+        if (totalEl) totalEl.textContent = total;
 
         function show(i, doScroll) {
             current = Math.max(0, Math.min(i, total - 1));
@@ -722,7 +724,7 @@
         function validateStep(idx) {
             var step = steps[idx];
             var ok = true;
-            if (idx === 0) {
+            if (step.querySelector('.ms-cards')) {
                 ok = !!form.querySelector('input[name="project_type"]:checked');
             } else {
                 var reqs = step.querySelectorAll('[required]');
