@@ -53,6 +53,22 @@ $pageSlug        = 'danke';
         </div>
     </section>
 
+    <section class="section section-process-after">
+        <div class="container">
+            <div class="process-after-header">
+                <span class="section-label">So geht es jetzt weiter</span>
+                <h2 class="section-title">Was als Nächstes passiert</h2>
+                <p class="section-subtitle">Ihre Anfrage ist bei uns. Diese Schritte folgen jetzt &ndash; persönlich und ohne Sofort-Angebot.</p>
+            </div>
+            <ol class="process-after-steps">
+                <li class="process-after-step is-done"><span class="process-after-num">1</span><span class="process-after-text">Ihre Anfrage ist bei uns eingegangen</span></li>
+                <li class="process-after-step"><span class="process-after-num">2</span><span class="process-after-text">Wir melden uns innerhalb von 48 Stunden</span></li>
+                <li class="process-after-step"><span class="process-after-num">3</span><span class="process-after-text">Persönliches Gespräch &amp; Aufmaß vor Ort</span></li>
+                <li class="process-after-step"><span class="process-after-num">4</span><span class="process-after-text">3D-Planung &amp; detailliertes Festpreis-Angebot</span></li>
+            </ol>
+        </div>
+    </section>
+
 </main>
 
 <?php require_once INCLUDES_PATH . '/footer.php'; ?>

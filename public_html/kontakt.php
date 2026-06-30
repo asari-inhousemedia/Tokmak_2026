@@ -34,21 +34,7 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
     <section class="section">
         <div class="container">
 
-            <div class="contact-grid">
-
-                <div class="contact-sidebar">
-                    <div class="contact-sidebar-header">
-                        <span class="section-label">So geht es weiter</span>
-                        <h2 class="section-title">Was nach Ihrer Anfrage passiert</h2>
-                        <p class="section-subtitle">Kein Sofort-Angebot, sondern ein persönlicher Prozess. So stellen wir sicher, dass unser Angebot zu Ihrem Projekt passt.</p>
-                    </div>
-                    <div class="contact-process-steps">
-                        <div class="contact-process-step"><strong>1</strong> Ihre Anfrage geht bei uns ein</div>
-                        <div class="contact-process-step"><strong>2</strong> Wir melden uns innerhalb von 48h</div>
-                        <div class="contact-process-step"><strong>3</strong> Persönliches Gespräch & Aufmaß vor Ort</div>
-                        <div class="contact-process-step"><strong>4</strong> 3D-Planung & detailliertes Festpreis-Angebot</div>
-                    </div>
-                </div>
+            <div class="contact-single">
 
                 <div class="contact-form-wrap">
 
@@ -70,10 +56,7 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
                     </div>
                     <?php endif; ?>
 
-                    <p class="form-photo-hint">Optional: Fotos Ihres Bades helfen uns bei der Vorbereitung. Laden Sie diese direkt im Formular hoch.</p>
-
-                    <!-- WICHTIG: action zeigt jetzt auf den echten Handler -->
-                    <form id="kontakt-formular" class="contact-form" action="/includes/form-handler.php" method="POST" enctype="multipart/form-data" novalidate>
+                    <form id="kontakt-formular" class="contact-form contact-form-multistep" action="/includes/form-handler.php" method="POST" enctype="multipart/form-data" novalidate>
 
                         <div class="form-field-hp" aria-hidden="true" tabindex="-1">
                             <label for="website_url">Website</label>
@@ -81,7 +64,45 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
                         </div>
                         <input type="hidden" name="gclid" id="gclid_field" value="">
 
-                        <div class="form-row">
+                        <div class="ms-progress" aria-hidden="true">
+                            <span class="ms-progress-bar"><span class="ms-progress-fill"></span></span>
+                            <span class="ms-progress-label">Schritt <span class="ms-cur">1</span> von 3</span>
+                        </div>
+
+                        <!-- SCHRITT 1: Projektauswahl -->
+                        <div class="ms-step" data-step="1">
+                            <h3 class="ms-step-title">Was planen Sie?</h3>
+                            <div class="ms-cards">
+                                <label class="ms-card">
+                                    <input type="radio" name="project_type" value="badsanierung">
+                                    <img src="/assets/img/badsanierung.webp" alt="Komplett-Badsanierung" loading="lazy">
+                                    <span class="ms-card-label">Komplett-Badsanierung</span>
+                                    <span class="ms-card-check" aria-hidden="true">&check;</span>
+                                </label>
+                                <label class="ms-card">
+                                    <input type="radio" name="project_type" value="altersgerecht">
+                                    <img src="/assets/img/altersgerecht.png" alt="Altersgerechter Badumbau" loading="lazy">
+                                    <span class="ms-card-label">Altersgerechter Umbau</span>
+                                    <span class="ms-card-check" aria-hidden="true">&check;</span>
+                                </label>
+                                <label class="ms-card">
+                                    <input type="radio" name="project_type" value="fugenloses-bad">
+                                    <img src="/assets/img/fugenlos.webp" alt="Fugenloses Bad" loading="lazy">
+                                    <span class="ms-card-label">Fugenloses Bad</span>
+                                    <span class="ms-card-check" aria-hidden="true">&check;</span>
+                                </label>
+                                <label class="ms-card">
+                                    <input type="radio" name="project_type" value="sonstiges">
+                                    <img src="/assets/img/materialien.webp" alt="Sonstiges Projekt" loading="lazy">
+                                    <span class="ms-card-label">Sonstiges</span>
+                                    <span class="ms-card-check" aria-hidden="true">&check;</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- SCHRITT 2: Kontaktdaten -->
+                        <div class="ms-step" data-step="2">
+                            <h3 class="ms-step-title">Ihre Kontaktdaten</h3>
                             <div class="form-group">
                                 <label for="name" class="form-label">Name <span class="required" aria-label="Pflichtfeld">*</span></label>
                                 <input type="text" id="name" name="name" class="form-input<?php echo in_array('name', $formFields) ? ' is-invalid' : ''; ?>" required minlength="2" maxlength="100" placeholder="Ihr vollständiger Name" autocomplete="name">
@@ -90,86 +111,91 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
                                 <label for="email" class="form-label">E-Mail <span class="required" aria-label="Pflichtfeld">*</span></label>
                                 <input type="email" id="email" name="email" class="form-input<?php echo in_array('email', $formFields) ? ' is-invalid' : ''; ?>" required placeholder="ihre@email.de" autocomplete="email">
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone" class="form-label">Telefon <span class="optional">(optional)</span></label>
-                            <input type="tel" id="phone" name="phone" class="form-input<?php echo in_array('phone', $formFields) ? ' is-invalid' : ''; ?>" placeholder="+49 123 456 789" autocomplete="tel">
-                        </div>
-
-                        <div class="form-row">
                             <div class="form-group">
-                                <label for="plz" class="form-label">Postleitzahl <span class="required" aria-label="Pflichtfeld">*</span></label>
-                                <input type="text" id="plz" name="plz" class="form-input" maxlength="5" pattern="[0-9]{5}" autocomplete="postal-code" inputmode="numeric" required>
+                                <label for="phone" class="form-label">Telefon <span class="optional">(optional)</span></label>
+                                <input type="tel" id="phone" name="phone" class="form-input<?php echo in_array('phone', $formFields) ? ' is-invalid' : ''; ?>" placeholder="+49 123 456 789" autocomplete="tel">
                             </div>
-                            <div class="form-group">
-                                <label for="stadt" class="form-label">Ort</label>
-                                <input type="text" id="stadt" name="stadt" class="form-input" placeholder="wird automatisch erkannt" autocomplete="address-level2">
+                            <div class="ms-nav">
+                                <button type="button" class="btn btn-ghost ms-prev">Zurück</button>
+                                <button type="button" class="btn btn-primary btn-lg ms-next">Weiter</button>
                             </div>
                         </div>
 
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="project_type" class="form-label">Projektart <span class="required" aria-label="Pflichtfeld">*</span></label>
-                                <select id="project_type" name="project_type" class="form-select<?php echo in_array('project_type', $formFields) ? ' is-invalid' : ''; ?>" required>
-                                    <option value="">Bitte wählen</option>
-                                    <option value="badsanierung">Komplett-Badsanierung</option>
-                                    <option value="altersgerecht">Altersgerechter Badumbau</option>
-                                    <option value="neubau">Neubau Badezimmer</option>
-                                    <option value="teilsanierung">Teilsanierung</option>
-                                    <option value="fliesenarbeiten">Fliesenarbeiten</option>
-                                    <option value="innenausbau">Innenausbau</option>
-                                    <option value="sonstiges">Sonstiges</option>
-                                </select>
+                        <!-- SCHRITT 3: Details (optional) -->
+                        <div class="ms-step" data-step="3">
+                            <h3 class="ms-step-title">Details <span class="optional">(optional)</span></h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="plz" class="form-label">Postleitzahl <span class="optional">(optional)</span></label>
+                                    <input type="text" id="plz" name="plz" class="form-input" maxlength="5" pattern="[0-9]{5}" autocomplete="postal-code" inputmode="numeric">
+                                </div>
+                                <div class="form-group">
+                                    <label for="stadt" class="form-label">Ort</label>
+                                    <input type="text" id="stadt" name="stadt" class="form-input" placeholder="wird automatisch erkannt" autocomplete="address-level2">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="object_type" class="form-label">Objektart <span class="optional">(optional)</span></label>
+                                    <select id="object_type" name="object_type" class="form-select">
+                                        <option value="">Bitte wählen</option>
+                                        <option value="einfamilienhaus">Einfamilienhaus</option>
+                                        <option value="eigentumswohnung">Eigentumswohnung</option>
+                                        <option value="neubau">Neubau</option>
+                                        <option value="gewerbe">Gewerbeobjekt</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="timeframe" class="form-label">Zeitraum <span class="optional">(optional)</span></label>
+                                    <select id="timeframe" name="timeframe" class="form-select">
+                                        <option value="">Bitte wählen</option>
+                                        <option value="asap">So bald wie möglich</option>
+                                        <option value="1-3">In 1–3 Monaten</option>
+                                        <option value="3-6">In 3–6 Monaten</option>
+                                        <option value="offen">Noch offen</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="object_type" class="form-label">Objektart <span class="optional">(optional)</span></label>
-                                <select id="object_type" name="object_type" class="form-select">
-                                    <option value="">Bitte wählen</option>
-                                    <option value="einfamilienhaus">Einfamilienhaus</option>
-                                    <option value="eigentumswohnung">Eigentumswohnung</option>
-                                    <option value="neubau">Neubau</option>
-                                    <option value="gewerbe">Gewerbeobjekt</option>
-                                </select>
+                                <label for="message" class="form-label">Nachricht <span class="optional">(optional)</span></label>
+                                <textarea id="message" name="message" class="form-input form-textarea<?php echo in_array('message', $formFields) ? ' is-invalid' : ''; ?>" maxlength="5000" rows="4" placeholder="Beschreiben Sie kurz Ihr Projekt – Raumgröße, Wünsche, offene Fragen..."></textarea>
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="timeframe" class="form-label">Gewünschter Zeitraum <span class="optional">(optional)</span></label>
-                            <select id="timeframe" name="timeframe" class="form-select">
-                                <option value="">Bitte wählen</option>
-                                <option value="asap">So bald wie möglich</option>
-                                <option value="1-3">In 1–3 Monaten</option>
-                                <option value="3-6">In 3–6 Monaten</option>
-                                <option value="offen">Noch offen</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message" class="form-label">Nachricht <span class="required" aria-label="Pflichtfeld">*</span></label>
-                            <textarea id="message" name="message" class="form-input form-textarea<?php echo in_array('message', $formFields) ? ' is-invalid' : ''; ?>" required minlength="10" maxlength="5000" rows="5" placeholder="Beschreiben Sie kurz Ihr Projekt – Raumgröße, Wünsche, offene Fragen..."></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="photos" class="form-label">Fotos Ihres Bades <span class="optional">(optional, max. 3 Bilder, je 5 MB)</span></label>
-                            <input type="file" id="photos" name="photos[]" class="form-input form-file" multiple accept=".jpg,.jpeg,.png,.webp,.heic,image/jpeg,image/png,image/webp,image/heic">
-                            <span class="form-hint">Erlaubte Formate: JPG, PNG, WebP, HEIC</span>
-                        </div>
-
-                        <div class="form-group">
-                            <p class="form-privacy">
-                                Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gemäß unserer
-                                <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> zu.
-                            </p>
-                        </div>
-
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-lg btn-full">Jetzt unverbindlich anfragen</button>
+                            <div class="form-group">
+                                <label for="photos" class="form-label">Fotos Ihres Bades <span class="optional">(optional, max. 3 Bilder, je 5 MB)</span></label>
+                                <input type="file" id="photos" name="photos[]" class="form-input form-file" multiple accept=".jpg,.jpeg,.png,.webp,.heic,image/jpeg,image/png,image/webp,image/heic">
+                                <span class="form-hint">Erlaubte Formate: JPG, PNG, WebP, HEIC</span>
+                            </div>
+                            <div class="form-group">
+                                <p class="form-privacy">
+                                    Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gemäß unserer
+                                    <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> zu.
+                                </p>
+                            </div>
+                            <div class="ms-nav">
+                                <button type="button" class="btn btn-ghost ms-prev">Zurück</button>
+                                <button type="submit" class="btn btn-primary btn-lg">Jetzt unverbindlich anfragen</button>
+                            </div>
                         </div>
                     </form>
                 </div>
 
             </div>
+        </div>
+    </section>
+
+    <section class="section section-process-after">
+        <div class="container">
+            <div class="process-after-header">
+                <span class="section-label">So geht es weiter</span>
+                <h2 class="section-title">Was nach Ihrer Anfrage passiert</h2>
+                <p class="section-subtitle">Kein Sofort-Angebot, sondern ein persönlicher Prozess. So stellen wir sicher, dass unser Angebot zu Ihrem Projekt passt.</p>
+            </div>
+            <ol class="process-after-steps">
+                <li class="process-after-step"><span class="process-after-num">1</span><span class="process-after-text">Ihre Anfrage geht bei uns ein</span></li>
+                <li class="process-after-step"><span class="process-after-num">2</span><span class="process-after-text">Wir melden uns innerhalb von 48 Stunden</span></li>
+                <li class="process-after-step"><span class="process-after-num">3</span><span class="process-after-text">Persönliches Gespräch &amp; Aufmaß vor Ort</span></li>
+                <li class="process-after-step"><span class="process-after-num">4</span><span class="process-after-text">3D-Planung &amp; detailliertes Festpreis-Angebot</span></li>
+            </ol>
         </div>
     </section>
 

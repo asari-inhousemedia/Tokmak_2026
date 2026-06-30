@@ -3279,3 +3279,84 @@ a.btn-primary:focus-visible {
         grid-template-columns: 1fr;
     }
 }
+
+/* ============================================
+   MULTI-STEP KONTAKTFORMULAR
+   ============================================ */
+.contact-form-multistep .ms-step { display: none; }
+.contact-form-multistep.js-multistep .ms-step.is-active { display: block; animation: msFade .25s ease; }
+/* Fallback ohne JS: alle Schritte sichtbar */
+.contact-form-multistep:not(.js-multistep) .ms-step { display: block; margin-bottom: 2rem; }
+.contact-form-multistep:not(.js-multistep) .ms-progress { display: none; }
+
+@keyframes msFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+.ms-progress { margin-bottom: 1.5rem; }
+.ms-progress-bar { display: block; height: 6px; border-radius: 99px; background: var(--color-light); overflow: hidden; }
+.ms-progress-fill { display: block; height: 100%; width: 33.33%; border-radius: 99px; background: var(--color-primary); transition: width .3s ease; }
+.ms-progress-label { display: block; margin-top: .5rem; font-size: var(--text-sm); color: var(--color-muted); }
+
+.ms-step-title { font-family: var(--font-heading); font-size: var(--text-xl); color: var(--color-dark); margin: 0 0 1.25rem; }
+
+/* Auswahl-Karten mit Bild-Hintergrund */
+.ms-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: .85rem; }
+.ms-card { position: relative; display: block; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; cursor: pointer; border: 2px solid var(--color-border); transition: border-color .2s ease, transform .15s ease, box-shadow .2s ease; }
+.ms-card input { position: absolute; opacity: 0; pointer-events: none; }
+.ms-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ms-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,25,23,.15) 0%, rgba(28,25,23,.72) 100%); transition: background .2s ease; }
+.ms-card-label { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: .85rem .9rem; color: #fff; font-family: var(--font-heading); font-weight: 700; font-size: var(--text-base); line-height: 1.2; text-shadow: 0 1px 4px rgba(0,0,0,.4); }
+.ms-card-check { position: absolute; top: .6rem; right: .6rem; z-index: 3; width: 28px; height: 28px; border-radius: 50%; background: var(--color-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 16px; opacity: 0; transform: scale(.6); transition: all .2s ease; }
+.ms-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(28,25,23,.15); }
+.ms-card:hover::after { background: linear-gradient(180deg, rgba(28,25,23,.1) 0%, rgba(28,25,23,.6) 100%); }
+.ms-card.is-selected { border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(140,130,121,.35); }
+.ms-card.is-selected::after { background: linear-gradient(180deg, rgba(107,99,92,.25) 0%, rgba(107,99,92,.65) 100%); }
+.ms-card.is-selected .ms-card-check { opacity: 1; transform: scale(1); }
+.ms-card input:focus-visible + img { outline: 3px solid var(--color-primary); outline-offset: -3px; }
+
+/* Navigation */
+.ms-nav { display: flex; gap: .75rem; margin-top: 1.5rem; }
+.ms-nav .ms-prev { flex: 0 0 auto; }
+.ms-nav .ms-next, .ms-nav button[type="submit"] { flex: 1; }
+.btn-ghost { background: transparent; border: 1.5px solid var(--color-border); color: var(--color-text); }
+.btn-ghost:hover { border-color: var(--color-primary); color: var(--color-dark); }
+
+@media (max-width: 420px) {
+  .ms-cards { gap: .65rem; }
+  .ms-card-label { font-size: var(--text-sm); padding: .7rem .75rem; }
+}
+
+/* ============================================
+   KONTAKT: Formular zentriert + Prozess darunter
+   ============================================ */
+.contact-single { max-width: 720px; margin: 0 auto; }
+
+.section-process-after { background: var(--color-off-white); border-top: 1px solid var(--color-border); }
+.process-after-header { text-align: center; max-width: 640px; margin: 0 auto 2.5rem; }
+
+.process-after-steps {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;
+    counter-reset: none;
+}
+.process-after-step {
+    position: relative; text-align: center;
+    padding: 1.5rem 1rem; background: var(--color-white);
+    border: 1px solid var(--color-border); border-radius: 14px;
+}
+.process-after-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px; margin-bottom: .9rem;
+    border-radius: 50%; background: var(--color-secondary); color: #fff;
+    font-family: var(--font-heading); font-weight: 700; font-size: var(--text-lg);
+}
+.process-after-step.is-done .process-after-num { background: var(--color-success); }
+.process-after-text { display: block; color: var(--color-text); font-size: var(--text-base); line-height: 1.4; }
+
+@media (max-width: 720px) {
+    .process-after-steps { grid-template-columns: 1fr; gap: .75rem; }
+    .process-after-step {
+        display: flex; align-items: center; gap: 1rem;
+        text-align: left; padding: 1rem 1.1rem;
+    }
+    .process-after-num { margin-bottom: 0; width: 38px; height: 38px; flex: 0 0 auto; }
+}

@@ -675,3 +675,85 @@
     });
 
 })();
+
+/* ============================================
+   MULTI-STEP KONTAKTFORMULAR
+   Progressive Enhancement: ohne JS bleiben alle Schritte sichtbar.
+   ============================================ */
+(function () {
+    'use strict';
+    function initContactMultiStep() {
+        var form = document.querySelector('.contact-form-multistep');
+        if (!form) return;
+        var steps = Array.prototype.slice.call(form.querySelectorAll('.ms-step'));
+        if (steps.length < 2) return;
+
+        form.classList.add('js-multistep');
+        var fill  = form.querySelector('.ms-progress-fill');
+        var curEl = form.querySelector('.ms-cur');
+        var total = steps.length;
+        var current = 0;
+
+        function show(i, doScroll) {
+            current = Math.max(0, Math.min(i, total - 1));
+            steps.forEach(function (s, idx) { s.classList.toggle('is-active', idx === current); });
+            if (fill) fill.style.width = ((current + 1) / total * 100) + '%';
+            if (curEl) curEl.textContent = (current + 1);
+            var active = steps[current];
+            var firstInput = active.querySelector('input:not([type=hidden]):not([type=radio]), textarea, select');
+            if (firstInput) { try { firstInput.focus({ preventScroll: true }); } catch (e) {} }
+            if (doScroll) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Auswahl-Karten (Schritt 1)
+        var cards = Array.prototype.slice.call(form.querySelectorAll('.ms-card'));
+        cards.forEach(function (card) {
+            card.addEventListener('click', function () {
+                var radio = card.querySelector('input[type=radio]');
+                if (radio) radio.checked = true;
+                cards.forEach(function (c) { c.classList.remove('is-selected'); });
+                card.classList.add('is-selected');
+                // Direkt weiter zu Schritt 2 – kurze Verzoegerung, damit die Auswahl sichtbar wird
+                setTimeout(function () { show(1, true); }, 220);
+            });
+        });
+
+        // Validierung pro Schritt
+        function validateStep(idx) {
+            var step = steps[idx];
+            var ok = true;
+            if (idx === 0) {
+                ok = !!form.querySelector('input[name="project_type"]:checked');
+            } else {
+                var reqs = step.querySelectorAll('[required]');
+                reqs.forEach(function (inp) {
+                    inp.classList.remove('is-invalid');
+                    var val = (inp.value || '').trim();
+                    if (!val) { inp.classList.add('is-invalid'); ok = false; return; }
+                    if (inp.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+                        inp.classList.add('is-invalid'); ok = false;
+                    }
+                });
+            }
+            if (!ok) {
+                var bad = step.querySelector('.is-invalid');
+                if (bad) { bad.focus(); bad.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+            }
+            return ok;
+        }
+
+        form.addEventListener('click', function (e) {
+            var next = e.target.closest('.ms-next');
+            var prev = e.target.closest('.ms-prev');
+            if (next) { e.preventDefault(); if (validateStep(current)) show(current + 1, true); }
+            if (prev) { e.preventDefault(); show(current - 1, true); }
+        });
+
+        show(0, false);
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initContactMultiStep);
+    } else {
+        initContactMultiStep();
+    }
+})();

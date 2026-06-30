@@ -52,16 +52,19 @@ if (!empty($phone) && !preg_match('/^[\d\s\+\-\(\)\/]{5,30}$/', $phone)) {
     $errors[] = 'phone';
 }
 
-if (empty($plz) || !preg_match('/^\d{5}$/', $plz)) {
+// PLZ optional – nur pruefen, wenn ausgefuellt
+if (!empty($plz) && !preg_match('/^\d{5}$/', $plz)) {
     $errors[] = 'plz';
 }
 
+// project_type optional – nur pruefen, wenn gesetzt
 $validProjectTypes = ['badsanierung', 'altersgerecht', 'fugenloses-bad', 'neubau', 'teilsanierung', 'fliesenarbeiten', 'innenausbau', 'sonstiges'];
-if (empty($projectType) || !in_array($projectType, $validProjectTypes)) {
+if (!empty($projectType) && !in_array($projectType, $validProjectTypes)) {
     $errors[] = 'project_type';
 }
 
-if (empty($message) || mb_strlen($message) < 10 || mb_strlen($message) > 5000) {
+// Nachricht optional – nur Maximallaenge pruefen, wenn ausgefuellt
+if (!empty($message) && mb_strlen($message) > 5000) {
     $errors[] = 'message';
 }
 
@@ -460,10 +463,12 @@ if (defined('OS_WEBHOOK_URL') && OS_WEBHOOK_URL && defined('OS_WEBHOOK_SECRET') 
 
 $_SESSION['last_form_submit'] = $now;
 
-if ($mailSent) {
-    $_SESSION['form_success'] = true;
-    header('Location: /danke.php');
-} else {
-    header('Location: /kontakt?status=mail_error');
+// Weiterleitung NICHT an mail() koppeln: der Lead ist via OS-Webhook (+ Server-Conversion)
+// bereits gesichert. Nach erfolgreicher Validierung IMMER auf danke.php, damit der Kunde die
+// Bestaetigung sieht und die Conversion auf danke.php feuert. Mail-Fehler nur protokollieren.
+if (!$mailSent) {
+    error_log('Tokmak Formular: mail() fehlgeschlagen – Lead ist ueber OS-Webhook gesichert.');
 }
+$_SESSION['form_success'] = true;
+header('Location: /danke.php');
 exit;
