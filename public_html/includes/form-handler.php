@@ -56,7 +56,7 @@ if (empty($plz) || !preg_match('/^\d{5}$/', $plz)) {
     $errors[] = 'plz';
 }
 
-$validProjectTypes = ['badsanierung', 'altersgerecht', 'neubau', 'teilsanierung', 'fliesenarbeiten', 'innenausbau', 'sonstiges'];
+$validProjectTypes = ['badsanierung', 'altersgerecht', 'fugenloses-bad', 'neubau', 'teilsanierung', 'fliesenarbeiten', 'innenausbau', 'sonstiges'];
 if (empty($projectType) || !in_array($projectType, $validProjectTypes)) {
     $errors[] = 'project_type';
 }
@@ -74,6 +74,7 @@ if (!empty($errors)) {
 $projectLabels = [
     'badsanierung'    => 'Komplett-Badsanierung',
     'altersgerecht'   => 'Altersgerechter Badumbau',
+    'fugenloses-bad'  => 'Fugenloses Bad',
     'neubau'          => 'Neubau Badezimmer',
     'teilsanierung'   => 'Teilsanierung',
     'fliesenarbeiten' => 'Fliesenarbeiten',
