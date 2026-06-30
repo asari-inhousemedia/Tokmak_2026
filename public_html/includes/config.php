@@ -29,7 +29,7 @@ define('LEGAL_REGISTER', 'HRB 803281, Amtsgericht Stuttgart');
 define('LEGAL_TAX_ID', 'DE459571108');
 
 // --- Formular ---
-define('FORM_RECIPIENT', 'a.sari@inhousee.de'); // TEMP Mobile-Test 30.06. – zurueck auf CONTACT_EMAIL
+define('FORM_RECIPIENT', CONTACT_EMAIL);
 define('FORM_BCC', 'a.sari@inhousee.de');       // Inhouse Media – wird bei jeder Anfrage in BCC gesetzt
 define('FORM_RATE_LIMIT_SECONDS', 30);
 define('FORM_LOG_LEADS', true);
