@@ -349,6 +349,8 @@ $schemaOrg = [
 
 </main>
 
+<?php include __DIR__ . '/includes/sticky-cta.php'; ?>
+
 <?php require_once INCLUDES_PATH . '/footer.php'; ?>
 
 <?php require_once INCLUDES_PATH . '/scripts.php'; ?>

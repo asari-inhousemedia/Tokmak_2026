@@ -310,6 +310,7 @@ $schemaOrg = [
             <span class="page-header-label">Tokmak GmbH <?php if ($km > 0): ?>· <?php echo $km; ?> km von Reutlingen<?php endif; ?></span>
             <h1 class="page-header-title">Altersgerechter Badumbau <?php echo htmlspecialchars($stadt); ?></h1>
             <p class="page-header-subtitle"><?php echo htmlspecialchars($daten['subtitle_hero']); ?></p>
+            <div class="page-header-cta"><a href="#anfrage" class="btn btn-primary btn-lg">Jetzt unverbindlich anfragen</a></div>
         </div>
     </section>
 
@@ -396,6 +397,8 @@ $schemaOrg = [
         </div>
     </section>
 
+    <?php $ctaHeadline = 'Bereit für ein sicheres, barrierefreies Bad?'; include __DIR__ . '/includes/cta-band.php'; ?>
+
     <!-- FAQ -->
     <section class="section section-alt" id="faq">
         <div class="container">
@@ -442,6 +445,8 @@ $schemaOrg = [
         </div>
     </section>
 
+    <?php $ctaHeadline = 'Jetzt Beratung sichern – unverbindlich.'; include __DIR__ . '/includes/cta-band.php'; ?>
+
     <!-- Stadtseiten-Verlinkung -->
     <section class="section section-alt">
         <div class="container">
@@ -478,6 +483,8 @@ $schemaOrg = [
     </section>
 
 </main>
+
+<?php include __DIR__ . '/includes/sticky-cta.php'; ?>
 
 <?php require_once INCLUDES_PATH . '/footer.php'; ?>
 <?php require_once INCLUDES_PATH . '/scripts.php'; ?>

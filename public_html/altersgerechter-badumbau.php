@@ -25,6 +25,7 @@ $pageSlug        = 'altersgerechter-badumbau';
             <span class="page-header-label">Tokmak GmbH – <?php echo SITE_REGION; ?></span>
             <h1 class="page-header-title">Altersgerechter Badumbau</h1>
             <p class="page-header-subtitle">Sicher, komfortabel, selbstbestimmt – wir planen und bauen Ihr barrierefreies Bad. Alles aus einer Hand, mit einem festen Ansprechpartner.</p>
+            <div class="page-header-cta"><a href="#anfrage" class="btn btn-primary btn-lg">Jetzt unverbindlich anfragen</a></div>
         </div>
     </section>
 
@@ -89,6 +90,8 @@ $pageSlug        = 'altersgerechter-badumbau';
         </div>
     </section>
 
+    <?php $ctaHeadline = 'Bereit für ein sicheres, barrierefreies Bad?'; include __DIR__ . '/includes/cta-band.php'; ?>
+
     <!-- Förderung -->
     <section class="section">
         <div class="container">
@@ -103,7 +106,6 @@ $pageSlug        = 'altersgerechter-badumbau';
                         <li><strong>Berufsgenossenschaft:</strong> Kann bei Arbeitsunfall-bedingtem Umbaubedarf unterstützen</li>
                     </ul>
                     <p>Wir beraten Sie im Erstgespräch welche Förderung für Ihr Projekt realistisch ist. Kein Bürokratie-Chaos – einfach nachfragen.</p>
-                    <a href="/kontakt" class="btn btn-primary" style="margin-top: var(--space-lg);">Jetzt Förderung anfragen</a>
                 </div>
                 <div class="content-split-visual">
                     <img src="/assets/img/hero.webp" alt="Beratung Badumbau – Tokmak GmbH" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md);" loading="lazy">
@@ -111,6 +113,8 @@ $pageSlug        = 'altersgerechter-badumbau';
             </div>
         </div>
     </section>
+
+    <?php $ctaHeadline = 'Förderung nutzen – jetzt unverbindlich anfragen.'; include __DIR__ . '/includes/cta-band.php'; ?>
 
     <!-- Prozess -->
     <section class="section section-alt">
@@ -167,6 +171,8 @@ $pageSlug        = 'altersgerechter-badumbau';
     </section>
 
 </main>
+
+<?php include __DIR__ . '/includes/sticky-cta.php'; ?>
 
 <?php require_once INCLUDES_PATH . '/footer.php'; ?>
 <?php require_once INCLUDES_PATH . '/scripts.php'; ?>

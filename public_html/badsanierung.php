@@ -25,6 +25,7 @@ $pageSlug        = 'badsanierung';
             <span class="page-header-label">Unsere Kernleistung</span>
             <h1 class="page-header-title">Komplett-Badsanierung</h1>
             <p class="page-header-subtitle">Nicht nur Fliesen – sondern Planung, Koordination und Umsetzung aller Gewerke. Von der ersten Idee bis zur fertigen Übergabe.</p>
+            <div class="page-header-cta"><a href="#anfrage" class="btn btn-primary btn-lg">Jetzt unverbindlich anfragen</a></div>
         </div>
     </section>
 
@@ -90,6 +91,8 @@ $pageSlug        = 'badsanierung';
             </div>
         </div>
     </section>
+
+    <?php $ctaHeadline = 'Bereit für Ihr neues Bad?'; include __DIR__ . '/includes/cta-band.php'; ?>
 
     <!-- Spezialbereiche (SEO-Cluster) -->
     <section class="section" id="spezialbereiche">
@@ -186,6 +189,8 @@ $pageSlug        = 'badsanierung';
         </div>
     </section>
 
+    <?php $ctaHeadline = 'In wenigen Wochen zum neuen Bad – jetzt starten.'; include __DIR__ . '/includes/cta-band.php'; ?>
+
     <!-- Einzugsgebiet Hub -->
     <section class="section" id="einzugsgebiet">
         <div class="container">
@@ -268,6 +273,8 @@ $pageSlug        = 'badsanierung';
     </section>
 
 </main>
+
+<?php include __DIR__ . '/includes/sticky-cta.php'; ?>
 
 <?php require_once INCLUDES_PATH . '/footer.php'; ?>
 

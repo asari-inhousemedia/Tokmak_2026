@@ -3367,14 +3367,14 @@ a.btn-primary:focus-visible {
 .page-header-cta { margin-top: 1.75rem; }
 .page-header-cta .btn { color: #fff; }
 
-/* Inline-CTA-Band */
-.cta-band { background: var(--color-secondary); color: #fff; padding: 2.5rem 0; }
-.cta-band-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
-.cta-band-text { margin: 0; font-family: var(--font-heading); font-size: var(--text-xl); font-weight: 700; color: #fff; }
-.cta-band-btn { color: #fff; flex: 0 0 auto; }
+/* Dezenter Inline-CTA – fuegt sich ruhig zwischen die Sektionen */
+.cta-inline { padding: 1.5rem 0; }
+.cta-inline-inner { display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap; text-align: center; }
+.cta-inline-text { margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: var(--text-lg); color: var(--color-dark); }
+.cta-inline-btn { color: #fff; flex: 0 0 auto; }
 @media (max-width: 600px) {
-    .cta-band-inner { flex-direction: column; align-items: stretch; text-align: center; gap: 1.1rem; }
-    .cta-band-btn { width: 100%; }
+    .cta-inline-inner { flex-direction: column; gap: .9rem; }
+    .cta-inline-btn { width: 100%; }
 }
 
 /* Mobile Sticky-CTA-Bar */
