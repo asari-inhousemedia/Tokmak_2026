@@ -79,6 +79,11 @@ $pageSlug        = 'danke';
 <script>
   if (typeof gtag === 'function') {
     gtag('event', 'conversion', { 'send_to': 'AW-18147927014/EcbUCJuk17AcEObHzc1D', 'value': 150.0, 'currency': 'EUR' });
+    // GA4 Lead-Abschluss (Trichter-Ende) – project_type/lp aus dem Formular
+    var _pt = '', _lp = '';
+    try { _pt = sessionStorage.getItem('_lead_pt') || ''; _lp = sessionStorage.getItem('_lead_lp') || ''; } catch (e) {}
+    gtag('event', 'lead_complete', { project_type: _pt, lp: _lp, value: 150.0, currency: 'EUR' });
+    try { sessionStorage.removeItem('_lead_pt'); sessionStorage.removeItem('_lead_lp'); } catch (e) {}
   }
 </script>
 </body>

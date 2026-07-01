@@ -59,7 +59,7 @@ $inv = function (string $field) use ($formFields): string {
     </div>
 
     <!-- SCHRITT: Kontaktdaten -->
-    <div class="ms-step">
+    <div class="ms-step" data-ga="contact">
         <h3 class="ms-step-title">Ihre Kontaktdaten</h3>
         <div class="form-group">
             <label for="name" class="form-label">Name <span class="required" aria-label="Pflichtfeld">*</span></label>
@@ -80,7 +80,7 @@ $inv = function (string $field) use ($formFields): string {
     </div>
 
     <!-- SCHRITT: Details (optional) -->
-    <div class="ms-step">
+    <div class="ms-step" data-ga="details">
         <h3 class="ms-step-title">Details <span class="optional">(optional)</span></h3>
         <div class="form-row">
             <div class="form-group">

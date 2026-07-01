@@ -696,6 +696,18 @@
         var totalEl = form.querySelector('.ms-total');
         if (totalEl) totalEl.textContent = total;
 
+        // --- GA4 Lead-Funnel-Tracking (lueckenlos, mit Abbruch-Sicht) ---
+        var fired = {};
+        function leadEvent(name, extra) {
+            if (typeof gtag !== 'function') return;
+            var params = { lp: location.pathname };
+            var sel = form.querySelector('input[name="project_type"]:checked');
+            if (sel) params.project_type = sel.value;
+            if (extra) { for (var k in extra) params[k] = extra[k]; }
+            gtag('event', name, params);
+        }
+        function leadOnce(name, extra) { if (!fired[name]) { fired[name] = true; leadEvent(name, extra); } }
+
         function show(i, doScroll) {
             current = Math.max(0, Math.min(i, total - 1));
             steps.forEach(function (s, idx) { s.classList.toggle('is-active', idx === current); });
@@ -705,6 +717,11 @@
             var firstInput = active.querySelector('input:not([type=hidden]):not([type=radio]), textarea, select');
             if (firstInput) { try { firstInput.focus({ preventScroll: true }); } catch (e) {} }
             if (doScroll) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Schritt erreicht (nur bei echter Navigation, nicht beim Init) -> Funnel-Event
+            if (doScroll) {
+                var ga = active.getAttribute('data-ga');
+                if (ga) leadOnce('lead_' + ga);
+            }
         }
 
         // Auswahl-Karten (Schritt 1)
@@ -715,6 +732,7 @@
                 if (radio) radio.checked = true;
                 cards.forEach(function (c) { c.classList.remove('is-selected'); });
                 card.classList.add('is-selected');
+                leadOnce('lead_project');
                 // Direkt weiter zu Schritt 2 – kurze Verzoegerung, damit die Auswahl sichtbar wird
                 setTimeout(function () { show(1, true); }, 220);
             });
@@ -749,6 +767,26 @@
             var prev = e.target.closest('.ms-prev');
             if (next) { e.preventDefault(); if (validateStep(current)) show(current + 1, true); }
             if (prev) { e.preventDefault(); show(current - 1, true); }
+        });
+
+        // Formular sichtbar gescrollt -> form_view (Trichter-Einstieg, einmalig)
+        if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (en) {
+                    if (en.isIntersecting) { leadOnce('form_view'); io.disconnect(); }
+                });
+            }, { threshold: 0.3 });
+            io.observe(form);
+        } else { leadOnce('form_view'); }
+
+        // Absenden -> lead_submit + project_type/lp fuer danke.php merken
+        form.addEventListener('submit', function () {
+            var sel = form.querySelector('input[name="project_type"]:checked');
+            try {
+                sessionStorage.setItem('_lead_pt', sel ? sel.value : '');
+                sessionStorage.setItem('_lead_lp', location.pathname);
+            } catch (e) {}
+            leadEvent('lead_submit');
         });
 
         show(0, false);
