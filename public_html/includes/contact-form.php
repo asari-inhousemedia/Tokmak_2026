@@ -21,6 +21,7 @@ $inv = function (string $field) use ($formFields): string {
         <input type="text" name="website_url" id="website_url" autocomplete="off" tabindex="-1">
     </div>
     <input type="hidden" name="gclid" id="gclid_field" value="">
+    <input type="hidden" name="source_page" id="source_page_field" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'] ?? '', ENT_QUOTES); ?>">
 
     <div class="ms-progress" aria-hidden="true">
         <span class="ms-progress-bar"><span class="ms-progress-fill"></span></span>

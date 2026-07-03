@@ -442,6 +442,8 @@ if (defined('OS_WEBHOOK_URL') && OS_WEBHOOK_URL && defined('OS_WEBHOOK_SECRET') 
         'object_type'  => $objectType,
         'timeframe'    => $timeframe,
         'message'      => $message,
+        'source_page'    => trim(strip_tags($_POST['source_page'] ?? '')),
+        'traffic_source' => (!empty($_POST['gclid']) && preg_match('/^[A-Za-z0-9_\-]+$/', $_POST['gclid'])) ? 'google_ads' : 'organisch',
     ], JSON_UNESCAPED_UNICODE);
 
     $signature = hash_hmac('sha256', $payload, OS_WEBHOOK_SECRET);

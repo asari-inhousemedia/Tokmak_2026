@@ -15,6 +15,8 @@
         function fillGclid() {
             var inp = document.getElementById('gclid_field');
             if (inp) { try { inp.value = sessionStorage.getItem('_gclid') || ''; } catch(e){} }
+            var sp = document.getElementById('source_page_field');
+            if (sp) { try { sp.value = window.location.pathname || ''; } catch(e){} }
         }
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', fillGclid);
