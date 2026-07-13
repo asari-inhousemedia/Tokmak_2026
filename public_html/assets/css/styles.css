@@ -3317,6 +3317,16 @@ a.btn-primary:focus-visible {
 .ms-nav { display: flex; gap: .75rem; margin-top: 1.5rem; }
 .ms-nav .ms-prev { flex: 0 0 auto; }
 .ms-nav .ms-next, .ms-nav button[type="submit"] { flex: 1; }
+
+/* Mobile-Optimierung Formular. Desktop bleibt unverändert (nur max-width:600px). */
+@media (max-width: 600px) {
+    /* Button-Reihe stapeln, damit der lange CTA nicht überläuft/abgeschnitten wird. */
+    .ms-nav { flex-direction: column-reverse; gap: .6rem; }
+    .ms-nav > .btn { width: 100%; flex: 1 1 auto; min-width: 0; white-space: normal; }
+    .ms-nav .btn-lg { padding-left: 1.2em; padding-right: 1.2em; }
+    /* iOS Safari zoomt bei Feld-Fokus rein, wenn font-size < 16px. Auf 16px fixieren = kein Springen/Wackeln beim Ausfüllen. */
+    .form-input, .form-select, .form-textarea { font-size: 16px; }
+}
 .btn-ghost { background: transparent; border: 1.5px solid var(--color-border); color: var(--color-text); }
 .btn-ghost:hover { border-color: var(--color-primary); color: var(--color-dark); }
 
