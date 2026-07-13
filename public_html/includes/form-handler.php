@@ -366,68 +366,13 @@ if (FORM_LOG_LEADS) {
     );
 }
 
-// --- Google Ads Server-Side Conversion ---
-$gclid = trim(strip_tags($_POST['gclid'] ?? ''));
-if (!empty($gclid) && preg_match('/^[A-Za-z0-9_\-]+$/', $gclid)) {
-    tokmak_report_gads_conversion($gclid);
-}
-
-function tokmak_report_gads_conversion(string $gclid): void {
-    // Access Token per Refresh Token holen
-    $ch = curl_init('https://oauth2.googleapis.com/token');
-    curl_setopt_array($ch, [
-        CURLOPT_POST           => true,
-        CURLOPT_POSTFIELDS     => http_build_query([
-            'client_id'     => GADS_CLIENT_ID,
-            'client_secret' => GADS_CLIENT_SECRET,
-            'refresh_token' => GADS_REFRESH_TOKEN,
-            'grant_type'    => 'refresh_token',
-        ]),
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_TIMEOUT        => 5,
-    ]);
-    $tokenResp = json_decode(curl_exec($ch), true);
-    curl_close($ch);
-
-    $accessToken = $tokenResp['access_token'] ?? null;
-    if (!$accessToken) {
-        error_log('GAds Conversion: kein Access Token erhalten');
-        return;
-    }
-
-    // Conversion Upload
-    $payload = json_encode([
-        'conversions' => [[
-            'gclid'             => $gclid,
-            'conversion_action' => GADS_CONV_ACTION,
-            'conversion_date_time' => date('Y-m-d H:i:sP'),
-            'conversion_value'  => GADS_CONV_VALUE,
-            'currency_code'     => 'EUR',
-        ]],
-        'partial_failure' => true,
-    ]);
-
-    $ch2 = curl_init('https://googleads.googleapis.com/v19/customers/' . GADS_CUSTOMER_ID . ':uploadClickConversions');
-    curl_setopt_array($ch2, [
-        CURLOPT_POST           => true,
-        CURLOPT_POSTFIELDS     => $payload,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_TIMEOUT        => 8,
-        CURLOPT_HTTPHEADER     => [
-            'Authorization: Bearer ' . $accessToken,
-            'Content-Type: application/json',
-            'developer-token: ' . GADS_DEVELOPER_TOKEN,
-            'login-customer-id: ' . GADS_MCC_ID,
-        ],
-    ]);
-    $result = curl_exec($ch2);
-    curl_close($ch2);
-
-    $decoded = json_decode($result, true);
-    if (isset($decoded['partialFailureError'])) {
-        error_log('GAds Conversion Upload Fehler: ' . $result);
-    }
-}
+// --- Google Ads Conversion: NICHT mehr server-seitig ---
+// Entfernt 13.07.2026. Grund: Google hat ConversionUploadService.UploadClickConversions
+// für dieses Konto gesperrt ("limited to existing users, use Data Manager API"). Der
+// Upload schlug ausnahmslos fehl. Zusätzlich war der Aufruf DSGVO-problematisch, weil er
+// die gclid consent-unabhängig an Google übertrug. Das Conversion-Tracking läuft jetzt
+// ausschließlich client-seitig via gtag auf danke.php (consent-gated über CCM19/Consent
+// Mode v2). NICHT wieder server-seitig einbauen, ohne die Data Manager API zu nutzen.
 
 // --- OS Webhook (Inhouse Media Headquarter) ---
 // Feuert unabhängig vom Mail-Versand, damit kein Lead verloren geht.
