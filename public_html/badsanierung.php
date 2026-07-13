@@ -255,7 +255,7 @@ $pageSlug        = 'badsanierung';
                 <div class="contact-sidebar">
                     <div class="contact-sidebar-header">
                         <span class="section-label">Ihr Bad. Ihr Projekt.</span>
-                        <h2 class="section-title">Anfrage direkt stellen</h2>
+                        <h2 class="section-title">Unverbindliche Anfrage stellen</h2>
                         <p class="section-subtitle">Beschreiben Sie kurz Ihr Vorhaben – wir melden uns innerhalb von 48 Stunden.</p>
                     </div>
                 </div>

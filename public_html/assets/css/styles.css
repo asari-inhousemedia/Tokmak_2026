@@ -3326,6 +3326,11 @@ a.btn-primary:focus-visible {
     .ms-nav .btn-lg { padding-left: 1.2em; padding-right: 1.2em; }
     /* iOS Safari zoomt bei Feld-Fokus rein, wenn font-size < 16px. Auf 16px fixieren = kein Springen/Wackeln beim Ausfüllen. */
     .form-input, .form-select, .form-textarea { font-size: 16px; }
+    /* Anfrage-Sektion dichter: weniger Leerraum zwischen Titel, Fortschrittsleiste und Karten (Karten früher sichtbar). */
+    #anfrage .contact-sidebar-header { margin-bottom: .4rem; }
+    #anfrage .contact-grid { row-gap: 12px; }
+    #anfrage .ms-progress { margin-bottom: 10px; }
+    #anfrage .ms-step-title { margin-bottom: 16px; }
 }
 .btn-ghost { background: transparent; border: 1.5px solid var(--color-border); color: var(--color-text); }
 .btn-ghost:hover { border-color: var(--color-primary); color: var(--color-dark); }
