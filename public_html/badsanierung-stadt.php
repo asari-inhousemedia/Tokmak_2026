@@ -340,7 +340,7 @@ $schemaOrg = [
                         <li>3D-Planung inklusive</li>
                         <li>Kostenlose Erstberatung vor Ort in <?php echo htmlspecialchars($stadt); ?></li>
                     </ul>
-                    <a href="/kontakt" class="btn btn-primary" style="margin-top: var(--space-lg);">Jetzt Angebot anfordern</a>
+                    <a href="#anfrage" class="btn btn-primary" style="margin-top: var(--space-lg);">Jetzt Angebot anfordern</a>
                 </div>
                 <div class="content-split-visual">
                     <img src="/assets/img/4.webp" alt="Badsanierung <?php echo htmlspecialchars($stadt); ?> – Tokmak GmbH" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md);" loading="lazy">
@@ -507,13 +507,40 @@ $schemaOrg = [
                 <div class="cta-block-content">
                     <h2 class="cta-title">Badsanierung in <?php echo htmlspecialchars($stadt); ?>?</h2>
                     <p class="cta-text">Sprechen Sie mit uns – persönlich, unverbindlich, mit klarer Struktur von Anfang an.</p>
-                    <a href="/kontakt" class="btn btn-cta-highlight btn-lg btn-glow">Jetzt unverbindlich anfragen</a>
+                    <a href="#anfrage" class="btn btn-cta-highlight btn-lg btn-glow">Jetzt unverbindlich anfragen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inline-Kontaktformular -->
+    <?php $formPreselect = 'badsanierung'; ?>
+    <section class="section section-alt" id="anfrage">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-sidebar">
+                    <div class="contact-sidebar-header">
+                        <span class="section-label">Ihr Bad. Ihr Projekt.</span>
+                        <h2 class="section-title">Anfrage direkt stellen</h2>
+                        <p class="section-subtitle">Beschreiben Sie kurz Ihr Vorhaben. Wir melden uns innerhalb von 48 Stunden.</p>
+                    </div>
+                    <div class="contact-process-steps">
+                        <div class="contact-process-step"><strong>1</strong> Ihre Anfrage geht bei uns ein</div>
+                        <div class="contact-process-step"><strong>2</strong> Wir melden uns innerhalb von 48h</div>
+                        <div class="contact-process-step"><strong>3</strong> Persönliches Gespräch &amp; Aufmaß vor Ort</div>
+                        <div class="contact-process-step"><strong>4</strong> 3D-Planung &amp; detailliertes Festpreis-Angebot</div>
+                    </div>
+                </div>
+                <div class="contact-form-wrap">
+                    <?php include __DIR__ . "/includes/contact-form.php"; ?>
                 </div>
             </div>
         </div>
     </section>
 
 </main>
+
+<?php include __DIR__ . '/includes/sticky-cta.php'; ?>
 
 <?php require_once INCLUDES_PATH . '/footer.php'; ?>
 <?php require_once INCLUDES_PATH . '/scripts.php'; ?>
