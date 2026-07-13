@@ -357,7 +357,7 @@ $schemaOrg = [
                     <span class="section-label">Was wir in <?php echo htmlspecialchars($stadt); ?> kennen</span>
                     <h2 class="section-title">Erfahrung mit der Bausubstanz in <?php echo htmlspecialchars($stadt); ?>.</h2>
                     <p><?php echo htmlspecialchars($daten['local_context']); ?></p>
-                    <p style="margin-top: var(--space-md);"><strong>Stadtteile, in denen wir tätig sind:</strong></p>
+                    <p style="margin-top: var(--space-md);"><strong>Stadtteile, in denen wir regelmäßig tätig sind:</strong></p>
                     <div class="stadtteile-grid">
                         <?php foreach ($daten['stadtteile'] as $stadtteil): ?>
                             <span class="stadtteil-chip"><?php echo htmlspecialchars($stadtteil); ?></span>
