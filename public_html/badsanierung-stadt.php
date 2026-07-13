@@ -514,7 +514,6 @@ $schemaOrg = [
     </section>
 
     <!-- Inline-Kontaktformular -->
-    <?php $formPreselect = 'badsanierung'; ?>
     <section class="section section-alt" id="anfrage">
         <div class="container">
             <div class="contact-grid">
