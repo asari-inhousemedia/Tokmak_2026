@@ -45,7 +45,7 @@ $pageSlug        = 'danke';
                 Vielen Dank für Ihr Interesse an einer Zusammenarbeit mit der Tokmak GmbH.
             </p>
             <p style="font-size: var(--text-lg); margin-bottom: var(--space-2xl); color: var(--color-text-light);">
-                Wir melden uns schnellstmöglich bei Ihnen &ndash; in der Regel innerhalb von 48 Stunden.
+                Wir melden uns schnellstmöglich bei Ihnen &ndash; in der Regel innerhalb von 24 Stunden.
             </p>
 
             <a href="/" class="btn btn-primary btn-lg" style="color:#ffffff;text-decoration:none;">Zurück zur Startseite</a>
@@ -62,7 +62,7 @@ $pageSlug        = 'danke';
             </div>
             <ol class="process-after-steps">
                 <li class="process-after-step is-done"><span class="process-after-num">1</span><span class="process-after-text">Ihre Anfrage ist bei uns eingegangen</span></li>
-                <li class="process-after-step"><span class="process-after-num">2</span><span class="process-after-text">Wir melden uns innerhalb von 48 Stunden</span></li>
+                <li class="process-after-step"><span class="process-after-num">2</span><span class="process-after-text">Wir melden uns innerhalb von 24 Stunden</span></li>
                 <li class="process-after-step"><span class="process-after-num">3</span><span class="process-after-text">Persönliches Gespräch &amp; Aufmaß vor Ort</span></li>
                 <li class="process-after-step"><span class="process-after-num">4</span><span class="process-after-text">3D-Planung &amp; detailliertes Festpreis-Angebot</span></li>
             </ol>

@@ -40,7 +40,7 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
 
                     <?php if ($formStatus === 'success'): ?>
                     <div class="form-message form-message-success" role="alert">
-                        <strong>Vielen Dank!</strong> Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns innerhalb von 48 Stunden bei Ihnen.
+                        <strong>Vielen Dank!</strong> Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns innerhalb von 24 Stunden bei Ihnen.
                     </div>
                     <?php elseif ($formStatus === 'error'): ?>
                     <div class="form-message form-message-error" role="alert">
@@ -72,7 +72,7 @@ $formFields = isset($_GET['fields']) ? explode(',', $_GET['fields']) : [];
             </div>
             <ol class="process-after-steps">
                 <li class="process-after-step"><span class="process-after-num">1</span><span class="process-after-text">Ihre Anfrage geht bei uns ein</span></li>
-                <li class="process-after-step"><span class="process-after-num">2</span><span class="process-after-text">Wir melden uns innerhalb von 48 Stunden</span></li>
+                <li class="process-after-step"><span class="process-after-num">2</span><span class="process-after-text">Wir melden uns innerhalb von 24 Stunden</span></li>
                 <li class="process-after-step"><span class="process-after-num">3</span><span class="process-after-text">Persönliches Gespräch &amp; Aufmaß vor Ort</span></li>
                 <li class="process-after-step"><span class="process-after-num">4</span><span class="process-after-text">3D-Planung &amp; detailliertes Festpreis-Angebot</span></li>
             </ol>

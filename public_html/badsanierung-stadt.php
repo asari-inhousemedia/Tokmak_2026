@@ -521,7 +521,7 @@ $schemaOrg = [
                     <div class="contact-sidebar-header">
                         <span class="section-label">Ihr Bad. Ihr Projekt.</span>
                         <h2 class="section-title">Unverbindliche Anfrage stellen</h2>
-                        <p class="section-subtitle">Beschreiben Sie kurz Ihr Vorhaben. Wir melden uns innerhalb von 48 Stunden.</p>
+                        <p class="section-subtitle">Beschreiben Sie kurz Ihr Vorhaben. Wir melden uns innerhalb von 24 Stunden.</p>
                     </div>
                 </div>
                 <div class="contact-form-wrap">

@@ -473,7 +473,7 @@ $schemaOrg = [
             <div class="section-header is-centered">
                 <span class="section-label">Kostenlose Erstberatung</span>
                 <h2 class="section-title">Altersgerechter Badumbau in <?php echo htmlspecialchars($stadt); ?> anfragen</h2>
-                <p class="section-subtitle">Schreiben Sie uns kurz, worum es geht. Wir melden uns innerhalb von 48 Stunden, unverbindlich und persönlich.</p>
+                <p class="section-subtitle">Schreiben Sie uns kurz, worum es geht. Wir melden uns innerhalb von 24 Stunden, unverbindlich und persönlich.</p>
             </div>
 
             <div class="contact-form-wrap" style="max-width: 720px; margin: 0 auto;">
