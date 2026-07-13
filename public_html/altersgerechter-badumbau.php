@@ -156,12 +156,6 @@ $pageSlug        = 'altersgerechter-badumbau';
                         <h2 class="section-title">Anfrage direkt stellen</h2>
                         <p class="section-subtitle">Beschreiben Sie kurz Ihr Vorhaben – wir melden uns innerhalb von 48 Stunden und klären Förderoptionen gemeinsam.</p>
                     </div>
-                    <div class="contact-process-steps">
-                        <div class="contact-process-step"><strong>1</strong> Ihre Anfrage geht bei uns ein</div>
-                        <div class="contact-process-step"><strong>2</strong> Wir melden uns innerhalb von 48h</div>
-                        <div class="contact-process-step"><strong>3</strong> Persönliches Gespräch &amp; Aufmaß vor Ort</div>
-                        <div class="contact-process-step"><strong>4</strong> Fördercheck &amp; detailliertes Festpreis-Angebot</div>
-                    </div>
                 </div>
                 <div class="contact-form-wrap">
                     <?php include __DIR__ . "/includes/contact-form.php"; ?>
