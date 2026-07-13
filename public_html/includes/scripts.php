@@ -6,11 +6,11 @@
 
     <!-- COOKIE BANNER INSERT AREA – END -->
 
-    <!-- gclid erfassen für server-seitiges Conversion-Tracking -->
+    <!-- Ad-Klick-Kennung (gclid/wbraid/gbraid) für OS-Herkunft erfassen. Bei iOS-Klicks liefert Google wbraid/gbraid statt gclid. -->
     <script>
     (function(){
         var p = new URLSearchParams(window.location.search);
-        var g = p.get('gclid');
+        var g = p.get('gclid') || p.get('wbraid') || p.get('gbraid');
         if (g) { try { sessionStorage.setItem('_gclid', g); } catch(e){} }
         function fillGclid() {
             var inp = document.getElementById('gclid_field');
