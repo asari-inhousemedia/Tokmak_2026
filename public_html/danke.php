@@ -76,8 +76,20 @@ $pageSlug        = 'danke';
 <?php require_once INCLUDES_PATH . '/scripts.php'; ?>
 
 <!-- Google Ads Conversion: Lead-Formular senden (AW-18147927014/EcbUCJuk17AcEObHzc1D) -->
+<!-- Feuert erst NACH dem CCM19-Consent-Update (ad_storage granted). Sofort-Feuern verlor das
+     Rennen gegen das asynchrone Consent-Signal -> Events wurden als "denied" verworfen (13.07.2026). -->
 <script>
-  if (typeof gtag === 'function') {
+(function () {
+  var fired = false;
+  function adConsentGranted(entry) {
+    try {
+      return !!(entry && entry[0] === 'consent' && entry[1] === 'update' &&
+                entry[2] && entry[2].ad_storage === 'granted');
+    } catch (e) { return false; }
+  }
+  function fire() {
+    if (fired || typeof gtag !== 'function') return;
+    fired = true;
     gtag('event', 'conversion', { 'send_to': 'AW-18147927014/EcbUCJuk17AcEObHzc1D', 'value': 150.0, 'currency': 'EUR' });
     // GA4 Lead-Abschluss (Trichter-Ende) – project_type/lp aus dem Formular
     var _pt = '', _lp = '';
@@ -85,6 +97,22 @@ $pageSlug        = 'danke';
     gtag('event', 'lead_complete', { project_type: _pt, lp: _lp, value: 150.0, currency: 'EUR' });
     try { sessionStorage.removeItem('_lead_pt'); sessionStorage.removeItem('_lead_lp'); } catch (e) {}
   }
+  window.dataLayer = window.dataLayer || [];
+  // Polling statt push-Hook: gtag.js ersetzt dataLayer.push beim Laden, ein Hook kann
+  // dadurch verloren gehen. Die Eintraege bleiben aber im Array sichtbar -> Scan ist sicher.
+  function scan() {
+    for (var i = 0; i < dataLayer.length; i++) {
+      if (adConsentGranted(dataLayer[i])) { fire(); return true; }
+    }
+    return false;
+  }
+  if (scan()) return; // Consent lag schon vor (CCM19-Cache)
+  var tries = 0;
+  var timer = setInterval(function () {
+    // ohne Einwilligung feuert nichts (DSGVO-korrekt); nach 15 Min. aufgeben
+    if (scan() || ++tries > 3000) clearInterval(timer);
+  }, 300);
+})();
 </script>
 </body>
 </html>

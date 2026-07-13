@@ -13,7 +13,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('consent', 'default', {
     analytics_storage: 'denied',
     ad_storage: 'denied',
-    wait_for_update: 500
+    wait_for_update: 3000
 });
 gtag('js', new Date());
 gtag('config', '<?php echo GA4_ID; ?>');
