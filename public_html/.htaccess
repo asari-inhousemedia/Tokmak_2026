@@ -95,6 +95,12 @@ Options -Indexes
     Deny from all
 </FilesMatch>
 
+# --- Ausnahme: PWA-Manifest muss oeffentlich erreichbar sein (sonst 403 + Konsolenfehler) ---
+<Files "manifest.json">
+    Order Allow,Deny
+    Allow from all
+</Files>
+
 # --- .htaccess Zugriff verhindern ---
 <Files ".htaccess">
     Order Allow,Deny

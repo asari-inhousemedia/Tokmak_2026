@@ -3406,4 +3406,6 @@ a.btn-primary:focus-visible {
     .sticky-cta-btn:active { transform: scale(.97); }
     .sticky-cta-call { background: var(--color-off-white); color: var(--color-dark); border: 1.5px solid var(--color-border); }
     .sticky-cta-form { background: var(--color-secondary); color: #fff; }
+    /* Cookie-Einstellungen-Icon (CCM19) über die Sticky-Leiste heben, sonst überlappt es den Anrufen-Button. */
+    body:has(.sticky-cta) .ccm-settings-summoner { bottom: 88px !important; }
 }
